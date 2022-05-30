@@ -5,44 +5,74 @@
         :default-active="path"
         class="el-menu-demo"
         mode="horizontal"
+        router
         background-color="#343536"
         text-color="#fff"
         active-text-color="#ff2f2f"
         @select="handleSelect"
     >
 
-      <div style="width:300px;padding-left:10px;padding-top:2px;font-weight:bold;color:#343536;font-size:20px">
+      <div style="width:350px;padding-left:60px;padding-top:4px;font-weight:bold;color:#343536;font-size:20px">
         <img src="../assets/img/Sporty.png" width="180" height="50">
       </div>
-      <el-menu-item index="/index"><span style="font-weight: bolder;font-size: 19px">首页</span></el-menu-item>
-      <el-menu-item index="/culture"><span style="font-weight: bolder;font-size: 19px">Sporty文化</span></el-menu-item>
-      <el-menu-item index="/news"><span style="font-weight: bolder;font-size: 19px">Sporty资讯</span></el-menu-item>
-      <el-menu-item index="/sell"><span style="font-weight: bolder;font-size: 19px">Sporty销售</span></el-menu-item>
-      <el-menu-item index="/wrc"><span style="font-weight: bolder;font-size: 19px">WRC</span></el-menu-item>
+      <el-menu-item index="/index"><span class="header_text">首页</span></el-menu-item>
+      <el-menu-item index="/refitcase"><span  class="header_text">改装案例</span></el-menu-item>
+      <el-menu-item index="/refitculture"><span  class="header_text">改装文化</span></el-menu-item>
+      <el-menu-item index="/refitsell"><span  class="header_text">改件购买</span></el-menu-item>
+      <el-menu-item index="/carnews"><span  class="header_text">汽车资讯</span></el-menu-item>
+      <el-menu-item index="/carsearch"><span  class="header_text">汽车查询</span></el-menu-item>
       <el-sub-menu index="2">
-        <template #title>Workspace</template>
-        <el-menu-item index="2-1">item one</el-menu-item>
-        <el-menu-item index="2-2">item two</el-menu-item>
-        <el-menu-item index="2-3">item three</el-menu-item>
+        <template #title><span  class="header_text">汽车周边</span></template>
+        <el-menu-item index="2-1">WRC</el-menu-item>
+        <el-menu-item index="2-2">WTCR</el-menu-item>
+        <el-menu-item index="2-3">F1</el-menu-item>
+        <el-menu-item index="2-4">FIA-GT</el-menu-item>
         <el-sub-menu index="2-4">
-          <template #title>item four</template>
-          <el-menu-item index="2-4-1">item one</el-menu-item>
-          <el-menu-item index="2-4-2">item two</el-menu-item>
-          <el-menu-item index="2-4-3">item three</el-menu-item>
+          <template #title>竞速游戏</template>
+          <el-menu-item index="2-4-1">Forza Horizon 5</el-menu-item>
+          <el-menu-item index="2-4-2">Need For Speed™:Heat</el-menu-item>
+          <el-menu-item index="2-4-3">DiRT Rally 2.0</el-menu-item>
         </el-sub-menu>
       </el-sub-menu>
-      <el-menu-item index="3" disabled>Info</el-menu-item>
-      <el-menu-item index="4">Orders</el-menu-item>
+      <div style="width:100px;padding-left:250px;padding-top:20px;">
+        <el-dropdown>
+          <span class="el-dropdown-link">
+            <div style="height:100%;cursor: pointer;color: #fff;font-size: 18px">
+              lyy
+            </div>
+            <el-icon class="el-icon--right">
+              <arrow-down />
+            </el-icon>
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="$router.push('/person')">个人信息</el-dropdown-item>
+              <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
     </el-menu>
   </div>
 </template>
 
 <script>
 export default {
-  name: "IndexHeader"
+  name: "IndexHeader",
+  data(){
+    return{
+      path:this.$route.path
+    }
+  },
+  created() {
+    console.log(this.$route.path)
+  }
 }
 </script>
 
 <style scoped>
-
+  .header_text{
+    /*font-weight: bolder;*/
+    font-size: 20px
+  }
 </style>

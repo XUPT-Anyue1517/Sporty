@@ -43,7 +43,28 @@ const routes = [
       path: 'index',
       name: 'Index',
       component: () => import("@/views/Index")
-    }]
+    }, {
+      path: '/refitcase',
+      name: 'RefitCase',
+      component: () => import("@/views/RefitCase")
+    }, {
+      path: '/refitculture',
+      name: 'RefitCulture',
+      component: () => import("@/views/RefitCulture")
+    }, {
+      path: '/refitsell',
+      name: 'RefitSell',
+      component: () => import("@/views/RefitSell")
+    }, {
+      path: '/carnews',
+      name: 'CarNews',
+      component: () => import("@/views/CarNews")
+    }, {
+      path: '/carsearch',
+      name: 'CarSearch',
+      component: () => import("@/views/CarSearch")
+    }
+    ]
   },
 ]
 
