@@ -2,6 +2,7 @@ package com.anyue1517.sporty.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.anyue1517.sporty.common.BaseContext;
+import com.anyue1517.sporty.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.AntPathMatcher;
 
@@ -78,7 +79,7 @@ public class LoginCheckFilter implements Filter {
 
         log.info("用户未登录");
         //6,如果未登录。则返回未登录结果，通过输出流方式向客户端响应数据
-        response.getWriter().write(JSON.toJSONString(R.error("NOTLOGIN")));
+        response.getWriter().write(JSON.toJSONString(Result.error("-1","错误")));
 
         return;
 
