@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '../layout/Layout.vue'
+import UserLayout from "@/layout/UserLayout";
 
 const routes = [
   {
-    path: '/',
+    path: '/man',
     name: 'Layout',
     component: Layout,
-    redirect:"/login",
+    redirect:"/man/user",
     children:[{
       path: 'user',
       name: 'User',
@@ -34,9 +35,15 @@ const routes = [
     name: 'Register',
     component: () => import("@/views/Register")
   }, {
-    path: '/index',
-    name: 'Index',
-    component: () => import("@/views/Index")
+    path: '/',
+    name: 'UserLayout',
+    component: UserLayout,
+    redirect:"/index",
+    children: [{
+      path: 'index',
+      name: 'Index',
+      component: () => import("@/views/Index")
+    }]
   },
 ]
 
