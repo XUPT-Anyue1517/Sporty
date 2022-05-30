@@ -1,7 +1,7 @@
 package com.anyue1517.sporty.common;
 
 public class Result<T> {
-    private String code;
+    private String code; //编码：0成功，-1为失败
     private String msg;
     private T data;
 

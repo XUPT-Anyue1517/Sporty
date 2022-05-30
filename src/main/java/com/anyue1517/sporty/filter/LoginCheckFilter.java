@@ -2,7 +2,6 @@ package com.anyue1517.sporty.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.anyue1517.sporty.common.BaseContext;
-import com.anyue1517.sporty.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.AntPathMatcher;
 
