@@ -34,7 +34,8 @@ public class LoginCheckFilter implements Filter {
 
         //2,定义不需要处理的请求路径
         String[] urls = new String[]{
-
+                "/user/login",
+                "/user/register",
                 //"/employee/login",
                 //"/employee/logout",
                 //"/backend/**",
@@ -54,11 +55,14 @@ public class LoginCheckFilter implements Filter {
             return;
         }
 
+        System.out.println("employee:!!!!!" + request.getSession().getAttribute("employee"));
+        System.out.println("user:!!!!!" + request.getSession().getAttribute("user"));
+
         //5-1,判断登录状态，如果已登录，则直接放行
         if (request.getSession().getAttribute("employee") != null){
             log.info("用户已登录，用户ID为：{}",request.getSession().getAttribute("employee"));
 
-            Long empId = (Long)request.getSession().getAttribute("employee");
+            int empId = (int)request.getSession().getAttribute("employee");
 
             BaseContext.setCurrentId(empId);
 
@@ -69,7 +73,7 @@ public class LoginCheckFilter implements Filter {
         if (request.getSession().getAttribute("user") != null){
             log.info("用户已登录，用户ID为：{}",request.getSession().getAttribute("user"));
 
-            Long userId = (Long)request.getSession().getAttribute("user");
+            int userId = (int)request.getSession().getAttribute("user");
 
             BaseContext.setCurrentId(userId);
 
@@ -79,7 +83,7 @@ public class LoginCheckFilter implements Filter {
 
         log.info("用户未登录");
         //6,如果未登录。则返回未登录结果，通过输出流方式向客户端响应数据
-        response.getWriter().write(JSON.toJSONString(Result.error("-1","错误")));
+        response.getWriter().write(JSON.toJSONString(Result.error("-1","请先登录")));
 
         return;
 

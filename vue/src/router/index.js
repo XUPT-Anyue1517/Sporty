@@ -9,7 +9,7 @@ const routes = [
     component: Layout,
     redirect:"/man/user",
     children:[{
-      path: 'user',
+      path: '/man/user',
       name: 'User',
       component: () => import("@/views/User")
     }, {
@@ -21,7 +21,7 @@ const routes = [
       name: 'Person',
       component: () => import("@/views/Person")
     }, {
-      path: '/brandman',
+      path: '/man/brandman',
       name: 'BrandMan',
       component: () => import("@/views/BrandMan")
     }

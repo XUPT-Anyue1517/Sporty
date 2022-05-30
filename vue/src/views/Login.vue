@@ -52,7 +52,7 @@ export default {
             if(res.code == 0 ){
               this.$message.success("登录成功")
               sessionStorage.setItem("user",JSON.stringify(res.data))
-              this.$router.push("/user")  //登录成功之后进行页面跳转
+              this.$router.push("/man/user")  //登录成功之后进行页面跳转
             }else{
               this.$message.error(res.msg)
             }

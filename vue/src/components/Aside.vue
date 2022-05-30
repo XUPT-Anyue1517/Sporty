@@ -7,13 +7,10 @@
         class="el-menu-vertical-demo">
         <el-sub-menu index="1">
             <template #title>系统管理</template>
-            <el-menu-item index="/user">用户管理</el-menu-item>
+            <el-menu-item index="/man/user">用户管理</el-menu-item>
           </el-sub-menu>
-        <el-menu-item index="/book">
-          <span>书籍管理</span>
-        </el-menu-item>
 
-        <el-menu-item index="/brandman">
+        <el-menu-item index="/man/brandman">
           <span>品牌管理</span>
         </el-menu-item>
 
