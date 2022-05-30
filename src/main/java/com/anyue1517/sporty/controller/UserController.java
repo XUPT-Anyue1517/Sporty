@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @RestController
 @RequestMapping("/user")
@@ -55,7 +57,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public Result<?> login(@RequestBody User user) {
+    public Result<?> login(@RequestBody User user, HttpServletRequest request) {
         //1,将页面提交的密码password进行md5加密
         String password = user.getPassword();
         password = DigestUtils.md5DigestAsHex(password.getBytes());
@@ -74,6 +76,7 @@ public class UserController {
             return Result.error("-1", "用户名或密码错误");
         }
         //5，登录成功，返回登录成功的用户信息
+        request.getSession().setAttribute("user",userOne.getId());
         return Result.success(userOne);
     }
 

@@ -42,10 +42,10 @@ CREATE TABLE `brand`  (
 DROP TABLE IF EXISTS `car`;
 CREATE TABLE `car`  (
   `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `series_id` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '系列id',
-  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车名',
-  `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '系列类型',
-  `color` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '颜色',
+  `series_id` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '系列id',
+  `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车名',
+  `type` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '系列类型',
+  `color` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '颜色',
   `price` decimal(10, 2) NOT NULL COMMENT '定价',
   `sale_price` decimal(10, 2) NOT NULL COMMENT '售价',
   `repertory` int(30) NULL DEFAULT NULL COMMENT '库存',
@@ -64,11 +64,11 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
   `id` int(30) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `img` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '头像',
-  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
+  `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
   `phone` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '电话',
-  `id_card` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci default null COMMENT '身份证号',
-  `email` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '邮箱',
-  `password` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户密码',
+  `id_card` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci default null COMMENT '身份证号',
+  `email` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '邮箱',
+  `password` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户密码',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -84,11 +84,11 @@ CREATE TABLE `user`  (
 DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee`  (
   `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `role` int(2) NOT NULL COMMENT '经理：1   、  员工：0',
-  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '姓名',
-  `password` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
-  `id_card` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '身份证',
-  `phone` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '电话',
+  `role` int(10) NOT NULL COMMENT '经理：1   、  员工：0',
+  `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '姓名',
+  `password` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
+  `id_card` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '身份证',
+  `phone` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '电话',
   `sex` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '性别',
   `salary` decimal(10, 2) NULL DEFAULT NULL COMMENT '薪水',
   `entry_time` datetime(0) NULL DEFAULT NULL COMMENT '入职时间',

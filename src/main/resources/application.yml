@@ -2,7 +2,6 @@ server:
   port: 8080
 spring:
   application:
-    #应用的名称
     name: Sporty
   datasource:
     druid:
@@ -12,8 +11,8 @@ spring:
       password: xzl20010921
 mybatis-plus:
   configuration:
-    map-underscore-to-camel-case: true #开启驼峰命名
+    map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-      id-type: auto # id自增
+      id-type: auto
