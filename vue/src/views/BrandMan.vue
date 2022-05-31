@@ -13,6 +13,7 @@
     </div>
 
     <el-table :data="tableData" border stripe style="width: 99%">
+
       <el-table-column prop="id" label="ID" width="80" sortable />
       <el-table-column prop="logo" label="车标" width="120">
         <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">

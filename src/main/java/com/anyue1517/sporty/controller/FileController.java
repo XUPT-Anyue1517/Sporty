@@ -24,6 +24,8 @@ public class FileController {
     @Value("${sporty.path}")
     private String basePath;
 
+    private static final String ip = "http://localhost";
+
     /**
      * 文件上传方法
      *
@@ -56,7 +58,7 @@ public class FileController {
             e.printStackTrace();
         }
 
-        return Result.success(fileName);
+        return Result.success(ip + ":8080/sporty_upload/" + fileName);
     }
 
     /**

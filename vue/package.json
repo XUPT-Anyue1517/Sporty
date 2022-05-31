@@ -19,7 +19,9 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0"
+    "@vue/cli-service": "~5.0.0",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1"
   },
   "browserslist": [
     "> 1%",

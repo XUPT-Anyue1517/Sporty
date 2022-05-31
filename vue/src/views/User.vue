@@ -13,9 +13,20 @@
     </div>
 
     <el-table :data="tableData" border stripe style="width: 99%">
+      <el-empty description="description" />
       <el-table-column prop="id" label="ID" width="80" sortable />
       <el-table-column prop="img" label="用户头像" width="120">
-        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">
+<!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
+
+        <template #default="scope">
+          <el-image
+              style="width: 90px; height: 90px"
+              :src="scope.row.img"
+              :preview-src-list="[scope.row.img]"
+              :initial-index="4"
+              fit="cover"
+          />
+        </template>
       </el-table-column>
       <el-table-column prop="name" label="用户名" width="180"/>
       <el-table-column prop="phone" label="手机号码" width="180"/>
@@ -56,10 +67,24 @@
 
 
       <el-dialog v-model="dialogVisible"
-        title="新增数据"
+        title="数据"
         width="30%"
       >
       <el-form :model="form" label-width="120px">
+
+        <el-form-item style="text-align: center" label-width="0">
+          <el-upload
+              class="avatar-uploader"
+              action="http://localhost:8080/files/upload"
+              :show-file-list="false"
+              :on-success="handleAvatarSuccess"
+              style="margin: 5px auto;width: 80%"
+          >
+            <img :src="userImg" width="90" height="90" class="avatar ">
+          </el-upload>
+        </el-form-item>
+
+
         <el-form-item label="用户名">
           <el-input v-model="form.name" style="width:80%"></el-input>
         </el-form-item>
@@ -184,6 +209,30 @@ export default {
     },
     pageSize4(){
 
+    },
+    handleAvatarSuccess(res) {
+      this.form.avatar = res.data
+      this.$message.success("上传成功")
+      this.update()
+    },
+    update() {
+      request.put("/user", this.form).then(res => {
+        console.log(res)
+        if (res.code === '0') {
+          this.$message({
+            type: "success",
+            message: "更新成功"
+          })
+          sessionStorage.setItem("user", JSON.stringify(this.form))
+          // 触发Layout更新用户信息
+          this.$emit("userInfo")
+        } else {
+          this.$message({
+            type: "error",
+            message: res.msg
+          })
+        }
+      })
     }
   },
 }

@@ -7,8 +7,8 @@
       <div style="width:100px;padding-right:30px;padding-top:18px">
         <el-dropdown>
           <span class="el-dropdown-link">
-            <div style="width:100%;height:100%;cursor: pointer">
-              lyy
+            <div style="width:80%;height:100%;cursor: pointer;">
+              {{ loginName }}
             </div>
             <el-icon class="el-icon--right">
               <arrow-down />
@@ -31,16 +31,25 @@ export default {
   props: ['user'],
   data() {
     return {
-
+      loginName:''
     }
   },
   created() {
+    this.getLoginName()
   },
   methods:{
     logout(){
       this.$router.push('/login')
       sessionStorage.clear()
     },
+    getLoginName(){
+      if(sessionStorage.getItem("user")){
+
+        const usermassage = sessionStorage.getItem("user")
+        this.loginName = JSON.parse(usermassage).name
+      }
+
+    }
   }
 }
 </script>
