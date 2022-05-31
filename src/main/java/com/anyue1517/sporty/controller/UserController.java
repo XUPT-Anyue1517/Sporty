@@ -39,10 +39,6 @@ public class UserController {
         if (userOne != null) {
             return Result.error("-1", "用户名重复，请重新输入！");
         }
-        //如果传入密码为空，则设置初始密码
-        if (user.getPassword() == null) {
-            user.setPassword("123456");
-        }
         //md5 加密保存
         String md5Password = DigestUtils.md5DigestAsHex(user.getPassword().getBytes());
         user.setPassword(md5Password);
@@ -75,7 +71,7 @@ public class UserController {
         if (!password.equals(userOne.getPassword())) {
             return Result.error("-1", "用户名或密码错误");
         }
-        //5，登录成功，返回登录成功的用户信息
+        //5，登录成功，返回登录成功的用户信息冰将用户信息存入request域中
         request.getSession().setAttribute("user",userOne.getId());
         return Result.success(userOne);
     }
@@ -119,13 +115,13 @@ public class UserController {
      *
      * @param pageNum
      * @param pageSize
-     * @param search
+     * @param name
      * @return
      */
     @GetMapping
     public Result<?> findPage(@RequestParam(defaultValue = "1") Integer pageNum,
                               @RequestParam(defaultValue = "10") Integer pageSize,
-                              @RequestParam(defaultValue = "") String search) {
+                              @RequestParam(defaultValue = "") String name) {
 
         //构造分页构造器
         Page<User> pageInfo = new Page<>(pageNum, pageSize);
@@ -133,7 +129,7 @@ public class UserController {
         //构造条件构造器
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
         //添加一个过滤条件(通过email查询)
-        queryWrapper.like(StringUtils.isNotBlank(search), User::getEmail, search);
+        queryWrapper.like(StringUtils.isNotBlank(name), User::getName, name);
 
         //执行查询
         Page<User> userPage = userService.page(pageInfo, queryWrapper);

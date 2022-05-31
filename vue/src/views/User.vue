@@ -8,7 +8,7 @@
 
 <!-- 搜索区域 -->
     <div style="margin:10px 0">
-      <el-input v-model="search" placeholder="请输入关键字" style="width:20%" clearable />
+      <el-input v-model="name" placeholder="请输入关键字" style="width:20%" clearable />
       <el-button type="primary" style="margin:0 10px" @click="load">搜索</el-button>
     </div>
 
@@ -101,7 +101,7 @@ export default {
     return {
       form:{},
       dialogVisible: false,
-      search:'',
+      name:'',
       currentPage4:1,
       pageSize4:10,
       total:0,
@@ -120,7 +120,7 @@ export default {
         params:{
           pageNum:this.currentPage4,
           pageSize:this.pageSize4,
-          search:this.search
+          name:this.name
         }
       }).then(res => {
         console.log(res);
