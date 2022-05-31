@@ -74,7 +74,7 @@ public class FileController {
             //输入流，通过输入流来读取文件内容
             FileInputStream fileInputStream = new FileInputStream(new File(basePath + name));
             //输出流，通过输出流将文件写回浏览器，在浏览器展示图片
-            ServletOutputStream outputStream = response.getOutputStream();
+            ServletOutputStream outputStream = response.getOutputStream();  //通过输出流返回文件
 
             response.setContentType("image/jpeg");
 

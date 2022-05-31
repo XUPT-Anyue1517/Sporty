@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     handleAvatarSuccess(res) {
-      this.form.img = require(res.data)
+      this.form.img = res.data
       this.$message.success("上传成功")
       this.update()
     },
