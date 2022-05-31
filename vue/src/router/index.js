@@ -13,9 +13,13 @@ const routes = [
       name: 'User',
       component: () => import("@/views/User")
     }, {
-      path: '/book',
-      name: 'Book',
-      component: () => import("@/views/Book")
+      path: '/man/brandman',
+      name: 'BrandMan',
+      component: () => import("@/views/BrandMan")
+    }, {
+      path: '/carblogman',
+      name: 'CarBlogMan',
+      component: () => import("@/views/CarBlogMan")
     }, {
       path: '/person',
       name: 'Person',
@@ -24,6 +28,30 @@ const routes = [
       path: '/man/brandman',
       name: 'BrandMan',
       component: () => import("@/views/BrandMan")
+    }, {
+      path: '/carnameman',
+      name: 'CarNameMan',
+      component: () => import("@/views/CarNameMan")
+    }, {
+      path: '/carorderman',
+      name: 'CarOrderMan',
+      component: () => import("@/views/CarOrderMan")
+    }, {
+      path: '/carstoreman',
+      name: 'CarStoreMan',
+      component: () => import("@/views/CarStoreMan")
+    }, {
+      path: '/refitblogman',
+      name: 'RefitBlogMan',
+      component: () => import("@/views/RefitBlogMan")
+    }, {
+      path: '/refitman',
+      name: 'RefitMan',
+      component: () => import("@/views/RefitMan")
+    }, {
+      path: '/refitorderman',
+      name: 'RefitOrderMan',
+      component: () => import("@/views/RefitOrderMan")
     }
     ]
   }, {
