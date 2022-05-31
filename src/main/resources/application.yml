@@ -9,7 +9,13 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/sporty?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
-      password: xzl20010921
+      password: liuyng01253217
+  servlet:
+    multipart:
+      # 设置 上传文件的大小
+      max-file-size: 10MB
+      # 设置 整个请求的大小
+      max-request-size: 15MB
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
@@ -18,4 +24,4 @@ mybatis-plus:
     db-config:
       id-type: auto
 sporty:
-  path: E:\Sporty\src\main\resources\sporty_upload\
+  path: G:\Sporty\src\main\resources\sporty_upload\
