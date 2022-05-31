@@ -55,7 +55,7 @@
       <el-pagination
       v-model:currentPage="currentPage4"
       v-model:page-size="pageSize4"
-      :page-sizes="[10, 20, 30, 40]"
+      :page-sizes="[5,10, 20, 30, 40]"
       :small="small"
       :disabled="disabled"
       :background="background"
@@ -128,7 +128,7 @@ export default {
       dialogVisible: false,
       name:'',
       currentPage4:1,
-      pageSize4:10,
+      pageSize4:5,
       total:0,
       tableData:[
         

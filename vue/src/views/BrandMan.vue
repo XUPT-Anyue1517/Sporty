@@ -21,7 +21,7 @@
       <el-table-column prop="chineseName" label="中文名称" width="180"/>
       <el-table-column prop="englishName" label="英文名称" width="180"/>
       <el-table-column prop="country" label="品牌国别" width="180"/>
-      <el-table-column prop="intro" label="品牌介绍" width="180"/>
+      <el-table-column prop="intro" label="品牌介绍" width="250"/>
       <el-table-column label="操作" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"
@@ -45,7 +45,7 @@
       <el-pagination
           v-model:currentPage="currentPage4"
           v-model:page-size="pageSize4"
-          :page-sizes="[10, 20, 30, 40]"
+          :page-sizes="[5, 10]"
           :small="small"
           :disabled="disabled"
           :background="background"
@@ -115,7 +115,7 @@ export default {
       dialogVisible: false,
       search:'',
       currentPage4:1,
-      pageSize4:10,
+      pageSize4:5,
       total:0,
       tableData:[
 

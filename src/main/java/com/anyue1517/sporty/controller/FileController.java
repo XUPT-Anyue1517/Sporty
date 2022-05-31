@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -58,7 +57,7 @@ public class FileController {
             e.printStackTrace();
         }
 
-        return Result.success(ip + ":8080/sporty_upload/" + fileName);
+        return Result.success(fileName);
     }
 
     /**

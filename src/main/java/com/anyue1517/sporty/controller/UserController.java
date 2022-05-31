@@ -120,7 +120,7 @@ public class UserController {
      */
     @GetMapping
     public Result<?> findPage(@RequestParam(defaultValue = "1") Integer pageNum,
-                              @RequestParam(defaultValue = "10") Integer pageSize,
+                              @RequestParam(defaultValue = "5") Integer pageSize,
                               @RequestParam(defaultValue = "") String name) {
 
         //构造分页构造器
