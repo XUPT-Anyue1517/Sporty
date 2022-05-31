@@ -21,7 +21,7 @@
       <el-table-column prop="chineseName" label="中文名称" width="130"/>
       <el-table-column prop="englishName" label="英文名称" width="130"/>
       <el-table-column prop="country" label="品牌国别" width="100"/>
-      <el-table-column prop="intro" label="品牌介绍" width="550"/>
+      <el-table-column prop="intro" label="品牌介绍" width="630"/>
       <el-table-column label="操作" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"

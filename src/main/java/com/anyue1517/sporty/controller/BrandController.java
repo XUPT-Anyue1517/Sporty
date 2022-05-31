@@ -37,7 +37,7 @@ public class BrandController {
                           @RequestParam(defaultValue = "") String search) {
 
         //构造分页构造器
-        Page<Brand> pageInfo = new Page<>();
+        Page<Brand> pageInfo = new Page<>(pageNum,pageSize);
         //构造条件构造器
         LambdaQueryWrapper<Brand> queryWrapper = new LambdaQueryWrapper<>();
         //添加过滤条件（用中文名进行模糊查询）
