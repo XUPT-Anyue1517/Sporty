@@ -18,10 +18,10 @@
       <el-table-column prop="logo" label="车标" width="120">
         <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">
       </el-table-column>
-      <el-table-column prop="chineseName" label="中文名称" width="180"/>
-      <el-table-column prop="englishName" label="英文名称" width="180"/>
-      <el-table-column prop="country" label="品牌国别" width="180"/>
-      <el-table-column prop="intro" label="品牌介绍" width="250"/>
+      <el-table-column prop="chineseName" label="中文名称" width="130"/>
+      <el-table-column prop="englishName" label="英文名称" width="130"/>
+      <el-table-column prop="country" label="品牌国别" width="100"/>
+      <el-table-column prop="intro" label="品牌介绍" width="550"/>
       <el-table-column label="操作" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"
@@ -82,7 +82,8 @@
             <el-input v-model="form.country" style="width:80%"></el-input>
           </el-form-item>
           <el-form-item label="品牌介绍">
-            <el-input v-model="form.intro" style="width:80%"></el-input>
+<!--            <el-input></el-input>-->
+            <textarea v-model="form.intro" style="width:80%;line-height: 20px"></textarea>
           </el-form-item>
         </el-form>
         <template #footer>

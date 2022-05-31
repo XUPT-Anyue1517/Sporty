@@ -20,11 +20,9 @@
 
         <template #default="scope">
           <el-image
-              style="width: 90px; height: 90px"
+              style="width: 90px; height: 90px;border-radius: 10px"
               :src="scope.row.img"
               :preview-src-list="[scope.row.img]"
-              :initial-index="4"
-              fit="cover"
           />
         </template>
       </el-table-column>
@@ -80,7 +78,7 @@
               :on-success="handleAvatarSuccess"
               style="margin: 5px auto;width: 80%"
           >
-            <img :src="userImg" width="90" height="90" class="avatar ">
+            <img :src="form.img" width="90" height="90" class="avatar " style="border-radius: 10px">
           </el-upload>
         </el-form-item>
 
@@ -211,7 +209,7 @@ export default {
 
     },
     handleAvatarSuccess(res) {
-      this.form.avatar = res.data
+      this.form.img = res.data
       this.$message.success("上传成功")
       this.update()
     },

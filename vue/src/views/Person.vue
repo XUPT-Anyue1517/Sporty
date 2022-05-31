@@ -10,7 +10,7 @@
                             :on-success="handleAvatarSuccess"
                             style="margin: 5px auto"
                     >
-                        <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                        <img v-if="form.img" :src="form.img" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                     </el-upload>
                 </el-form-item>
@@ -62,7 +62,7 @@
                 this.form.img = res.data
                 this.$message.success("上传成功")
                 this.update()
-                this.imageUrl = `/files/download?name=${res.data}`
+                // this.imageUrl = `/files/download?name=${res.data}`
 
             },
             update() {
