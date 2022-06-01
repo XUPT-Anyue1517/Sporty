@@ -31,7 +31,7 @@ export default {
   props: ['user'],
   data() {
     return {
-      loginName:''
+      loginName:'未登录用户'
     }
   },
   created() {

@@ -203,6 +203,24 @@ CREATE TABLE `car_blog`  (
 
 
 -- ----------------------------
+-- Table structure for car
+-- ----------------------------
+DROP TABLE IF EXISTS `refit`;
+CREATE TABLE `refit`  (
+    `id` bigint(20) NOT NULL COMMENT '主键',
+    `img` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片',
+    `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '改件名',
+    `type` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '改件类型',
+    `price` decimal(10, 2) NOT NULL COMMENT '定价',
+    `sale_price` decimal(10, 2) NOT NULL COMMENT '售价',
+    `repertory` int(30) NULL DEFAULT NULL COMMENT '库存',
+    `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+    `update_time` datetime(0) NOT NULL COMMENT '更新时间',
+    PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
