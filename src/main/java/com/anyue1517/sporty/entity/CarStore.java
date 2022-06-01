@@ -12,8 +12,10 @@ import java.time.LocalDateTime;
 @Data
 public class CarStore {
 
+    private static final long serialVersionUID = 1L;
+
     //id
-    private Integer id;
+    private Long id;
 
     //图片
     private String img;

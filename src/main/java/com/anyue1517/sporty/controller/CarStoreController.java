@@ -81,7 +81,7 @@ public class CarStoreController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public Result<?> delete(@PathVariable int id) {
+    public Result<?> delete(@PathVariable long id) {
         carStoreService.removeById(id);
         return Result.success();
     }

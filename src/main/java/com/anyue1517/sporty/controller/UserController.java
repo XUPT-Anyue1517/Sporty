@@ -72,7 +72,7 @@ public class UserController {
             return Result.error("-1", "用户名或密码错误");
         }
         //5，登录成功，返回登录成功的用户信息冰将用户信息存入request域中
-        request.getSession().setAttribute("user",userOne.getId());
+        request.getSession().setAttribute("user", userOne.getId());
         return Result.success(userOne);
     }
 
@@ -130,7 +130,7 @@ public class UserController {
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
         //添加一个过滤条件(通过email查询)
         queryWrapper.like(StringUtils.isNotBlank(name), User::getName, name);
-        queryWrapper.orderByDesc( User::getUpdateTime);
+        queryWrapper.orderByDesc(User::getUpdateTime);
         //执行查询
         Page<User> userPage = userService.page(pageInfo, queryWrapper);
         return Result.success(userPage);
@@ -144,7 +144,7 @@ public class UserController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public Result<?> del(@PathVariable int id) {
+    public Result<?> del(@PathVariable long id) {
         userService.removeById(id);
         return Result.success();
     }

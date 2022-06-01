@@ -13,8 +13,10 @@ import java.time.LocalDateTime;
 @Data
 public class Order {
 
+    private static final long serialVersionUID = 1L;
+
     //id
-    private Integer id;
+    private Long id;
 
     //用户id
     private Integer customerId;

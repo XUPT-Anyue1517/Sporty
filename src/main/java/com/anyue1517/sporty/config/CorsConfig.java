@@ -1,4 +1,4 @@
-package com.anyue1517.sporty.common;
+package com.anyue1517.sporty.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
