@@ -34,13 +34,15 @@ public class LoginCheckFilter implements Filter {
 
         //2,定义不需要处理的请求路径
         String[] urls = new String[]{
+                "/favicon.ico",
                 "/user/login",
                 "/user/register",
                 "/files/upload",
                 "/files/download",
                 "/cars/upload",
                 "/cars/download",
-                "/favicon.ico"
+                "/refits/upload",
+                "/refits/download",
                 //"/employee/login",
                 //"/employee/logout",
                 //"/backend/**",

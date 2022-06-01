@@ -14,7 +14,7 @@
 
     <el-table :data="tableData" border stripe style="width: 99%">
 
-      <el-table-column prop="id" label="ID" width="80"  />
+<!--      <el-table-column prop="id" label="ID" width="80"  />-->
       <el-table-column prop="logo" label="车标" width="120">
 <!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
 
@@ -28,7 +28,7 @@
 
       </el-table-column>
       <el-table-column prop="chineseName" label="中文名称" width="130" sortable/>
-      <el-table-column prop="englishName" label="英文名称" width="130"/>
+      <el-table-column prop="englishName" label="英文名称" width="130" sortable/>
       <el-table-column prop="country" label="品牌国别" width="100"/>
       <el-table-column prop="intro" label="品牌介绍" width="630"/>
       <el-table-column label="操作" >
@@ -54,7 +54,7 @@
       <el-pagination
           v-model:currentPage="currentPage4"
           v-model:page-size="pageSize4"
-          :page-sizes="[5, 10]"
+          :page-sizes="[5, 10, 20,100]"
           :small="small"
           :disabled="disabled"
           :background="background"
@@ -66,7 +66,7 @@
 
 
       <el-dialog v-model="dialogVisible"
-                 title="新增数据"
+                 title="数据"
                  width="30%"
       >
         <el-form-item style="text-align: center" label-width="0">

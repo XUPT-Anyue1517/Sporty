@@ -72,7 +72,7 @@
         <el-form-item style="text-align: center" label-width="0">
           <el-upload
               class="avatar-uploader"
-              action="http://localhost:8080/cars/upload"
+              action="http://localhost:8080/refits/upload"
               :show-file-list="false"
               :on-success="handleAvatarSuccess"
               style="margin: 5px auto;width: 80%"
