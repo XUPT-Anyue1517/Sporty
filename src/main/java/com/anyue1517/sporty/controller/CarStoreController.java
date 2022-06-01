@@ -52,7 +52,7 @@ public class CarStoreController {
         //配置条件配置
         LambdaQueryWrapper<CarStore> queryWrapper = new LambdaQueryWrapper();
         //添加过滤条件(使用门店名称搜索)
-        queryWrapper.like(StringUtils.isNotEmpty(name), CarStore::getName, name);
+        queryWrapper.like(StringUtils.isNotBlank(name), CarStore::getName, name);
         //添加排序条件
         queryWrapper.orderByDesc(CarStore::getUpdateTime);
 
