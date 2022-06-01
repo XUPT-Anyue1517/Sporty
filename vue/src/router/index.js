@@ -17,7 +17,7 @@ const routes = [
       name: 'BrandMan',
       component: () => import("@/views/BrandMan")
     }, {
-      path: '/carblogman',
+      path: '/man/carblogman',
       name: 'CarBlogMan',
       component: () => import("@/views/CarBlogMan")
     }, {
@@ -29,27 +29,27 @@ const routes = [
       name: 'BrandMan',
       component: () => import("@/views/BrandMan")
     }, {
-      path: '/carnameman',
+      path: '/man/carnameman',
       name: 'CarNameMan',
       component: () => import("@/views/CarNameMan")
     }, {
-      path: '/carorderman',
+      path: '/man/carorderman',
       name: 'CarOrderMan',
       component: () => import("@/views/CarOrderMan")
     }, {
-      path: '/carstoreman',
+      path: '/man/carstoreman',
       name: 'CarStoreMan',
       component: () => import("@/views/CarStoreMan")
     }, {
-      path: '/refitblogman',
+      path: '/man/refitblogman',
       name: 'RefitBlogMan',
       component: () => import("@/views/RefitBlogMan")
     }, {
-      path: '/refitman',
+      path: '/man/refitman',
       name: 'RefitMan',
       component: () => import("@/views/RefitMan")
     }, {
-      path: '/refitorderman',
+      path: '/man/refitorderman',
       name: 'RefitOrderMan',
       component: () => import("@/views/RefitOrderMan")
     }

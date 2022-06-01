@@ -8,7 +8,7 @@
 
 <!-- 搜索区域 -->
     <div style="margin:10px 0">
-      <el-input v-model="name" placeholder="请输入关键字" style="width:20%" clearable />
+      <el-input v-model="name" placeholder="改件信息" style="width:20%" clearable />
       <el-button type="primary" style="margin:0 10px" @click="load">搜索</el-button>
     </div>
 

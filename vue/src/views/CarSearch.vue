@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <div>
       <el-carousel :interval="4000" type="card" height="250px">
@@ -9,62 +8,47 @@
       </el-carousel>
     </div>
     <div>
-      <el-row >
-        <el-col :span="4"></el-col>
-        <el-col :span="4" v-for="item in car_logo" :key="item">
-          <div class="demo-image" style="padding-left:76px">
-            <el-image style="width: 100px; height: 100px" :src="item" fit="fit" />
-          </div>
+      <el-row justify="center">
+        <el-col :span="4" >
+          <el-image style="width: 100px; height: 100px" :src="car_logo[0]" fit="fit" />
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :span="4" >
+          <el-image style="width: 100px; height: 100px" :src="car_logo[1]" fit="fit" />
+        </el-col>
+        <el-col :span="4"  >
+          <el-image style="width: 100px; height: 100px" :src="car_logo[2]" fit="fit" />
+        </el-col>
+        <el-col :span="4" >
+          <el-image style="width: 100px; height: 100px" :src="car_logo[3]" fit="fit" />
+        </el-col>
       </el-row>
     </div>
     <div>
-      <el-row>
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
-          <h1 style="display:inline-block;margin:10px 0" >汽车查询</h1>
-          <el-input v-model="name" placeholder="请输入关键字"
-                    style="width:30%;margin-left: 500px;height: 30px;font-size: 19px" clearable />
-
-
-
-
+      <el-row justify="center">
+        <el-col :span="18">
+          <div>
+            <h1 style="display:inline-block;margin:10px 0" >汽车查询</h1>
+            <el-input v-model="name" placeholder="请输入关键字"  clearable />
+          </div>
           <el-table :data="tableData" style="width: 100%;margin-top:20px" >
-            <el-table-column  item="logo" label="车标" width="253">
-
+            <el-table-column  item="logo" label="车标" width="284">
               <el-image
-                  style="width:100px;height:100px"
+                  style="width:50px;height:50px"
                   :src=logos_img
                   fit="cover"
               ></el-image>
-
             </el-table-column>
-            <el-table-column prop="brand1" label="中文名称" width="253" sortable />
-            <el-table-column prop="brand2" label="英文名称" width="253"  />
-            <el-table-column  width="253"  >
-              <el-button size="small" @click="handleEdit(scope.$index, scope.row)"
-              >Edit</el-button>
+            <el-table-column prop="brand1" label="中文名" width="284" sortable />
+            <el-table-column prop="brand2" label="英文名" width="284"  />
+            <el-table-column  width="284"  >
+              <el-button size="large" @click="handleEdit(scope.$index, scope.row)">详情页面</el-button>
             </el-table-column>>
-
           </el-table>
-
-
-
-
-
-
         </el-col>
-        <el-col :span="4"></el-col>
       </el-row>
     </div>
   </div>
-
 </template>
-
-
-
-
 
 <script>
 import { Search } from '@element-plus/icons-vue'
@@ -72,7 +56,6 @@ export default {
   name: "CarSearch",
   data(){
     return{
-      name:'',
       path:this.$route.path,
       car_img:[
         require("../assets/img/car/car_img/wallhaven-n63966_1920x1080.png"),
@@ -86,9 +69,6 @@ export default {
         require("../assets/img/car/car_logo/audi.png"),
         require("../assets/img/car/car_logo/audi.png"),
       ],
-      alphet:['A','B','C','D','E','F','G','H','I','G','K','L','M','N','O','P','Q','R','S','T','U',
-        'V','W','X','Y','Z'],
-
       tableData:[
         {
           logos: require("../assets/img/car/car_logo/audi.png"),
@@ -121,7 +101,6 @@ export default {
   margin: 0;
   text-align: center;
 }
-
 .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
 }

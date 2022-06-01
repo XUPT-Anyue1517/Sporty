@@ -1,6 +1,10 @@
 package com.anyue1517.sporty.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 /**
  * 用户
@@ -28,4 +32,12 @@ public class User {
 
     //用户密码
     private String password;
+
+    //创建时间
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+
+    //更新时间
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
 }
