@@ -149,21 +149,39 @@ INSERT INTO `brand` VALUES (50, 1, '玛莎拉蒂', 'Maserati', '意大利', '191
 -- ----------------------------
 DROP TABLE IF EXISTS `car`;
 CREATE TABLE `car`  (
-  `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `series_id` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '系列id',
-  `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车名',
-  `type` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '系列类型',
-  `color` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '颜色',
-  `price` decimal(10, 2) NOT NULL COMMENT '定价',
-  `sale_price` decimal(10, 2) NOT NULL COMMENT '售价',
-  `repertory` int(30) NULL DEFAULT NULL COMMENT '库存',
-  `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+    `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+    `img` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片',
+    `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车名',
+    `type` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车辆类型',
+    `price` decimal(10, 2) NOT NULL COMMENT '定价',
+    `sale_price` decimal(10, 2) NOT NULL COMMENT '售价',
+    `repertory` int(30) NULL DEFAULT NULL COMMENT '库存',
+    `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+    `update_time` datetime(0) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of car
 -- ----------------------------
+
+
+-- ----------------------------
+-- Table structure for carstore
+-- ----------------------------
+DROP TABLE IF EXISTS `carstore`;
+CREATE TABLE `carstore`  (
+     `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+     `img` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片',
+     `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '4S店名称',
+     `phone` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '联系电话',
+     `address` varchar(220) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '地址',
+     `focus` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '关注量',
+     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+     `update_time` datetime(0) NOT NULL COMMENT '更新时间',
+     PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
 
 -- ----------------------------
 -- Table structure for user
