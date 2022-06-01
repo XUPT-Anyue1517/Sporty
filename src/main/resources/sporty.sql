@@ -36,8 +36,7 @@ CREATE TABLE `brand`  (
 
 -- ----------------------------
 -- Records of brand
-INSERT INTO `brand`(logo,chinese_name,english_name,country,intro)
-VALUES ('@/assets/img/car/car_logo/hongqi.png', '红旗', 'Hong Qi', '中国', '红旗品牌是中国自主的高端品牌，成立于1958年5月12日，由一汽集团直接运营。红旗牌轿车自诞生以来就成为国家领导人和国家重大活动的国事用车。在六、七十年代，红旗轿车成为中国汽车工业的一面旗帜。改革开放之后，红旗在继续承担“国车”重任的同时，开始不断向市场化、商业化的方向冲击。
+INSERT INTO `brand`(logo,chinese_name,english_name,country,intro)VALUES ('http://localhost:8080/files/car_logo/hongqi.png', '红旗', 'Hong Qi', '中国', '红旗品牌是中国自主的高端品牌，成立于1958年5月12日，由一汽集团直接运营。红旗牌轿车自诞生以来就成为国家领导人和国家重大活动的国事用车。在六、七十年代，红旗轿车成为中国汽车工业的一面旗帜。改革开放之后，红旗在继续承担“国车”重任的同时，开始不断向市场化、商业化的方向冲击。
 ');
 INSERT INTO `brand`(logo,chinese_name,english_name,country,intro) VALUES ('@/assets/img/car/car_logo/geely.png', '吉利', 'GEELY', '中国', '吉利汽车集团以“自主突破创新，融合全球智慧，掌握核心技术”为研发理念，实施“产品平台化”、“安全第一”、“能源多元化”、“智能化技术”战略。
 ');

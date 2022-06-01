@@ -12,7 +12,7 @@
       <el-button type="primary" style="margin:0 10px" @click="load">搜索</el-button>
     </div>
 
-    <el-table :data="tableData" v-for="item in brandImg" border stripe style="width: 99%" >
+    <el-table :data="tableData" border stripe style="width: 99%" >
       <el-empty description="description" />
       <el-table-column prop="id" label="ID" width="80" sortable />
       <el-table-column prop="img" label="门店logo" width="120">
@@ -21,7 +21,7 @@
         <template #default="scope">
           <el-image
               style="width: 90px; height: 90px;border-radius: 10px"
-              :src="item.logo"
+              :src="scope.row.img"
           />
         </template>
       </el-table-column>
