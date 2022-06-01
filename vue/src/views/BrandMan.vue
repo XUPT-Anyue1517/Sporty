@@ -22,7 +22,7 @@
         <template #default="scope">
           <el-image
               style="width: 90px; height: 90px;border-radius: 10px"
-              :src="brandImg.logo"
+              :src="scope.row.logo"
           />
         </template>
 
@@ -130,7 +130,6 @@ export default {
       tableData:[
 
       ],
-      brandImg:[]
     }
   },
   created() {
@@ -210,7 +209,6 @@ export default {
     handleAvatarSuccess(res) {
 
       this.form.logo = res.data
-      this.brandImg = res.data.records
       this.$message.success("上传成功")
       this.update()
     },
