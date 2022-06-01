@@ -130,7 +130,7 @@ public class UserController {
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
         //添加一个过滤条件(通过email查询)
         queryWrapper.like(StringUtils.isNotBlank(name), User::getName, name);
-
+        queryWrapper.orderByDesc( User::getUpdateTime);
         //执行查询
         Page<User> userPage = userService.page(pageInfo, queryWrapper);
         return Result.success(userPage);

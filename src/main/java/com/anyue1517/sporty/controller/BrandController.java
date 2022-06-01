@@ -42,6 +42,7 @@ public class BrandController {
         LambdaQueryWrapper<Brand> queryWrapper = new LambdaQueryWrapper<>();
         //添加过滤条件（用中文名进行模糊查询）
         queryWrapper.like(StringUtils.isEmpty(search), Brand::getChineseName, search);
+        queryWrapper.orderByDesc(Brand::getUpdateTime);
         //执行查询
         Page<Brand> brandPage = brandService.page(pageInfo, queryWrapper);
         return Result.success(brandPage);
