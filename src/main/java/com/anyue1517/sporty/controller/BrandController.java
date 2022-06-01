@@ -57,7 +57,7 @@ public class BrandController {
      * @return
      */
     @PostMapping
-    public Result<?> save(@RequestBody Brand brand) {
+    public Result<?> add(@RequestBody Brand brand) {
 
         brandService.save(brand);
         return Result.success();
