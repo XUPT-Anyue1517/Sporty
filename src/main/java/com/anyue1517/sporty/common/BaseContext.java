@@ -4,13 +4,13 @@ package com.anyue1517.sporty.common;
  * 基于ThreadLocal封装工具类，用户保存和获取当前登录用户id
  */
 public class BaseContext {
-    private static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+    private static ThreadLocal<Long> threadLocal = new ThreadLocal<>();
 
     /**
      * 设置值
      * @param id
      */
-    public static void setCurrentId(int id){
+    public static void setCurrentId(long id){
         threadLocal.set(id);
     }
 
@@ -18,7 +18,7 @@ public class BaseContext {
      * 获取值
      * @return
      */
-    public static Integer getCurrentId(){
+    public static Long getCurrentId(){
         return threadLocal.get();
     }
 }

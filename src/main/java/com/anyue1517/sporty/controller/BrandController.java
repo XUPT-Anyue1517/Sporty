@@ -84,7 +84,7 @@ public class BrandController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public Result<?> del(@PathVariable int id) {
+    public Result<?> del(@PathVariable long id) {
         brandService.removeById(id);
         return Result.success();
     }

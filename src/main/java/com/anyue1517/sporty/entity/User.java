@@ -12,8 +12,10 @@ import java.time.LocalDateTime;
 @Data
 public class User {
 
+    private static final long serialVersionUID = 1L;
+
     //id
-    private Integer id;
+    private Long id;
 
     //头像
     private String img;

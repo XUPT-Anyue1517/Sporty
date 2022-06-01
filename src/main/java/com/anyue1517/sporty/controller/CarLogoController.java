@@ -71,8 +71,8 @@ public class CarLogoController {
         if (!rootFile.getParentFile().exists()) {
             rootFile.getParentFile().mkdirs();
         }
-        FileUtil.writeBytes(file.getBytes(),rootFilePath);      //把文件写入到路径中
-        return Result.success("http://localhost"+ ":" +  "8080/files/car_logo/" + originalFilename);  // 返回结果 url
+        FileUtil.writeBytes(file.getBytes(), rootFilePath);      //把文件写入到路径中
+        return Result.success("http://localhost" + ":" + "8080/files/car_logo/" + originalFilename);  // 返回结果 url
 
     }
 

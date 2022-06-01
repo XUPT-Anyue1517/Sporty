@@ -13,8 +13,10 @@ import java.time.LocalDateTime;
 @Data
 public class Car {
 
+    private static final long serialVersionUID = 1L;
+
     //id
-    private Integer id;
+    private Long id;
 
     //系列id
     private String seriesId;
