@@ -4,38 +4,31 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * 汽车
+ * 汽车4s店信息
  */
 @Data
-public class Car {
+public class CarStore {
 
     //id
     private Integer id;
 
-    //系列id
-    private String seriesId;
+    //图片
+    private String img;
 
-    //车名
+    //4S店名称
     private String name;
 
-    //系列类型
-    private String type;
+    //联系电话
+    private String phone;
 
-    //颜色
-    private String color;
+    //地址
+    private String address;
 
-    //定价
-    private BigDecimal price;
-
-    //售价
-    private BigDecimal salePrice;
-
-    //库存
-    private Integer repertory;
+    //关注量
+    private String focus;
 
     //创建时间
     @TableField(fill = FieldFill.INSERT)
