@@ -12,10 +12,10 @@
       <el-button type="primary" style="margin:0 10px" @click="load">搜索</el-button>
     </div>
 
-    <el-table :data="tableData" border stripe style="width: 99%">
+    <el-table :data="tableData" border stripe style="width: 99%" >
       <el-empty description="description" />
       <el-table-column prop="id" label="ID" width="80" sortable />
-      <el-table-column prop="img" label="用户头像" width="120">
+      <el-table-column prop="img" label="门店logo" width="120">
 <!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
 
         <template #default="scope">
@@ -26,10 +26,10 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="name" label="用户名" width="180"/>
-      <el-table-column prop="phone" label="手机号码" width="180"/>
-      <el-table-column prop="idCard" label="身份证" width="180"/>
-      <el-table-column prop="email" label="邮箱" width="180"/>
+      <el-table-column prop="name" label="门店名称" width="180"/>
+      <el-table-column prop="phone" label="联系电话" width="180"/>
+      <el-table-column prop="address" label="门店地址" width="380"/>
+      <el-table-column prop="focus" label="关注量" width="180"/>
       <el-table-column label="操作" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"
@@ -83,17 +83,14 @@
         </el-form-item>
 
 
-        <el-form-item label="用户名">
+        <el-form-item label="门店名称">
           <el-input v-model="form.name" style="width:80%"></el-input>
         </el-form-item>
-        <el-form-item label="手机号码">
+        <el-form-item label="联系电话">
           <el-input v-model="form.phone" style="width:80%"></el-input>
         </el-form-item>
-        <el-form-item label="身份证">
-          <el-input v-model="form.idCard" style="width:80%"></el-input>
-        </el-form-item>
-        <el-form-item label="邮箱">
-          <el-input v-model="form.email" style="width:80%"></el-input>
+        <el-form-item label="门店地址">
+          <el-input v-model="form.address" style="width:80%"></el-input>
         </el-form-item>
       </el-form>
         <template #footer>
@@ -139,7 +136,7 @@ export default {
   },
   methods: {
     load(){
-      request.get("/user",{
+      request.get("/carstore",{
         params:{
           pageNum:this.currentPage4,
           pageSize:this.pageSize4,
@@ -157,7 +154,7 @@ export default {
     },
     save(){
       if(this.form.id){
-        request.put("/user",this.form).then(res => {
+        request.put("/carstore",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("更新成功")
@@ -168,7 +165,7 @@ export default {
         this.dialogVisible = false
         })
       } else{
-        request.post("/user",this.form).then(res => {
+        request.post("/carstore",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("新增成功")
@@ -187,7 +184,7 @@ export default {
     },
     handleDelete(id){
       console.log(id);
-      request.delete("/user/" + id).then(res => {
+      request.delete("/carstore/" + id).then(res => {
         if(res.code == 0 ){
             this.$message.success("删除成功")
           }else{
@@ -214,7 +211,7 @@ export default {
       this.update()
     },
     update() {
-      request.put("/user", this.form).then(res => {
+      request.put("/carstore", this.form).then(res => {
         console.log(res)
         if (res.code === '0') {
           this.$message({

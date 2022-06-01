@@ -167,16 +167,33 @@ CREATE TABLE `car`  (
 
 
 -- ----------------------------
--- Table structure for carstore
+-- Table structure for car_store
 -- ----------------------------
-DROP TABLE IF EXISTS `carstore`;
-CREATE TABLE `carstore`  (
+DROP TABLE IF EXISTS `car_store`;
+CREATE TABLE `car_store`  (
      `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
      `img` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片',
      `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '4S店名称',
      `phone` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '联系电话',
      `address` varchar(220) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '地址',
      `focus` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '关注量',
+     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+     `update_time` datetime(0) NOT NULL COMMENT '更新时间',
+     PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+
+-- ----------------------------
+-- Table structure for car_blog
+-- ----------------------------
+DROP TABLE IF EXISTS `car_blog`;
+CREATE TABLE `car_blog`  (
+     `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+     `img` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '封面',
+     `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '文章名称',
+     `author` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '文章作者',
+     `car` varchar(220) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '文章车辆',
+     `views` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '浏览量',
      `create_time` datetime(0) NOT NULL COMMENT '创建时间',
      `update_time` datetime(0) NOT NULL COMMENT '更新时间',
      PRIMARY KEY (`id`) USING BTREE
