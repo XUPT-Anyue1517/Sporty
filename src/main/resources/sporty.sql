@@ -32,7 +32,7 @@ CREATE TABLE `brand`  (
     `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
     `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
                           PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 52 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of brand
@@ -176,7 +176,7 @@ CREATE TABLE `car_store`  (
      `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '4S店名称',
      `phone` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '联系电话',
      `address` varchar(220) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '地址',
-     `focus` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '关注量',
+     `focus` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '关注量',
      `create_time` datetime(0) NOT NULL COMMENT '创建时间',
      `update_time` datetime(0) NOT NULL COMMENT '更新时间',
      PRIMARY KEY (`id`) USING BTREE
