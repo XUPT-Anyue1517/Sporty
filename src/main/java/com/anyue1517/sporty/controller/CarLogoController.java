@@ -8,13 +8,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/cars")
@@ -63,16 +65,17 @@ public class CarLogoController {
 
         String originalFilename = file.getOriginalFilename();   //获取源文件名称
         //定义文件唯一标识
-//        String flag = IdUtil.fastSimpleUUID();
+        String flag = IdUtil.fastSimpleUUID();
+//        System.out.println("!!!!name:" + originalFilename);
 
-        String rootFilePath = System.getProperty("user.dir") + "/src/main/resources/files/car_logo/" + originalFilename;
+        String rootFilePath = System.getProperty("user.dir") + "/src/main/resources/cars/" + flag + "$&$&" + originalFilename;
         //获取上传的路径
         File rootFile = new File(rootFilePath);
         if (!rootFile.getParentFile().exists()) {
             rootFile.getParentFile().mkdirs();
         }
         FileUtil.writeBytes(file.getBytes(),rootFilePath);      //把文件写入到路径中
-        return Result.success("http://localhost"+ ":" +  "8080/files/car_logo/" + originalFilename);  // 返回结果 url
+        return Result.success("http://localhost"+ ":" +  "8080/cars/" + originalFilename);  // 返回结果 url
 
     }
 
@@ -109,7 +112,7 @@ public class CarLogoController {
 //        }
 
         OutputStream os;  // 新建一个输出流对象
-        String basePath = System.getProperty("user.dir") + "/src/main/resources/files/car_logo/";  // 定于文件上传的根路径
+        String basePath = System.getProperty("user.dir") + "/src/main/resources/cars/";  // 定于文件上传的根路径
         List<String> fileNames = FileUtil.listFileNames(basePath);  // 获取所有的文件名称
         String fileName = fileNames.stream().filter(name -> name.contains(flag)).findAny().orElse("");  // 找到跟参数一致的文件
         try {

@@ -38,7 +38,9 @@ public class LoginCheckFilter implements Filter {
                 "/user/register",
                 "/files/upload",
                 "/files/download",
-                "/sporty_upload/de9cae06-4792-41b8-9e62-9f99c968a613.jpg"
+                "/cars/upload",
+                "/cars/download",
+                "/favicon.ico"
                 //"/employee/login",
                 //"/employee/logout",
                 //"/backend/**",
