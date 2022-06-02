@@ -15,7 +15,7 @@
     <el-table :data="tableData" border stripe style="width: 99%">
       <el-empty description="description" />
       <el-table-column prop="id" label="ID" width="80" sortable />
-      <el-table-column prop="img" label="用户头像" width="120">
+      <el-table-column prop="img" label="汽车图片" width="120">
 <!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
 
         <template #default="scope">
@@ -26,10 +26,11 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="name" label="用户名" width="180"/>
-      <el-table-column prop="phone" label="手机号码" width="180"/>
-      <el-table-column prop="idCard" label="身份证" width="180"/>
-      <el-table-column prop="email" label="邮箱" width="180"/>
+      <el-table-column prop="name" label="车名" width="180"/>
+      <el-table-column prop="type" label="类型" width="180"/>
+      <el-table-column prop="price" label="定价" width="180"/>
+      <el-table-column prop="salePrice" label="售价" width="180"/>
+      <el-table-column prop="repertory" label="库存" width="180"/>
       <el-table-column label="操作" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"
@@ -73,7 +74,7 @@
         <el-form-item style="text-align: center" label-width="0">
           <el-upload
               class="avatar-uploader"
-              action="http://localhost:8080/files/upload"
+              action="http://localhost:8080/cars/upload"
               :show-file-list="false"
               :on-success="handleAvatarSuccess"
               style="margin: 5px auto;width: 80%"
@@ -83,17 +84,20 @@
         </el-form-item>
 
 
-        <el-form-item label="用户名">
+        <el-form-item label="车名">
           <el-input v-model="form.name" style="width:80%"></el-input>
         </el-form-item>
-        <el-form-item label="手机号码">
-          <el-input v-model="form.phone" style="width:80%"></el-input>
+        <el-form-item label="类型">
+          <el-input v-model="form.type" style="width:80%"></el-input>
         </el-form-item>
-        <el-form-item label="身份证">
-          <el-input v-model="form.idCard" style="width:80%"></el-input>
+        <el-form-item label="定价">
+          <el-input v-model="form.price" style="width:80%"></el-input>
         </el-form-item>
-        <el-form-item label="邮箱">
-          <el-input v-model="form.email" style="width:80%"></el-input>
+        <el-form-item label="售价">
+          <el-input v-model="form.salePrice" style="width:80%"></el-input>
+        </el-form-item>
+        <el-form-item label="库存">
+          <el-input v-model="form.repertory" style="width:80%"></el-input>
         </el-form-item>
       </el-form>
         <template #footer>
@@ -139,7 +143,7 @@ export default {
   },
   methods: {
     load(){
-      request.get("/user",{
+      request.get("/car",{
         params:{
           pageNum:this.currentPage4,
           pageSize:this.pageSize4,
@@ -157,7 +161,7 @@ export default {
     },
     save(){
       if(this.form.id){
-        request.put("/user",this.form).then(res => {
+        request.put("/car",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("更新成功")
@@ -168,7 +172,7 @@ export default {
         this.dialogVisible = false
         })
       } else{
-        request.post("/user",this.form).then(res => {
+        request.post("/car",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("新增成功")
@@ -187,7 +191,7 @@ export default {
     },
     handleDelete(id){
       console.log(id);
-      request.delete("/user/" + id).then(res => {
+      request.delete("/car/" + id).then(res => {
         if(res.code == 0 ){
             this.$message.success("删除成功")
           }else{
@@ -214,7 +218,7 @@ export default {
       this.update()
     },
     update() {
-      request.put("/user", this.form).then(res => {
+      request.put("/car", this.form).then(res => {
         console.log(res)
         if (res.code === '0') {
           this.$message({

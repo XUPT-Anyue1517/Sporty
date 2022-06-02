@@ -8,20 +8,18 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import javax.servlet.ServletOutputStream;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/cars")
 @Slf4j
-public class CarLogoController {
+public class CarImgController {
 
     @Value("${sporty.path}")
     private String basePath;
