@@ -6,8 +6,8 @@
       <div style="flex:1"></div>
       <div style="width:100px;padding-right:30px;padding-top:18px">
         <el-dropdown>
-          <span class="el-dropdown-link">
-            <div style="width:80%;height:100%;cursor: pointer;">
+          <span class="el-dropdown-link" style="width: 80px">
+            <div style="width:100%;height:100%;cursor: pointer;">
               {{ loginName }}
             </div>
             <el-icon class="el-icon--right">
@@ -16,7 +16,7 @@
           </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item @click="$router.push('/person')">个人信息</el-dropdown-item>
+              <el-dropdown-item @click="$router.push('/man/person')">个人信息</el-dropdown-item>
               <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -26,16 +26,28 @@
 </template>
 
 <script>
+import router from "@/router";
+import request from "@/utils/request";
+
 export default {
   name: "Header",
   props: ['user'],
   data() {
     return {
-      loginName:'未登录用户'
+      loginName:'管理员'
     }
   },
   created() {
     this.getLoginName()
+    this.checkLogin()
+
+    let str = sessionStorage.getItem("user_admin") || "{}"
+
+    if(str === '{}'){
+      this.$message.error("请先登录")
+      router.push("/man/login")
+    }
+
   },
   methods:{
     logout(){
@@ -48,7 +60,13 @@ export default {
         const usermassage = sessionStorage.getItem("user")
         this.loginName = JSON.parse(usermassage).name
       }
-
+    },
+    checkLogin(){
+      request.get("/user",{}).then(res => {
+        if(res.code === '-1'){
+          this.$router.push("/man/login")
+        }
+      })
     }
   }
 }

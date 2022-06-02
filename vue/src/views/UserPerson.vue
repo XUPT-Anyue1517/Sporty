@@ -44,9 +44,10 @@
 
 <script>
     import request from "@/utils/request";
+    import router from "@/router";
 
     export default {
-        name: "Person",
+        name: "UserPerson",
         data() {
             return {
                 form: {},
@@ -54,13 +55,17 @@
             }
         },
         created() {
-            let str = sessionStorage.getItem("user_admin") || "{}"
-            this.form = JSON.parse(str)
 
-          this.checkLogin()
+            let str = sessionStorage.getItem("user") || "{}"
+            if(str === '{}'){
+              this.$message.error("请先登录")
+              router.push("/userlogin")
+            }
+            this.form = JSON.parse(str)
         },
         methods: {
             handleAvatarSuccess(res) {
+
                 this.form.img = res.data
                 this.$message.success("上传成功")
                 this.update()
@@ -85,14 +90,7 @@
                         })
                     }
                 })
-            },
-          checkLogin(){
-            request.get("/user",{}).then(res => {
-              if(res.code === '-1'){
-                this.$router.push("/man/login")
-              }
-            })
-          }
+            }
         }
     }
 </script>

@@ -11,7 +11,7 @@ const routes = [
     children:[{
       path: '/man/user',
       name: 'User',
-      component: () => import("@/views/User")
+      component: () => import("@/views/UserMan")
     }, {
       path: '/man/brandman',
       name: 'BrandMan',
@@ -21,7 +21,7 @@ const routes = [
       name: 'CarBlogMan',
       component: () => import("@/views/CarBlogMan")
     }, {
-      path: '/person',
+      path: '/man/person',
       name: 'Person',
       component: () => import("@/views/Person")
     }, {
@@ -29,8 +29,8 @@ const routes = [
       name: 'BrandMan',
       component: () => import("@/views/BrandMan")
     }, {
-      path: '/man/carnameman',
-      name: 'CarNameMan',
+      path: '/man/carman',
+      name: 'CarMan',
       component: () => import("@/views/CarMan")
     }, {
       path: '/man/carorderman',
@@ -55,9 +55,17 @@ const routes = [
     }
     ]
   }, {
-    path: '/login',
+    path: '/man/login',
     name: 'Login',
     component: () => import("@/views/Login")
+  }, {
+    path: '/userlogin',
+    name: 'UserLogin',
+    component: () => import("@/views/UserLogin")
+  }, {
+    path: '/userloginphone',
+    name: 'UserLoginPhone',
+    component: () => import("@/views/UserLoginPhone")
   }, {
     path: '/register',
     name: 'Register',
@@ -91,6 +99,10 @@ const routes = [
       path: '/carsearch',
       name: 'CarSearch',
       component: () => import("@/views/CarSearch")
+    }, {
+      path: '/userperson',
+      name: 'UserPerson',
+      component: () => import("@/views/UserPerson")
     }
     ]
   },

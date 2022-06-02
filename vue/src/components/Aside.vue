@@ -15,7 +15,7 @@
         <el-menu-item index="/man/brandman">
           <span>品牌信息</span>
         </el-menu-item>
-        <el-menu-item index="/man/carnameman">
+        <el-menu-item index="/man/carman">
           <span>车型信息</span>
         </el-menu-item>
         <el-menu-item index="/man/carorderman">

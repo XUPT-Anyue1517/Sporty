@@ -26,22 +26,30 @@
     <div>
       <el-row justify="center">
         <el-col :span="18">
-          <div>
+          <div style="width: 100%;clear: both">
             <h1 style="display:inline-block;margin:10px 0" >汽车查询</h1>
-            <el-input v-model="name" placeholder="请输入关键字"  clearable />
+            <div style="flex: 1"></div>
+            <div style="float: right;width: 50%">
+
+              <el-button type="primary" style="margin:0 10px;float: right" @click="load">搜索</el-button>
+              <el-input v-model="search" placeholder="请输入关键字" style="width: 50%;float: right"  clearable />
+
+            </div>
           </div>
           <el-table :data="tableData" style="width: 100%;margin-top:20px" >
-            <el-table-column  item="logo" label="车标" width="284">
-              <el-image
-                  style="width:50px;height:50px"
-                  :src=logos_img
-                  fit="cover"
-              ></el-image>
+            <el-table-column  prop="logo" label="车标" width="284">
+
+              <template #default="scope">
+                <el-image
+                    style="width: 90px; height: 90px;border-radius: 10px"
+                    :src="scope.row.logo"
+                />
+              </template>
             </el-table-column>
-            <el-table-column prop="brand1" label="中文名" width="284" sortable />
-            <el-table-column prop="brand2" label="英文名" width="284"  />
+            <el-table-column prop="chineseName" label="中文名" width="284" sortable />
+            <el-table-column prop="englishName" label="英文名" width="284" sortable />
             <el-table-column  width="284"  >
-              <el-button size="large" @click="handleEdit(scope.$index, scope.row)">详情页面</el-button>
+              <el-button size="large" @click="handleEdit(scope.$index, scope.row)">详情页面></el-button>
             </el-table-column>>
           </el-table>
         </el-col>
@@ -52,6 +60,8 @@
 
 <script>
 import { Search } from '@element-plus/icons-vue'
+import request from "@/utils/request";
+import router from "@/router";
 export default {
   name: "CarSearch",
   data(){
@@ -69,27 +79,30 @@ export default {
         require("../assets/img/car/car_logo/audi.png"),
         require("../assets/img/car/car_logo/audi.png"),
       ],
-      tableData:[
-        {
-          logos: require("../assets/img/car/car_logo/audi.png"),
-          brand1: '五菱宏光',
-          brand2: 'wuling',
-
-        },
-        {
-          logos: require("../assets/img/car/car_logo/audi.png"),
-          brand1: '大众',
-          brand2: 'wuling',
-        },
-        {
-          logos: require("../assets/img/car/car_logo/audi.png"),
-          brand1: '奔驰',
-          brand2: 'wuling',
-        },
-      ],
+      tableData:[],
       logos_img:require("../assets/img/car/car_logo/audi.png"),
+      pageNum:1,
+      pageSize: 100
     }
   },
+  created() {
+    this.load()
+  },
+  methods:{
+    load(){
+      request.get("/brand",{
+        params:{
+          pageNum:this.pageNum,
+          pageSize:this.pageSize,
+          search:this.search
+        }
+      }).then(res => {
+        console.log(res);
+        this.tableData = res.data.records
+        this.total = res.data.total
+      })
+    },
+  }
 }
 </script>
 

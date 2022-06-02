@@ -34,11 +34,11 @@
           <el-menu-item index="2-4-3">DiRT Rally 2.0</el-menu-item>
         </el-sub-menu>
       </el-sub-menu>
-      <div style="width:100px;padding-left:250px;padding-top:20px;">
+      <div id="ifLogin" style="width:100px;padding-left:250px;padding-top:20px;">
         <el-dropdown>
           <span class="el-dropdown-link">
-            <div style="height:100%;cursor: pointer;color: #fff;font-size: 18px">
-              lyy
+            <div style="text-align: center;width: 100px;height:100%;cursor: pointer;color: #fff;font-size: 18px">
+              个人管理
             </div>
             <el-icon class="el-icon--right">
               <arrow-down />
@@ -46,7 +46,7 @@
           </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item @click="$router.push('/person')">个人信息</el-dropdown-item>
+              <el-dropdown-item @click="$router.push('/userperson')">个人信息</el-dropdown-item>
               <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -61,11 +61,28 @@ export default {
   name: "IndexHeader",
   data(){
     return{
-      path:this.$route.path
+      path:this.$route.path,
+      loginName:'未登录'
     }
   },
   created() {
     console.log(this.$route.path)
+  },
+  methods:{
+    logout(){
+      this.$router.push('/userlogin')
+      sessionStorage.clear()
+    },
+    getLoginName(){
+      if(sessionStorage.getItem("user")){
+
+        const usermassage = sessionStorage.getItem("user")
+        this.loginName = JSON.parse(usermassage).name
+      }else {
+
+      }
+
+    }
   }
 }
 </script>

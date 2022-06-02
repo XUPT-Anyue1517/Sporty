@@ -136,6 +136,7 @@ export default {
   },
   created() {
     this.load()
+    this.checkLogin()
   },
   methods: {
     load(){
@@ -229,6 +230,13 @@ export default {
             type: "error",
             message: res.msg
           })
+        }
+      })
+    },
+    checkLogin(){
+      request.get("/user",{}).then(res => {
+        if(res.code === '-1'){
+          this.$router.push("/man/login")
         }
       })
     }
