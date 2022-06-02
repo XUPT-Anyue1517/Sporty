@@ -41,7 +41,7 @@ public class BrandController {
         //构造条件构造器
         LambdaQueryWrapper<Brand> queryWrapper = new LambdaQueryWrapper<>();
         //添加过滤条件（用中文名进行模糊查询）
-        queryWrapper.like(StringUtils.isEmpty(search), Brand::getChineseName, search);
+        queryWrapper.like(StringUtils.isNotBlank(search), Brand::getChineseName, search);
         queryWrapper.orderByDesc(Brand::getUpdateTime);
         //执行查询
         Page<Brand> brandPage = brandService.page(pageInfo, queryWrapper);
@@ -57,7 +57,7 @@ public class BrandController {
      * @return
      */
     @PostMapping
-    public Result<?> save(@RequestBody Brand brand) {
+    public Result<?> add(@RequestBody Brand brand) {
 
         brandService.save(brand);
         return Result.success();
@@ -84,7 +84,7 @@ public class BrandController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public Result<?> del(@PathVariable int id) {
+    public Result<?> del(@PathVariable long id) {
         brandService.removeById(id);
         return Result.success();
     }

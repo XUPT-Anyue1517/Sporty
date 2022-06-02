@@ -14,12 +14,21 @@
 
     <el-table :data="tableData" border stripe style="width: 99%">
 
-      <el-table-column prop="id" label="ID" width="80" sortable />
+<!--      <el-table-column prop="id" label="ID" width="80"  />-->
       <el-table-column prop="logo" label="车标" width="120">
-        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">
+<!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
+
+
+        <template #default="scope">
+          <el-image
+              style="width: 90px; height: 90px;border-radius: 10px"
+              :src="scope.row.logo"
+          />
+        </template>
+
       </el-table-column>
-      <el-table-column prop="chineseName" label="中文名称" width="130"/>
-      <el-table-column prop="englishName" label="英文名称" width="130"/>
+      <el-table-column prop="chineseName" label="中文名称" width="130" sortable/>
+      <el-table-column prop="englishName" label="英文名称" width="130" sortable/>
       <el-table-column prop="country" label="品牌国别" width="100"/>
       <el-table-column prop="intro" label="品牌介绍" width="630"/>
       <el-table-column label="操作" >
@@ -45,7 +54,7 @@
       <el-pagination
           v-model:currentPage="currentPage4"
           v-model:page-size="pageSize4"
-          :page-sizes="[5, 10]"
+          :page-sizes="[5, 10, 20,100]"
           :small="small"
           :disabled="disabled"
           :background="background"
@@ -57,18 +66,18 @@
 
 
       <el-dialog v-model="dialogVisible"
-                 title="新增数据"
+                 title="数据"
                  width="30%"
       >
         <el-form-item style="text-align: center" label-width="0">
           <el-upload
               class="avatar-uploader"
-              action="http://localhost:9090/files/upload"
+              action="http://localhost:8080/cars/upload"
               :show-file-list="false"
               :on-success="handleAvatarSuccess"
-              style="margin: 5px auto">
-            <img v-if="form.avatar" :src="form.avatar" class="avatar">
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+              style="margin: 5px auto;width: 80%"
+          >
+            <img :src="form.logo" width="90" height="90" class="avatar " style="border-radius: 10px">
           </el-upload>
         </el-form-item>
         <el-form :model="form" label-width="120px">
@@ -121,7 +130,6 @@ export default {
       tableData:[
 
       ],
-      userImg:require("@/assets/img/800014267.jpg")
     }
   },
   created() {
@@ -197,6 +205,31 @@ export default {
     },
     pageSize4(){
 
+    },
+    handleAvatarSuccess(res) {
+
+      this.form.logo = res.data
+      this.$message.success("上传成功")
+      this.update()
+    },
+    update() {
+      request.put("/brand", this.form).then(res => {
+        console.log(res)
+        if (res.code === '0') {
+          this.$message({
+            type: "success",
+            message: "更新成功"
+          })
+          sessionStorage.setItem("user", JSON.stringify(this.form))
+          // 触发Layout更新用户信息
+          this.$emit("userInfo")
+        } else {
+          this.$message({
+            type: "error",
+            message: res.msg
+          })
+        }
+      })
     }
   },
 }

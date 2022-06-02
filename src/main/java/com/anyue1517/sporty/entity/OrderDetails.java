@@ -8,8 +8,10 @@ import lombok.Data;
 @Data
 public class OrderDetails {
 
+    private static final long serialVersionUID = 1L;
+
     //id
-    private Integer id;
+    private Long id;
 
     //订单id
     private Integer orderId;

@@ -13,8 +13,10 @@ import java.time.LocalDateTime;
 @Data
 public class Car {
 
+    private static final long serialVersionUID = 1L;
+
     //id
-    private Integer id;
+    private Long id;
 
     //系列id
     private String seriesId;
@@ -40,4 +42,8 @@ public class Car {
     //创建时间
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
+
+    //更新时间
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
 }
