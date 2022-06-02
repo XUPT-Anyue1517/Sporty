@@ -139,6 +139,7 @@ CREATE TABLE `car`  (
 
 -- ----------------------------
 -- Records of car
+INSERT INTO 'car' VALUES(,'','','','','','','','');
 -- ----------------------------
 
 
@@ -160,6 +161,14 @@ CREATE TABLE `car_store`  (
 
 INSERT INTO `car_store` VALUES (1531913671796604930, 'http://localhost:8080/files/yantafendian.png', '邮电大学雁塔校区分店', '14343535366', '陕西省西安市雁塔区邮电大学雁塔校区', '278881', '2022-06-01 16:20:56', '2022-06-01 16:25:14');
 INSERT INTO `car_store` VALUES (1531913693355327489, 'http://localhost:8080/files/dongyoufendian.png', '邮电大学长安校区分店', '18881818181', '陕西省西安市长安区西安邮电大学东区4s店', '197574', '2022-06-01 16:21:01', '2022-06-01 16:24:23');
+INSERT INTO sporty.car_store (id, img, name, phone, address, focus, create_time, update_time) VALUES (1532201878090182658, 'http://localhost:8080/files/richan.png', '电子科技大学长安校区', '15129072143', '西安电子科技大学长安校区4s店', '0', '2022-06-02 11:26:09', '2022-06-02 11:26:09');
+INSERT INTO sporty.car_store (id, img, name, phone, address, focus, create_time, update_time) VALUES (1532202088828792834, 'http://localhost:8080/files/yiqi.png', '西安钟楼一汽', '15129072143', '西安市钟楼东大街', '0', '2022-06-02 11:27:00', '2022-06-02 11:27:00');
+INSERT INTO sporty.car_store (id, img, name, phone, address, focus, create_time, update_time) VALUES (1532202420606627842, 'http://localhost:8080/files/yingfei.png', '大唐西市英菲尼迪4ss', '15129072143', '西安市莲湖区大唐西市', '0', '2022-06-02 11:28:19', '2022-06-02 11:28:19');
+INSERT INTO sporty.car_store (id, img, name, phone, address, focus, create_time, update_time) VALUES (1532202667999260673, 'http://localhost:8080/files/wuling.png', '未央区大融城店', '15129072133', '西安市未央区凤城十路大融城', '0', '2022-06-02 11:29:18', '2022-06-02 11:29:18');
+INSERT INTO sporty.car_store (id, img, name, phone, address, focus, create_time, update_time) VALUES (1532202929560252417, 'http://localhost:8080/files/xiandai.png', '秦岭野生动物园分店', '13379033892', '西安市长安区滦镇秦岭野生动物园', '0', '2022-06-02 11:30:20', '2022-06-02 11:30:20');
+INSERT INTO sporty.car_store (id, img, name, phone, address, focus, create_time, update_time) VALUES (1532203170116169729, 'http://localhost:8080/files/zhonghua.jpg', '西安大悦城分店', '13379033892', '西安市雁塔区大雁塔街道大悦城', '0', '2022-06-02 11:31:17', '2022-06-02 11:31:17');
+INSERT INTO sporty.car_store (id, img, name, phone, address, focus, create_time, update_time) VALUES (1532203328782495746, 'http://localhost:8080/files/tanke.png', '西安交通大学分店', '13379033892', '西安市碑林区兴庆路西安交通大学分店', '0', '2022-06-02 11:31:55', '2022-06-02 11:31:55');
+INSERT INTO sporty.car_store (id, img, name, phone, address, focus, create_time, update_time) VALUES (1532203651949424641, 'http://localhost:8080/files/weima.png', '西安市临潼区分店', '13379033892', '西安市临潼区兵马俑', '0', '2022-06-02 11:33:12', '2022-06-02 11:33:12');
 
 
 -- ----------------------------
