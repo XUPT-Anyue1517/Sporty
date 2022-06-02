@@ -43,6 +43,7 @@ public class LoginCheckFilter implements Filter {
                 "/cars/download",
                 "/refits/upload",
                 "/refits/download",
+                "/car"
                 //"/employee/login",
                 //"/employee/logout",
                 //"/backend/**",

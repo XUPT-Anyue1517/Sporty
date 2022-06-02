@@ -18,17 +18,14 @@ public class Car {
     //id
     private Long id;
 
-    //系列id
-    private String seriesId;
+    //图片
+    private String img;
 
     //车名
     private String name;
 
     //系列类型
     private String type;
-
-    //颜色
-    private String color;
 
     //定价
     private BigDecimal price;
