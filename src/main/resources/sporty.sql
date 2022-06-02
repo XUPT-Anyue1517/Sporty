@@ -158,8 +158,8 @@ CREATE TABLE `car_store`  (
       PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
-INSERT INTO `car_store` VALUES (1531913671796604930, 'http://localhost:8080/files/4a3d975bddb5486ba2b1a1bcdce547f9', '邮电大学雁塔校区分店', '14343535366', '陕西省西安市雁塔区邮电大学雁塔校区', '278881', '2022-06-01 16:20:56', '2022-06-01 16:25:14');
-INSERT INTO `car_store` VALUES (1531913693355327489, 'http://localhost:8080/files/caa7e3d720fc47329ef01460d29fb274', '邮电大学长安校区分店', '18881818181', '陕西省西安市长安区西安邮电大学东区4s店', '197574', '2022-06-01 16:21:01', '2022-06-01 16:24:23');
+INSERT INTO `car_store` VALUES (1531913671796604930, 'http://localhost:8080/files/yantafendian.png', '邮电大学雁塔校区分店', '14343535366', '陕西省西安市雁塔区邮电大学雁塔校区', '278881', '2022-06-01 16:20:56', '2022-06-01 16:25:14');
+INSERT INTO `car_store` VALUES (1531913693355327489, 'http://localhost:8080/files/dongyoufendian.png', '邮电大学长安校区分店', '18881818181', '陕西省西安市长安区西安邮电大学东区4s店', '197574', '2022-06-01 16:21:01', '2022-06-01 16:24:23');
 
 
 -- ----------------------------

@@ -74,7 +74,7 @@ public class FileController {
             rootFile.getParentFile().mkdirs();
         }
         FileUtil.writeBytes(file.getBytes(),rootFilePath);      //把文件写入到路径中
-        return Result.success("http://localhost"+ ":" +  "8080/files/" + flag);  // 返回结果 url
+        return Result.success("http://localhost"+ ":" +  "8080/files/" + originalFilename);  // 返回结果 url
 
     }
 
