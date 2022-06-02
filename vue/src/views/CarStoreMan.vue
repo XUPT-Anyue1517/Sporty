@@ -14,7 +14,7 @@
 
     <el-table :data="tableData" border stripe style="width: 99%" >
       <el-empty description="description" />
-      <el-table-column prop="id" label="ID" width="80" sortable />
+<!--      <el-table-column prop="id" label="ID" width="80" sortable />-->
       <el-table-column prop="img" label="门店logo" width="120">
 <!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
 
@@ -25,13 +25,14 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="name" label="门店名称" width="180"/>
+      <el-table-column prop="name" label="门店名称" width="180" sortable/>
       <el-table-column prop="phone" label="联系电话" width="180"/>
       <el-table-column prop="address" label="门店地址" width="380"/>
       <el-table-column prop="focus" label="关注量" width="180"/>
-      <el-table-column label="操作" >
-        <template #default="scope">
-          <el-button @click="handleEdit(scope.row)"
+      <el-table-column prop="updateTime" label="最后更新时间" width="180"/>
+      <el-table-column label="操作">
+        <template #default="scope" >
+          <el-button @click="handleEdit(scope.row)" size="small"
             >编辑</el-button
           >
           <!-- <el-button
@@ -41,7 +42,7 @@
             >删除</el-button> -->
           <el-popconfirm title="确认删除?" type="danger" @confirm="handleDelete(scope.row.id)">
             <template #reference>
-              <el-button type="danger">删除</el-button> 
+              <el-button type="danger" size="small">删除</el-button>
             </template>
           </el-popconfirm>
         </template>

@@ -14,23 +14,24 @@
 
     <el-table :data="tableData" border stripe style="width: 99%">
 
-      <el-table-column prop="id" label="ID" width="80"  />
-      <el-table-column prop="logo" label="车标" width="120">
+<!--      <el-table-column prop="id" label="ID" width="80"  />-->
+      <el-table-column prop="img" label="图片" width="120">
 <!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
 
 
         <template #default="scope">
           <el-image
               style="width: 90px; height: 90px;border-radius: 10px"
-              :src="scope.row.logo"
+              :src="scope.row.img"
           />
         </template>
 
       </el-table-column>
-      <el-table-column prop="chineseName" label="中文名称" width="130" sortable/>
-      <el-table-column prop="englishName" label="英文名称" width="130"/>
-      <el-table-column prop="country" label="品牌国别" width="100"/>
-      <el-table-column prop="intro" label="品牌介绍" width="630"/>
+      <el-table-column prop="name" label="名称" width="180" sortable/>
+      <el-table-column prop="type" label="类别" width="180"/>
+      <el-table-column prop="price" label="定价" width="180"/>
+      <el-table-column prop="salePrice" label="售价" width="180"/>
+      <el-table-column prop="repertory" label="库存" width="180"/>
       <el-table-column label="操作" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"
@@ -77,22 +78,24 @@
               :on-success="handleAvatarSuccess"
               style="margin: 5px auto;width: 80%"
           >
-            <img :src="form.logo" width="90" height="90" class="avatar " style="border-radius: 10px">
+            <img :src="form.img" width="90" height="90" class="avatar " style="border-radius: 10px">
           </el-upload>
         </el-form-item>
         <el-form :model="form" label-width="120px">
-          <el-form-item label="中文名称">
-            <el-input v-model="form.chineseName" style="width:80%"></el-input>
+          <el-form-item label="名称">
+            <el-input v-model="form.name" style="width:80%"></el-input>
           </el-form-item>
-          <el-form-item label="英文名称">
-            <el-input v-model="form.englishName" style="width:80%"></el-input>
+          <el-form-item label="类型">
+            <el-input v-model="form.type" style="width:80%"></el-input>
           </el-form-item>
-          <el-form-item label="品牌国别">
-            <el-input v-model="form.country" style="width:80%"></el-input>
+          <el-form-item label="定价">
+            <el-input v-model="form.price" style="width:80%"></el-input>
           </el-form-item>
-          <el-form-item label="品牌介绍">
-<!--            <el-input></el-input>-->
-            <textarea v-model="form.intro" style="width:80%;line-height: 20px"></textarea>
+          <el-form-item label="售价">
+            <el-input v-model="form.salePrice" style="width:80%"></el-input>
+          </el-form-item>
+          <el-form-item label="库存">
+            <el-input v-model="form.repertory" style="width:80%"></el-input>
           </el-form-item>
         </el-form>
         <template #footer>
@@ -208,7 +211,7 @@ export default {
     },
     handleAvatarSuccess(res) {
 
-      this.form.logo = res.data
+      this.form.img = res.data
       this.$message.success("上传成功")
       this.update()
     },

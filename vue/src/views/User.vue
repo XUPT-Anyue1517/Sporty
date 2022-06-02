@@ -14,7 +14,7 @@
 
     <el-table :data="tableData" border stripe style="width: 99%">
       <el-empty description="description" />
-      <el-table-column prop="id" label="ID" width="80" sortable />
+<!--      <el-table-column prop="id" label="ID" width="80" sortable />-->
       <el-table-column prop="img" label="用户头像" width="120">
 <!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
 
