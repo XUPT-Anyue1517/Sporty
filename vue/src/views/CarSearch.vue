@@ -82,7 +82,8 @@ export default {
       tableData:[],
       logos_img:require("../assets/img/car/car_logo/audi.png"),
       pageNum:1,
-      pageSize: 100
+      pageSize: 100,
+      search:''
     }
   },
   created() {

@@ -1,9 +1,15 @@
 <template>
-  <div :style="background" style="width:100%;height:100vh;overflow: hidden ;">
-    <div style="width: 100%;text-align: center">
-      <img src="../assets/img/Sporty.png" style="width: 630px;height: 20vh;margin: 5px auto" alt="">
+  <div style="width:100%;overflow: hidden ;">
+    <div class="videoContainer">
+      <video class="fullscreenVideo" style="width: 100%;" id="bgVid" playsinline="" autoplay="" muted="" loop="">
+        <source src="../assets/img/car/car_video/hellcat1.mp4" style="width: 100%;height: 100vh;"  type="video/mp4">
+      </video>
     </div>
-      <div style="background-color: rgba(23,56,87,0.9);width:480px;margin:0 auto;border-radius: 15px;padding: 10px 15px">
+
+    <div style="width: 100%;text-align: center">
+      <img @click="$router.push('/')"  src="../assets/img/Sporty.png" style="cursor: pointer;width: 630px;height: 20vh;margin: 5px auto" alt="">
+    </div>
+      <div style="background-color: rgba(31,34,37,0.9);width:480px;margin:0 auto;border-radius: 15px;padding: 10px 15px">
         <div style="font-size:40px;font-weight:bolder;color:#fff;text-align:center;margin: 25px 0">账户登录</div>
         <el-form :model="form" ref="form" size="large" style="text-align: center" :rules="rules">
           <el-form-item style="width: 95%;margin: 20px auto" prop="name">
@@ -24,7 +30,7 @@
           >登录</el-button>
 
           <el-button type="primary" style="width: 45.2%;height:40px;font-size: 19px;margin: 14px 10px 20px 10px"
-                    @click="$router.push('/register')"
+                    @click="$router.push('/userregister')"
           >注册</el-button>
         </div>
       </div>
@@ -91,4 +97,23 @@ export default {
 
 <style>
 
+.videoContainer{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.videoContainer:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background: rgba(25,29,34,.65);
+}
 </style>

@@ -1,7 +1,14 @@
 <template>
-  <div :style="background" style="width:100%;height:100vh;overflow: hidden ;">
+  <div  style="height: 100vh;overflow: hidden ;">
+
+    <div class="videoContainer">
+      <video class="fullscreenVideo" style="height: 100vh;" id="bgVid" playsinline="" autoplay="" muted="" loop="">
+        <source src="../assets/img/car/car_video/160SX.mp4" style="width: 100%;height: 100vh;"  type="video/mp4">
+      </video>
+    </div>
+
     <div style="width: 100%;text-align: center">
-      <img src="../assets/img/Sporty.png" style="width: 630px;height: 20vh;margin:5px auto" alt="">
+      <img @click="$router.push('/')"  src="../assets/img/Sporty.png" style="cursor: pointer;width: 630px;height: 20vh;margin: 5px auto" alt="">
     </div>
       <div style="background-color: rgba(43,44,47,0.9);width:480px;margin:0 auto;border-radius: 15px;padding: 10px 15px">
         <div style="font-size:40px;font-weight:bolder;color:#fff;text-align:center;margin: 25px 0">手机登录</div>
@@ -95,4 +102,23 @@ export default {
 
 <style>
 
+.videoContainer{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.videoContainer:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background: rgba(25,29,34,.65);
+}
 </style>

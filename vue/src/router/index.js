@@ -71,11 +71,19 @@ const routes = [
     name: 'Register',
     component: () => import("@/views/Register")
   }, {
+    path: '/userregister',
+    name: 'UserRegister',
+    component: () => import("@/views/UserRegister")
+  }, {
     path: '/',
     name: 'UserLayout',
     component: UserLayout,
     redirect:"/index",
     children: [{
+      path: 'indexsy',
+      name: 'IndexSy',
+      component: () => import("@/views/IndexSy")
+    },{
       path: 'index',
       name: 'Index',
       component: () => import("@/views/Index")
