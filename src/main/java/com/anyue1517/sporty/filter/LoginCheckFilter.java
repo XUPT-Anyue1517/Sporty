@@ -44,11 +44,13 @@ public class LoginCheckFilter implements Filter {
                 "/refits/upload",
                 "/refits/download",
                 "/carsearch",
-                "/brand"
+                "/brand",
+                "/cars/**",
+                "/files/**",
+                "/refits/**",
+                "/sporty_upload/**",
                 //"/employee/login",
                 //"/employee/logout",
-                //"/backend/**",
-                //"/front/**",
                 //"/common/**",
                 //"/user/sendMsg",//移动端发送短信
                 //"/user/login"//移动端登录
