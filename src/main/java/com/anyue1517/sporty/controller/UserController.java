@@ -3,18 +3,23 @@ package com.anyue1517.sporty.controller;
 import com.anyue1517.sporty.common.Result;
 import com.anyue1517.sporty.entity.User;
 import com.anyue1517.sporty.service.UserService;
+import com.anyue1517.sporty.utils.SMSUtils;
+import com.anyue1517.sporty.utils.ValidateCodeUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     private UserService userService;
@@ -46,6 +51,32 @@ public class UserController {
         return Result.success();
     }
 
+
+    /**
+     * 使用腾讯云发送短信
+     *
+     * @param user
+     * @param request
+     * @return
+     */
+    @PostMapping("/sendMsg")
+    public Result<?> sendMsg(@RequestBody User user, HttpServletRequest request) {
+        //获取手机号
+        String phone = user.getPhone();
+        if (StringUtils.isNotEmpty(phone)) {
+            //生成随机四位验证码
+            String code = ValidateCodeUtils.generateValidateCode(4).toString();
+            log.info("code = {}", code);
+            //调用腾讯云提供的短信API完成短信发送服务
+            SMSUtils.sendMessage(phone, code, 5);
+            //将生成的验证码保存到session域中用于验证登录
+            request.getSession().setAttribute(code, code);
+            return Result.success();
+        }
+        return Result.error("-1", "短信发送失败");
+    }
+
+
     /**
      * 用户登录
      *
@@ -74,6 +105,35 @@ public class UserController {
         //5，登录成功，返回登录成功的用户信息冰将用户信息存入request域中
         request.getSession().setAttribute("user", userOne.getId());
         return Result.success(userOne);
+    }
+
+
+    @PostMapping("/loginByCode")
+    public Result<?> loginByCode(@RequestBody Map map, HttpServletRequest request) {
+
+        log.info(map.toString());
+        //获取登录手机号
+        String phone = map.get("phone").toString();
+        //获取验证码
+        String code = map.get(("code")).toString();
+
+        //从session中取到验证码
+        Object codeInSession = request.getSession().getAttribute(code);
+
+        //进行验证码的比对（页面提交的和session中保存的进行比对）
+        if (codeInSession != null && codeInSession.equals(code)) {
+            //如果比对成功，则判断用户是否已经注册
+            LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+            queryWrapper.eq(User::getPhone, phone);
+
+            User userOne = userService.getOne(queryWrapper);
+            if (userOne == null) {
+                return Result.error("-1", "手机号未注册，请先注册再登录");
+            }
+            request.getSession().setAttribute("user", userOne.getId());
+            return Result.success(userOne);
+        }
+        return Result.error("-1", "登录失败");
     }
 
     /**
