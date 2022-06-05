@@ -20,7 +20,7 @@
       <el-menu-item index="/refitculture"><span  class="header_text">改装文化</span></el-menu-item>
       <el-menu-item index="/refitsell"><span  class="header_text">改件购买</span></el-menu-item>
       <el-menu-item index="/carnews"><span  class="header_text">汽车资讯</span></el-menu-item>
-      <el-menu-item index="/carsearch"><span  class="header_text">汽车查询</span></el-menu-item>
+      <el-menu-item index="/brandsearch"><span  class="header_text">汽车查询</span></el-menu-item>
       <el-sub-menu index="2">
         <template #title><span  class="header_text">汽车周边</span></template>
         <el-menu-item index="2-1">WRC</el-menu-item>

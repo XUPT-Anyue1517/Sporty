@@ -1,55 +1,43 @@
 <template>
   <div>
-    <div>
-      <el-carousel :interval="4000" type="card" height="250px">
-        <el-carousel-item v-for="item in car_img" :key="item">
-          <img :src="item" class="small justify-center" style="width: 100%"/>
-        </el-carousel-item>
-      </el-carousel>
-    </div>
+
     <div>
       <el-row justify="center">
-        <el-col :span="4" >
-          <el-image style="width: 100px; height: 100px" :src="car_logo[0]" fit="fit" />
-        </el-col>
-        <el-col :span="4" >
-          <el-image style="width: 100px; height: 100px" :src="car_logo[1]" fit="fit" />
-        </el-col>
-        <el-col :span="4"  >
-          <el-image style="width: 100px; height: 100px" :src="car_logo[2]" fit="fit" />
-        </el-col>
-        <el-col :span="4" >
-          <el-image style="width: 100px; height: 100px" :src="car_logo[3]" fit="fit" />
-        </el-col>
-      </el-row>
-    </div>
-    <div>
-      <el-row justify="center">
-        <el-col :span="18">
-          <div style="width: 100%;clear: both">
-            <h1 style="display:inline-block;margin:10px 0" >汽车查询</h1>
-            <div style="flex: 1"></div>
-            <div style="float: right;width: 50%">
-
-              <el-button type="primary" style="margin:0 10px;float: right" @click="load">搜索</el-button>
-              <el-input v-model="search" placeholder="请输入关键字" style="width: 50%;float: right"  clearable />
-
-            </div>
+        <div style="background-color: #343536;color:#fff;width: 100%;clear: both;margin: 0 auto;float: left;padding: 40px 210px 30px">
+          <img :src="carLogo" style="background-color: #fff;border-radius: 10px;float: left" width="130" height="130" :alt="carName">
+          <div style="width: 17%; margin:0 20px;float: left" >
+            <h1 style="font-weight: bolder">{{ carName }}</h1>
+            <p style="padding: 0 5px;font-size: 20px">{{ carEngName }}</p>
+            <p style="padding: 0 5px;font-size: 17px">{{ carCountry }}</p>
           </div>
+          <div style="width: 65%; margin:0 20px;float: left;height: 100%;" >
+            <p style="font-family: 'HarmonyOS Sans SC',serif;font-size: 17px">
+              {{carIntro}}
+            </p>
+          </div>
+        </div>
+        <el-col :span="18">
+
           <el-table :data="tableData" style="width: 100%;margin-top:20px" >
-            <el-table-column  prop="logo" label="车标" width="284">
+            <el-table-column  prop="img" label="图片" width="230">
 
               <template #default="scope">
                 <el-image
                     style="width: 90px; height: 90px;border-radius: 10px"
-                    :src="scope.row.logo"
+                    :src="scope.row.img"
                 />
               </template>
             </el-table-column>
-            <el-table-column prop="chineseName" label="中文名" width="284" sortable />
-            <el-table-column prop="englishName" label="英文名" width="284" sortable />
-            <el-table-column  width="284"  >
-              <el-button size="large" @click="handleEdit(scope.$index, scope.row)">详情页面></el-button>
+            <el-table-column prop="name" label="名称" width="184" sortable />
+            <el-table-column prop="type" label="类型" width="150"  />
+            <el-table-column prop="price" label="官价" width="150" sortable />
+            <el-table-column prop="sale_price" label="售价" width="150"  />
+            <el-table-column prop="repertory" label="库存" width="120"  />
+            <el-table-column  width="184" label="查看车辆"  >
+
+              <template slot-scope="scope">
+                <el-button size="large" @click="handleOpen(scope.row.chineseName)">详情页面></el-button>
+              </template>
             </el-table-column>>
           </el-table>
         </el-col>
@@ -63,46 +51,55 @@ import { Search } from '@element-plus/icons-vue'
 import request from "@/utils/request";
 import router from "@/router";
 export default {
-  name: "CarSearch",
+  name: "BrandSearch",
   data(){
     return{
       path:this.$route.path,
-      car_img:[
-        require("../assets/img/car/car_img/wallhaven-n63966_1920x1080.png"),
-        require("../assets/img/car/car_img/wallhaven-4gg7l7_1920x1080.png"),
-        require("../assets/img/car/car_img/wallhaven-ymzzdl_1920x1080.png"),
-        require("../assets/img/car/car_img/wallhaven-43kdr6.jpg")
-      ],
-      car_logo:[
-        require("../assets/img/car/car_logo/audi.png"),
-        require("../assets/img/car/car_logo/audi.png"),
-        require("../assets/img/car/car_logo/audi.png"),
-        require("../assets/img/car/car_logo/audi.png"),
-      ],
       tableData:[],
       logos_img:require("../assets/img/car/car_logo/audi.png"),
       pageNum:1,
       pageSize: 100,
-      search:''
+      search:'',
+      carName:'',
+      carLogo:'',
+      carEngName:'',
+      carCountry:'',
+      carIntro:''
     }
   },
   created() {
     this.load()
   },
   methods:{
+    loadPage(){
+    },
     load(){
+      this.carName = this.$route.query.chineseName
       request.get("/brand",{
         params:{
-          pageNum:this.pageNum,
-          pageSize:this.pageSize,
-          search:this.search
+          pageNum:'',
+          pageSize:'',
+          search:this.carName
         }
       }).then(res => {
         console.log(res);
-        this.tableData = res.data.records
-        this.total = res.data.total
+        // this.tableData = res.data.records
+        // this.total = res.data.total
+
+        this.carLogo = res.data.records[0].logo
+        this.carEngName = res.data.records[0].englishName
+        this.carCountry = res.data.records[0].country
+        this.carIntro = res.data.records[0].intro
       })
     },
+    handleOpen(chineseName){
+      this.$router.push({
+        path: '路由地址',
+        query: {
+          chineseName: chineseName
+        }
+      })
+    }
   }
 }
 </script>

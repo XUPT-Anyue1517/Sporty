@@ -139,7 +139,7 @@ CREATE TABLE `car`  (
 
 -- ----------------------------
 -- Records of car
-INSERT INTO 'car' VALUES(,'','','','','','','','');
+INSERT INTO 'car' VALUES('','','','','','','','','');
 -- ----------------------------
 
 
@@ -189,7 +189,7 @@ CREATE TABLE `car_blog`  (
 
 
 -- ----------------------------
--- Table structure for car
+-- Table structure for refit
 -- ----------------------------
 DROP TABLE IF EXISTS `refit`;
 CREATE TABLE `refit`  (

@@ -104,6 +104,10 @@ const routes = [
       name: 'CarNews',
       component: () => import("@/views/CarNews")
     }, {
+      path: '/brandsearch',
+      name: 'BrandSearch',
+      component: () => import("@/views/BrandSearch")
+    }, {
       path: '/carsearch',
       name: 'CarSearch',
       component: () => import("@/views/CarSearch")
