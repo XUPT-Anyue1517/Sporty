@@ -18,7 +18,7 @@
       <el-menu-item index="/index"><span class="header_text">首页</span></el-menu-item>
       <el-menu-item index="/refitcase"><span  class="header_text">改装案例</span></el-menu-item>
       <el-menu-item index="/refitculture"><span  class="header_text">改装文化</span></el-menu-item>
-      <el-menu-item index="/refitsell"><span  class="header_text">改件购买</span></el-menu-item>
+      <el-menu-item index="/refitsearch"><span  class="header_text">改件查询</span></el-menu-item>
       <el-menu-item index="/carnews"><span  class="header_text">汽车资讯</span></el-menu-item>
       <el-menu-item index="/brandsearch"><span  class="header_text">汽车查询</span></el-menu-item>
       <el-sub-menu index="2">

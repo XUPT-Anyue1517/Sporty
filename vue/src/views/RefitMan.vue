@@ -86,7 +86,13 @@
             <el-input v-model="form.name" style="width:80%"></el-input>
           </el-form-item>
           <el-form-item label="类型">
-            <el-input v-model="form.type" style="width:80%"></el-input>
+<!--            <el-input v-model="form.type" style="width:80%"></el-input>-->
+            <el-select v-model="form.type" placeholder="请选择类型" style="width:80%">
+              <el-option label="精品轮毂" value="精品轮毂" />
+              <el-option label="刹车系统" value="刹车系统" />
+              <el-option label="避震悬挂" value="避震悬挂" />
+              <el-option label="进气排气" value="进气排气" />
+            </el-select>
           </el-form-item>
           <el-form-item label="定价">
             <el-input v-model="form.price" style="width:80%"></el-input>

@@ -96,9 +96,9 @@ const routes = [
       name: 'RefitCulture',
       component: () => import("@/views/RefitCulture")
     }, {
-      path: '/refitsell',
-      name: 'RefitSell',
-      component: () => import("@/views/RefitSell")
+      path: '/refitsearch',
+      name: 'RefitSearch',
+      component: () => import("@/views/RefitSearch")
     }, {
       path: '/carnews',
       name: 'CarNews',
