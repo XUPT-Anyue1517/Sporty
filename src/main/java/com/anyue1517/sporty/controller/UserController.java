@@ -79,7 +79,7 @@ public class UserController {
 
 
     /**
-     * 用户登录
+     * 使用账号密码登录
      *
      * @param user
      * @return
@@ -109,6 +109,12 @@ public class UserController {
     }
 
 
+    /**
+     * 使用手机验证码登录
+     * @param map
+     * @param request
+     * @return
+     */
     @PostMapping("/loginByCode")
     public Result<?> loginByCode(@RequestBody Map map, HttpServletRequest request) {
 
