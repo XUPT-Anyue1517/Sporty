@@ -14,15 +14,15 @@
         <div style="font-size:40px;font-weight:bolder;color:#fff;text-align:center;margin: 25px 0">手机登录</div>
         <el-form :model="form" ref="form" size="large" style="text-align: center" :rules="rules">
           <el-form-item style="width: 95%;margin: 20px auto" prop="phone">
-            <el-input placeholder="手机号" :prefix-icon="UserFilled"
-            v-model="form.name" >
+            <el-input placeholder="手机号"  :prefix-icon="UserFilled"
+            v-model="form.phone" >
               <template #append>
-                <el-button type="text" style="color: #409EFF">获取验证码</el-button>
+                <el-button type="text" style="color: #409EFF" @click="sendMsg">获取验证码</el-button>
               </template>
             </el-input>
           </el-form-item>
           <el-form-item style="width: 95%;margin: 20px auto" prop="code">
-            <el-input placeholder="验证码" v-model="form.password" show-password/>
+            <el-input placeholder="验证码" v-model="form.code" show-password/>
           </el-form-item>
         </el-form>
         <div style="width: 100%; float: right">
@@ -31,11 +31,11 @@
         </div>
         <div style="text-align: center">
           <el-button type="danger" style="width: 45.2%;height:40px;font-size: 19px;margin: 14px 10px 20px 10px"
-                     @click="login"
+                     @click="loginByCode"
           >登录</el-button>
 
           <el-button type="primary" style="width: 45.2%;height:40px;font-size: 19px;margin: 14px 10px 20px 10px"
-                    @click="$router.push('/register')"
+                    @click="$router.push('/userregister')"
           >注册</el-button>
         </div>
       </div>
@@ -58,11 +58,11 @@ export default {
     return{
       form:{},
       rules:{
-        name:[
-          {required:true,message:'请输入用户名',trigger:'blur'}
+        phone:[
+          {required:true,message:'请输入手机号',trigger:'blur'}
         ],
-        password:[
-          {required:true,message:'请输入密码',trigger:'blur'},
+        code:[
+          {required:true,message:'请输入验证码',trigger:'blur'},
         ]
       },
       background: {
@@ -80,21 +80,27 @@ export default {
     }
   },
   methods:{
-    login(){
-      this.$refs['form'].validate((valid) => {
-        if(valid){
-          request.post("/user/login",this.form).then(res => {
-            if(res.code == 0 ){
-              this.$message.success("登录成功")
-              sessionStorage.setItem("user",JSON.stringify(res.data))
-              this.$router.push("/man/user")  //登录成功之后进行页面跳转
-            }else{
-              this.$message.error(res.msg)
-            }
-          })
+    sendMsg(){
+      request.post("/user/sendMsg",this.form).then(res => {
+        if(res.code === '0' ){
+          this.$message.success("验证码已发送")
+          // this.$router.push("/login")  //登录成功之后进行页面跳转
+        }else{
+          this.$message.error(res.msg)
         }
       })
-    }
+    },
+    loginByCode(){
+      request.post("/user/loginByCode",this.form).then(res => {
+        if(res.code === '0' ){
+          this.$message.success("登录成功")
+          sessionStorage.setItem("user",JSON.stringify(res.data))
+          this.$router.push("/")  //登录成功之后进行页面跳转
+        }else{
+          this.$message.error(res.msg)
+        }
+      })
+    },
   }
 
 }

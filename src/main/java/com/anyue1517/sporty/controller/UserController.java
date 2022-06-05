@@ -71,6 +71,7 @@ public class UserController {
             SMSUtils.sendMessage(phone, code, 5);
             //将生成的验证码保存到session域中用于验证登录
             request.getSession().setAttribute(code, code);
+
             return Result.success();
         }
         return Result.error("-1", "短信发送失败");
