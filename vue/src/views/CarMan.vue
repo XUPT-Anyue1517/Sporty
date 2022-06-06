@@ -20,7 +20,7 @@
 
         <template #default="scope">
           <el-image
-              style="width: 90px; height: 90px;border-radius: 10px"
+              style="width: 180px; height: 90px;border-radius: 10px"
               :src="scope.row.img"
               :preview-src-list="[scope.row.img]"
           />
