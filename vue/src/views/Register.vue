@@ -73,7 +73,7 @@ export default {
           request.post("/user/register",this.form).then(res => {
             if(res.code === '0' ){
               this.$message.success("注册成功")
-              this.$router.push("/login")  //登录成功之后进行页面跳转
+              this.$router.push("/man/login")  //登录成功之后进行页面跳转
             }else{
               this.$message.error(res.msg)
             }
