@@ -11,7 +11,7 @@ const routes = [
     children:[{
       path: '/man/user',
       name: 'User',
-      component: () => import("@/views/User")
+      component: () => import("@/views/UserMan")
     }, {
       path: '/man/brandman',
       name: 'BrandMan',
@@ -21,7 +21,7 @@ const routes = [
       name: 'CarBlogMan',
       component: () => import("@/views/CarBlogMan")
     }, {
-      path: '/person',
+      path: '/man/person',
       name: 'Person',
       component: () => import("@/views/Person")
     }, {
@@ -29,9 +29,9 @@ const routes = [
       name: 'BrandMan',
       component: () => import("@/views/BrandMan")
     }, {
-      path: '/man/carnameman',
-      name: 'CarNameMan',
-      component: () => import("@/views/CarNameMan")
+      path: '/man/carman',
+      name: 'CarMan',
+      component: () => import("@/views/CarMan")
     }, {
       path: '/man/carorderman',
       name: 'CarOrderMan',
@@ -49,25 +49,45 @@ const routes = [
       name: 'RefitMan',
       component: () => import("@/views/RefitMan")
     }, {
+      path: '/man/refitbrandman',
+      name: 'RefitBrandMan',
+      component: () => import("@/views/RefitBrandMan")
+    }, {
       path: '/man/refitorderman',
       name: 'RefitOrderMan',
       component: () => import("@/views/RefitOrderMan")
     }
     ]
   }, {
-    path: '/login',
+    path: '/man/login',
     name: 'Login',
     component: () => import("@/views/Login")
+  }, {
+    path: '/userlogin',
+    name: 'UserLogin',
+    component: () => import("@/views/UserLogin")
+  }, {
+    path: '/userloginphone',
+    name: 'UserLoginPhone',
+    component: () => import("@/views/UserLoginPhone")
   }, {
     path: '/register',
     name: 'Register',
     component: () => import("@/views/Register")
+  }, {
+    path: '/userregister',
+    name: 'UserRegister',
+    component: () => import("@/views/UserRegister")
   }, {
     path: '/',
     name: 'UserLayout',
     component: UserLayout,
     redirect:"/index",
     children: [{
+      path: 'indexsy',
+      name: 'IndexSy',
+      component: () => import("@/views/IndexSy")
+    },{
       path: 'index',
       name: 'Index',
       component: () => import("@/views/Index")
@@ -80,17 +100,25 @@ const routes = [
       name: 'RefitCulture',
       component: () => import("@/views/RefitCulture")
     }, {
-      path: '/refitsell',
-      name: 'RefitSell',
-      component: () => import("@/views/RefitSell")
+      path: '/refitsearch',
+      name: 'RefitSearch',
+      component: () => import("@/views/RefitSearch")
     }, {
       path: '/carnews',
       name: 'CarNews',
       component: () => import("@/views/CarNews")
     }, {
+      path: '/brandsearch',
+      name: 'BrandSearch',
+      component: () => import("@/views/BrandSearch")
+    }, {
       path: '/carsearch',
       name: 'CarSearch',
       component: () => import("@/views/CarSearch")
+    }, {
+      path: '/userperson',
+      name: 'UserPerson',
+      component: () => import("@/views/UserPerson")
     }
     ]
   },
