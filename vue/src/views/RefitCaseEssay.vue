@@ -13,9 +13,9 @@
       <el-image style="width: 259px; height: 200px" :src="carCaseEssayRight_img" />
       <div style="margin-bottom:10px"></div>
       <br>
-      <font-awesome-icon :icon="['fab','qq']" size="2x" transform="right-12" />
-      <font-awesome-icon :icon="['fab','weixin']" size="2x" transform="right-42" />
-      <font-awesome-icon :icon="['fab','weibo']" size="2x" transform="right-72"  />
+      <font-awesome-icon :icon="['fab','qq']" size="2x" transform="right-12" color="#57A9FB" />
+      <font-awesome-icon :icon="['fab','weixin']" size="2x" transform="right-42" color="#23C343"/>
+      <font-awesome-icon :icon="['fab','weibo']" size="2x" transform="right-72" color="#F76560" />
       <br>
       <div style="margin-top:50px">
         <el-calendar v-model="value" style="height: 50px;" />
@@ -63,7 +63,9 @@ export default {
 
 <style scoped>
 .el-row {
+  margin-top:30px;
   margin-bottom: 20px;
+  
 }
 .el-row:last-child {
   margin-bottom: 0;
