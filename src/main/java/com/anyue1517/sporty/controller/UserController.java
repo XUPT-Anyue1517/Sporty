@@ -40,9 +40,16 @@ public class UserController {
         //构造查询条件
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(User::getName, user.getName());
-        User userOne = userService.getOne(queryWrapper);
-        if (userOne != null) {
+        User userOne1 = userService.getOne(queryWrapper);
+        if (userOne1 != null) {
             return Result.error("-1", "用户名重复，请重新输入！");
+        }
+
+        LambdaQueryWrapper<User> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(User::getPhone, user.getPhone());
+        User userOne2 = userService.getOne(lambdaQueryWrapper);
+        if (userOne2 != null) {
+            return Result.error("-1", "手机号已被注册，请重新输入！");
         }
         //md5 加密保存
         String md5Password = DigestUtils.md5DigestAsHex(user.getPassword().getBytes());
@@ -111,6 +118,7 @@ public class UserController {
 
     /**
      * 使用手机验证码登录
+     *
      * @param map
      * @param request
      * @return
