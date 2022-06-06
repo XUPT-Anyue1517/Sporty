@@ -139,7 +139,7 @@ CREATE TABLE `car`  (
 
 -- ----------------------------
 -- Records of car
-INSERT INTO 'car' VALUES('','','','','','','','','');
+
 -- ----------------------------
 
 
@@ -323,4 +323,14 @@ CREATE TABLE `series`  (
 -- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;
-
+/*建立改装案例表*/
+DROP TABLE IF EXISTS `refit_case`;
+CREATE TABLE `refit_case`  (
+    `id` bigint(20) NOT NULL COMMENT '主键',
+    `title` varchar(64) DEFAULT NULL COMMENT '标题',
+    `body_id` bigint(20) DEFAULT NULL COMMENT '内容id',
+    `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+    `view_counts` int(11) DEFAULT NULL COMMENT '浏览数量',
+    `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+    PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
