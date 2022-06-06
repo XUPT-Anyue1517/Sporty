@@ -8,12 +8,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * 汽车
+ * 改件信息
  */
 @Data
-public class Car {
-
-    private static final long serialVersionUID = 1L;
+public class RefitCase {
 
     //id
     private Long id;
@@ -21,20 +19,12 @@ public class Car {
     //图片
     private String img;
 
-    //车名
-    private String name;
+    //改件名
+    private String title;
 
-    //系列类型
-    private String type;
+    //改件类型
+    private String body;
 
-    //定价
-    private BigDecimal price;
-
-    //售价
-    private BigDecimal salePrice;
-
-    //库存
-    private Integer repertory;
 
     //创建时间
     @TableField(fill = FieldFill.INSERT)
@@ -43,4 +33,8 @@ public class Car {
     //更新时间
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
+
+    /*浏览次数*/
+    private int viewCount;
+
 }
