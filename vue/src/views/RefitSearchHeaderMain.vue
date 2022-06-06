@@ -24,13 +24,13 @@
             <h3 style="border-bottom: 5px #ec1111 solid">刹车系统</h3>
 
               <div style="width: 100%;height: 210px;float: left">
-                <img src="../assets/img/refit/refit_logo/SC/B1.jpg"
+                <img src="../assets/img/refit/refit_logo/SC/20220606-11-14-B1.jpg"
                      class="header_refit_logo" alt="">
-                <img src="../assets/img/refit/refit_logo/SC/B2.jpg"
+                <img src="../assets/img/refit/refit_logo/SC/20220606-11-14-B2.jpg"
                      class="header_refit_logo" alt="">
-                <img src="../assets/img/refit/refit_logo/SC/B3.jpg"
+                <img src="../assets/img/refit/refit_logo/SC/20220606-11-14-B3.jpg"
                      class="header_refit_logo" alt="">
-                <img src="../assets/img/refit/refit_logo/SC/B7.jpg"
+                <img src="../assets/img/refit/refit_logo/SC/20220606-11-14-B7.jpg"
                      class="header_refit_logo" alt="">
 
             </div>
@@ -38,13 +38,13 @@
           <el-col :span="8">
             <h3 style="border-bottom: 5px #ec1111 solid">避震悬挂</h3>
             <div style="width: 100%;height: 210px;float: left">
-              <img src="../assets/img/refit/refit_logo/BZ/B1.jpg"
+              <img src="../assets/img/refit/refit_logo/BZ/20220606-11-15-B1.jpg"
                    class="header_refit_logo" alt="">
-              <img src="../assets/img/refit/refit_logo/BZ/B2.jpg"
+              <img src="../assets/img/refit/refit_logo/BZ/20220606-11-15-B2.jpg"
                    class="header_refit_logo" alt="">
-              <img src="../assets/img/refit/refit_logo/BZ/B3.jpg"
+              <img src="../assets/img/refit/refit_logo/BZ/20220606-11-15-B3.jpg"
                    class="header_refit_logo" alt="">
-              <img src="../assets/img/refit/refit_logo/BZ/B4.jpg"
+              <img src="../assets/img/refit/refit_logo/BZ/20220606-11-15-B4.jpg"
                    class="header_refit_logo" alt="">
 
             </div>
