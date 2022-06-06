@@ -23,7 +23,7 @@ public class RefitBrandController {
     }
 
     /**
-     * 改件信息分页查询
+     * 改装品牌分页查询
      *
      * @param pageNum
      * @param pageSize
@@ -46,7 +46,7 @@ public class RefitBrandController {
     }
 
     /**
-     * 新增改件信息
+     * 新增改装品牌信息
      *
      * @param refitBrand
      * @return
@@ -59,7 +59,7 @@ public class RefitBrandController {
     }
 
     /**
-     * 修改改件信息
+     * 修改改装品牌信息
      *
      * @param refitBrand
      * @return
@@ -73,7 +73,7 @@ public class RefitBrandController {
 
 
     /**
-     * 删除改件信息
+     * 删除改装品牌信息
      *
      * @param id
      * @return
