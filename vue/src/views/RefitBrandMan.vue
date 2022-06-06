@@ -15,7 +15,7 @@
     <el-table :data="tableData" border stripe style="width: 99%">
 
 <!--      <el-table-column prop="id" label="ID" width="80"  />-->
-      <el-table-column prop="img" label="图片" width="230">
+      <el-table-column prop="img" label="图片" width="210">
 <!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
 
 
@@ -27,9 +27,9 @@
         </template>
 
       </el-table-column>
-      <el-table-column prop="name" label="名称" width="130" sortable/>
-      <el-table-column prop="type" label="类别" width="130"/>
-      <el-table-column prop="country" label="国别" width="130"/>
+      <el-table-column prop="name" label="名称" width="100" sortable/>
+      <el-table-column prop="type" label="类别" width="100"/>
+      <el-table-column prop="country" label="国别" width="110"/>
       <el-table-column prop="img1" label="示例图片" width="230">
         <!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
 
@@ -42,7 +42,7 @@
         </template>
 
       </el-table-column>
-      <el-table-column prop="intro" label="品牌介绍" width="330"/>
+      <el-table-column prop="intro" label="品牌介绍" width="370"/>
       <el-table-column label="操作" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"

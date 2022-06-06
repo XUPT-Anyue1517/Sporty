@@ -129,8 +129,8 @@ CREATE TABLE `car`  (
     `img` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片',
     `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车名',
     `type` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车辆类型',
-    `price` decimal(10, 2) NOT NULL COMMENT '定价',
-    `sale_price` decimal(10, 2) NOT NULL COMMENT '售价',
+    `price` varchar(120) NOT NULL COMMENT '定价',
+    `sale_price` varchar(120) NOT NULL COMMENT '售价',
     `repertory` int(30) NULL DEFAULT NULL COMMENT '库存',
     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
     `update_time` datetime(0) NOT NULL COMMENT '更新时间',
@@ -223,8 +223,6 @@ CREATE TABLE `refit_brand`  (
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
-INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533620593457381377, 'http://localhost:8080/refits/B18.jpg', 'BBS', '精品轮毂', '德国、日本', 'BBS是世界著名的汽车轮毂制造商，创建于1970年。核心业务：制造及开发优质轻质合金轮毂；是宝马、奥迪、保时捷、大众、奔驰、路虎、美洲豹、沃尔沃、标致-雪铁龙、雷诺等世界著名汽车品牌的原配供应商；更是法拉利和玛莎拉蒂跑车的独家轮毂供应商。', 'http://localhost:8080/refits/2014530142539486.jpg', '2022-06-06 09:23:37', '2022-06-06 09:23:37');
-INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533622138416676866, 'http://localhost:8080/refits/B2.jpg', 'OZ', '精品轮毂', '意大利', 'OZ轮毂是来自意大利的轮毂大厂。作为世界级的轮毂厂商,OZ的轮毂深受改装爱好者喜爱,他们认为每个轮毂都是由对汽车的热爱而造就出来。在近40年里,O.Z早已为汽车界的传奇,是赛车运动中最具代表性的名字。作为行业的领导者之一,他们有着悠久的企业文化与优秀的制作工艺,使之成为欧洲乃至世界的轮毂领头羊。', 'http://localhost:8080/refits/20180822164729747.jpg', '2022-06-06 09:29:46', '2022-06-06 09:29:46');
 
 
 -- ----------------------------
