@@ -322,7 +322,7 @@ CREATE TABLE `user`  (
      PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
-INSERT INTO sporty.user (id, img, name, phone, id_card, email, password, create_time, update_time) VALUES (1532212175635058690, 'http://localhost:8080/files/touxiang_xu.jpg', '徐卓龙', '17765657475', '6161627373848432', '1299605102@qq.com', 'ee7ee7d96d79d0fb40f9f5486f7bf6f6', '2022-06-02 12:07:04', '2022-06-02 12:07:24');
+INSERT INTO sporty.user (id, img, name, phone, id_card, email, password, create_time, update_time) VALUES (1532212175635058690, 'http://localhost:8080/files/touxiang_xu.jpg', '徐卓龙', '17764753450', '6161627373848432', '1299605102@qq.com', 'ee7ee7d96d79d0fb40f9f5486f7bf6f6', '2022-06-02 12:07:04', '2022-06-02 12:07:24');
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
