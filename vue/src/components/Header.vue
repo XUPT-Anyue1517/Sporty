@@ -51,7 +51,7 @@ export default {
   },
   methods:{
     logout(){
-      this.$router.push('/login')
+      this.$router.push('/man/login')
       sessionStorage.clear()
     },
     getLoginName(){

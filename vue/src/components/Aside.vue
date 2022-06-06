@@ -27,6 +27,9 @@
         <el-menu-item index="/man/carstoreman">
           <span>4S店信息</span>
         </el-menu-item>
+        <el-menu-item index="/man/refitbrandman">
+          <span>改装品牌</span>
+        </el-menu-item>
         <el-menu-item index="/man/refitman">
           <span>改件信息</span>
         </el-menu-item>

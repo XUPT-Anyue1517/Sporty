@@ -5,7 +5,7 @@
       <el-row justify="center">
         <refit-search-header-main/>
 
-        <div style="width: 75%;height: 400px;margin: 15px auto">
+        <div style="width: 75%;height: 800px;margin: 15px auto">
           <h2 style="border-bottom: 5px #ec1111 solid;
                       text-align: center;font-weight: bolder;width: 40%;margin: 20px auto">
             精品轮毂
@@ -30,7 +30,7 @@
         </div>
 
 
-        <div style="width: 75%;height: 400px;margin: 15px auto">
+        <div style="width: 75%;height: 800px;margin: 15px auto">
           <h2 style="border-bottom: 5px #ec1111 solid;
                       text-align: center;font-weight: bolder;width: 40%;margin: 20px auto">
             刹车系统
@@ -55,7 +55,7 @@
         </div>
 
 
-        <div style="width: 75%;height: 400px;margin: 15px auto">
+        <div style="width: 75%;height: 800px;margin: 15px auto">
           <h2 style="border-bottom: 5px #ec1111 solid;
                       text-align: center;font-weight: bolder;width: 40%;margin: 20px auto">
             避震悬挂
@@ -79,7 +79,7 @@
           </el-table>
         </div>
 
-        <div style="width: 75%;height: 400px;margin: 15px auto 100px">
+        <div style="width: 75%;height: 800px;margin: 15px auto 100px">
           <h2 style="border-bottom: 5px #ec1111 solid;
                       text-align: center;font-weight: bolder;width: 40%;margin: 20px auto">
             进气排气
@@ -123,7 +123,39 @@ export default {
   data(){
     return{
       path:this.$route.path,
-      tableData_LG:[],
+      tableData_LG:[{
+        img:'',
+        name:'',
+        type:'精品轮毂',
+        country:''
+      },{
+        img:'',
+        name:'',
+        type:'精品轮毂',
+        country:''
+      },{
+        img:'',
+        name:'',
+        type:'精品轮毂',
+        country:''
+      },{
+        img:'',
+        name:'',
+        type:'精品轮毂',
+        country:''
+      },{
+        img:'',
+        name:'',
+        type:'精品轮毂',
+        country:''
+      },{
+        img:'',
+        name:'',
+        type:'精品轮毂',
+        country:''
+      }
+
+      ],
       tableData_SC:[],
       tableData_BZ:[],
       tableData_PQ:[],
