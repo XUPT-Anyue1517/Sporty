@@ -137,9 +137,14 @@ CREATE TABLE `car`  (
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
+
+
 -- ----------------------------
 -- Records of car
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 -- ----------------------------
 
 
@@ -222,6 +227,17 @@ CREATE TABLE `refit_brand`  (
     `update_time` datetime(0) NOT NULL COMMENT '更新时间',
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+
+INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533620593457381377, 'http://localhost:8080/refits/B18.jpg', 'BBS', '精品轮毂', '德国、日本', 'BBS是世界著名的汽车轮毂制造商，创建于1970年。核心业务：制造及开发优质轻质合金轮毂；是宝马、奥迪、保时捷、大众、奔驰、路虎、美洲豹、沃尔沃、标致-雪铁龙、雷诺等世界著名汽车品牌的原配供应商；更是法拉利和玛莎拉蒂跑车的独家轮毂供应商。', 'http://localhost:8080/refits/2014530142539486.jpg', '2022-06-06 09:23:37', '2022-06-06 09:23:37');
+INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533622138416676866, 'http://localhost:8080/refits/B2.jpg', 'OZ', '精品轮毂', '意大利', 'OZ轮毂是来自意大利的轮毂大厂。作为世界级的轮毂厂商,OZ的轮毂深受改装爱好者喜爱,他们认为每个轮毂都是由对汽车的热爱而造就出来。在近40年里,O.Z早已为汽车界的传奇,是赛车运动中最具代表性的名字。作为行业的领导者之一,他们有着悠久的企业文化与优秀的制作工艺,使之成为欧洲乃至世界的轮毂领头羊。', 'http://localhost:8080/refits/20180822164729747.jpg', '2022-06-06 09:29:46', '2022-06-06 09:29:46');
+INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533624535897620482, 'http://localhost:8080/refits/B4.jpg', 'WORK', '精品轮毂', '日本', 'WORK是日本著名铝合金轮毂品牌，创立于1977年，至今已有几十年的历史，是目前全球最大的轮毂制造商之一。拥有世界领先的产品研发技术和生产工艺，无论是工艺、设计还是质量都在各品牌轮毂中出类拔萃。其轮毂款式种类繁多（共有21个系列 74个款式），颜色多样化，满足了广大客户的需求，并能够根据客户的要求量身定做各种精致轮毂；更值得一提的是该品牌提供的轮毂数据灵活多变，适应目前市场上大部分车系。', 'http://localhost:8080/refits/201458161436965.jpg', '2022-06-06 09:39:17', '2022-06-06 09:39:17');
+INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533635400025784321, 'http://localhost:8080/refits/B11.jpg', 'RAYS', '精品轮毂', '日本', 'RAYS是一个汽车改装轮圈产品的品牌，来自日本创立于1973年，而真正开始研发和生产轮圈是在1981年，并在同一年成立了汽车赛事运动部门，主要用于参加各级别赛车比赛。', 'http://localhost:8080/refits/20201222092851068.JPG', '2022-06-06 10:22:28', '2022-06-06 10:22:28');
+INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533635936607289346, 'http://localhost:8080/refits/B15.jpg', 'VOSSEN', '精品轮毂', '美国', 'VOSSEN是拥有超过十年汽车调教经验的轮毂品牌,VOSSEN的19到22寸的产品及宽度最大可达到11的设定,是专为保时捷、奔驰、宝马、奥迪和路虎等高端车型的改装升级所设计。外观流畅的线条、不锈钢宽边的配置和金属色彩的搭配,赋予所有高端车另一种雀跃的灵魂。另外,更重要的是,世界一流的工艺提供了100%的质量保证,为您的爱车提供安全、又时尚的汽车升级体验。VOSSEN绝对是是追求奢华动感的高级车主一个良好选择。', 'http://localhost:8080/refits/20201130165736006.JPG', '2022-06-06 10:24:36', '2022-06-06 10:24:36');
+INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533636302413512705, 'http://localhost:8080/refits/B16.jpg', 'ENKEI', '精品轮毂', '日本', 'ENKEI为日本的汽车轮毂生产商,  ENKEI轮毂是有着很长历史并一直得到大众认可的轮毂品牌，前后为F1赛事提供多年轮毂，并成为三菱汽车的原配轮毂，过硬的品质,独特有个性的轮毂设计,在轮毂品质上几乎无可挑剔。', 'http://localhost:8080/refits/20200328143914860.jpg', '2022-06-06 10:26:03', '2022-06-06 10:26:03');
+INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533636619402231810, 'http://localhost:8080/refits/B17.jpg', 'HRE', '精品轮毂', '美国', 'HRE创立于1978年,在其34年的发展过程中一直秉承着为世界上最好的车制造最出色的轮圈这一行为准则。HRE所有轮圈均采用高级锻造工艺,而且每款轮圈都能达到世界主流的认证标准(德国TUV、日本JWL等),此外HRE所有轮圈均接受个性化定制,其中包括轮圈尺寸和宽度、ET值、孔距、中心孔大小以及外观颜色等,客户可以根据自己的需求向厂家下发订单。', 'http://localhost:8080/refits/20220321121737184.jpg', '2022-06-06 10:27:18', '2022-06-06 10:27:18');
+INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533641313293975554, 'http://localhost:8080/refits/B20.jpg', 'SSR', '精品轮毂', '日本', 'SSR是一个汽车轮毂产品的改装品牌,在1971年生产出了第一个3片式轮圈,并在1973年制订了铝合金轮圈的强度标准“JWL”(后被日本政府定为认证轮圈的标准),它所生产的每款轮圈都要经过这一标准的认证,确保其生产的每款产品真正具有可靠性和耐用性。 SSR做为以制造运动轮圈为主营业务的厂商,积极参加各级别赛事,在1991年获得全日本房车大家赛的A组冠军,2003年成为Super GT300赛车供应轮圈,2004年又成为了Super GT500的轮圈供应商。', 'http://localhost:8080/refits/src=http___img.wanchezhijia.com_.webp', '2022-06-06 10:45:57', '2022-06-06 10:45:57');
+INSERT INTO sporty.refit_brand (id, img, name, type, country, intro, img1, create_time, update_time) VALUES (1533642207972573185, 'http://localhost:8080/refits/B38.jpg', '3SDM', '精品轮毂', '英国', '3SDM轮毂公司是一家新兴汽车供应商,坐落于英国南部。它不是一家传统的车轮公司。创新是3SDM一直所追求的,不遵守规则和指南,不追随趋势,只创造高质量和有趣的轮毂产品。在今年3月30日-4月1日的GT Show改装展上,上海联锐将携英国3SDM品牌亮相,低趴党一定要来看哦。', 'http://localhost:8080/refits/ChcCQ1sDdQiAZZtOAAFnpyUzVmw036.jpg', '2022-06-06 10:49:31', '2022-06-06 10:49:31');
 
 
 
@@ -329,6 +345,7 @@ CREATE TABLE `refit_case`  (
     `id` bigint(20) NOT NULL COMMENT '主键',
     `title` varchar(64) DEFAULT NULL COMMENT '标题',
     `body_id` bigint(20) DEFAULT NULL COMMENT '内容id',
+    `img` varchar(120) NOT NULL COMMENT '图片',
     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
     `view_counts` int(11) DEFAULT NULL COMMENT '浏览数量',
     `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
