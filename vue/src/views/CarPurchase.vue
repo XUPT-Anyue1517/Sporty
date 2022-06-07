@@ -218,7 +218,7 @@ export default {
            totalPrice:this.price*this.num
          }).then(res => {
            if(res.code === '0'){
-             this.$router.push("/refitcaseessay")
+             this.$router.push("/refitpurchasesuccess")
            }else if (res.code === '-1'){
              this.$message.error("出错了")
            }
