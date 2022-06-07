@@ -28,10 +28,10 @@ public class Car {
     private String type;
 
     //定价
-    private BigDecimal price;
+    private String price;
 
     //售价
-    private BigDecimal salePrice;
+    private String salePrice;
 
     //库存
     private Integer repertory;
