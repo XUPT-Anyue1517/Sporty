@@ -320,8 +320,10 @@ CREATE TABLE `refit`  (
     `img` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片',
     `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '改件名',
     `type` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '改件类型',
-    `price` decimal(10, 2) NOT NULL COMMENT '定价',
-    `sale_price` decimal(10, 2) NOT NULL COMMENT '售价',
+    `brand` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '改装品牌',
+
+    `price` Varchar(120) NOT NULL COMMENT '定价',
+    `sale_price` Varchar(120) NOT NULL COMMENT '售价',
     `repertory` int(30) NULL DEFAULT NULL COMMENT '库存',
     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
     `update_time` datetime(0) NOT NULL COMMENT '更新时间',

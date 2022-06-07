@@ -120,9 +120,13 @@ const routes = [
       name: 'UserPerson',
       component: () => import("@/views/UserPerson")
     }, {
-      path: '/refitPurchase',
+      path: '/refitpurchase',
       name: 'refitPurchase',
       component: () => import("@/views/RefitPurchase")
+    }, {
+      path: '/refitcaseessay',
+      name: 'RefitCaseEssay',
+      component: () => import("@/views/RefitCaseEssay")
     }
     ]
   },
