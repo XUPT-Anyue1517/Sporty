@@ -119,6 +119,10 @@ const routes = [
       path: '/userperson',
       name: 'UserPerson',
       component: () => import("@/views/UserPerson")
+    }, {
+      path: '/refitPurchase',
+      name: 'refitPurchase',
+      component: () => import("@/views/RefitPurchase")
     }
     ]
   },
