@@ -64,9 +64,9 @@
 
       <el-dialog v-model="dialogVisible"
         title="数据"
-        width="30%"
+        width="80%"
       >
-      <el-form :model="form" label-width="120px">
+      <el-form :model="form" label-width="220px">
 
         <el-form-item style="text-align: center" label-width="0">
           <el-upload
@@ -76,22 +76,16 @@
               :on-success="handleAvatarSuccess"
               style="margin: 5px auto;width: 80%"
           >
-            <img :src="form.img" width="90" height="90" class="avatar " style="border-radius: 10px">
+            <img :src="form.img" width="250" height="150" class="avatar " style="border-radius: 10px">
           </el-upload>
         </el-form-item>
 
 
-        <el-form-item label="用户名">
-          <el-input v-model="form.name" style="width:80%"></el-input>
+        <el-form-item label="标题">
+          <el-input v-model="form.title" style="width:90%"></el-input>
         </el-form-item>
-        <el-form-item label="手机号码">
-          <el-input v-model="form.phone" style="width:80%"></el-input>
-        </el-form-item>
-        <el-form-item label="身份证">
-          <el-input v-model="form.idCard" style="width:80%"></el-input>
-        </el-form-item>
-        <el-form-item label="邮箱">
-          <el-input v-model="form.email" style="width:80%"></el-input>
+        <el-form-item label="内容">
+          <textarea v-model="form.body" style="width:90%"/>
         </el-form-item>
       </el-form>
         <template #footer>
