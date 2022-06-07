@@ -28,6 +28,9 @@ public class RefitCase {
     //文章类型
     private String type;
 
+    //相关车辆
+    private String car;
+
 
     //创建时间
     @TableField(fill = FieldFill.INSERT)

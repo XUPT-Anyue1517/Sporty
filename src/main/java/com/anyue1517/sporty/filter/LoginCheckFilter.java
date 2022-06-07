@@ -39,6 +39,8 @@ public class LoginCheckFilter implements Filter {
                 "/user/register",
                 "/files/upload",
                 "/files/download",
+                "/carstore",
+                "/car",
                 "/cars/upload",
                 "/cars/download",
                 "/refits/upload",

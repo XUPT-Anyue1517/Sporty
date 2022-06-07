@@ -35,8 +35,8 @@
             <el-table-column prop="repertory" label="库存" width="120"  />
             <el-table-column  width="184" label="查看车辆"  >
 
-              <template slot-scope="scope">
-                <el-button size="large" @click="handleOpen(scope.row.chineseName)">详情页面></el-button>
+              <template #default="scope">
+                <el-button size="large" @click="handleOpen(scope.row.name)">详情页面></el-button>
               </template>
             </el-table-column>>
           </el-table>
@@ -69,10 +69,9 @@ export default {
   },
   created() {
     this.load()
+    this.loadCar()
   },
   methods:{
-    loadPage(){
-    },
     load(){
       this.carName = this.$route.query.chineseName
       request.get("/brand",{
@@ -91,12 +90,32 @@ export default {
         this.carCountry = res.data.records[0].country
         this.carIntro = res.data.records[0].intro
       })
+
     },
-    handleOpen(chineseName){
+    loadCar(){
+
+      request.get("/car",{
+        params:{
+          pageNum:'1',
+          pageSize:'5',
+          name:this.$route.query.chineseName
+        }
+      }).then(res1 => {
+        console.log(res1);
+        this.tableData = res1.data.records
+        // this.total = res1.data.total
+
+        // this.carLogo = res.data.records[0].logo
+        // this.carEngName = res.data.records[0].englishName
+        // this.carCountry = res.data.records[0].country
+        // this.carIntro = res.data.records[0].intro
+      })
+    },
+    handleOpen(name){
       this.$router.push({
-        path: '路由地址',
+        path: '/carpurchase',
         query: {
-          chineseName: chineseName
+          name: name
         }
       })
     }

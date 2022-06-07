@@ -31,7 +31,9 @@ public class CarController {
      * @return
      */
     @GetMapping
-    public Result<?> page(int pageNum, int pageSize, String name) {
+    public Result<?> page(@RequestParam(defaultValue = "1") Integer pageNum,
+                          @RequestParam(defaultValue = "5") Integer pageSize,
+                          @RequestParam(defaultValue = "") String name) {
 
         //构造分页构造器
         Page<Car> pageInfo = new Page<>(pageNum, pageSize);

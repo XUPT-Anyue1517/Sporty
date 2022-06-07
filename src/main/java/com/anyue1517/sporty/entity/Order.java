@@ -33,6 +33,9 @@ public class Order {
     //支付方式 微信 支付宝 银行卡
     private String payWay;
 
+    //门店地址
+    private String carStore;
+
     //单价
     private Double price;
 

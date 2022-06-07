@@ -26,9 +26,10 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="title" label="文章标题" width="480"/>
-      <el-table-column prop="type" label="类型" width="180"/>
-      <el-table-column prop="view_counts" label="浏览量" width="180"/>
+      <el-table-column prop="title" label="文章标题" width="400"/>
+      <el-table-column prop="car" label="相关车辆" width="180"/>
+      <el-table-column prop="type" label="类型" width="120"/>
+      <el-table-column prop="view_counts" label="浏览量" width="120"/>
       <el-table-column label="操作" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"
@@ -91,6 +92,9 @@
             <el-option label="改装" value="改装" />
           </el-select>
         </el-form-item>
+        <el-form-item label="相关车辆">
+          <el-input v-model="form.car" style="width:90%"></el-input>
+        </el-form-item>
         <el-form-item label="内容">
           <textarea v-model="form.body" style="width:90%"/>
         </el-form-item>
@@ -99,8 +103,7 @@
           <span class="dialog-footer">
             <el-button @click="dialogVisible = false">取消</el-button>
             <el-button type="primary" @click="save"
-              >确认</el-button
-            >
+              >确认</el-button>
           </span>
         </template>
       </el-dialog>
