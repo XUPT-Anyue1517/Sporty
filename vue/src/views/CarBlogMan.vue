@@ -3,7 +3,6 @@
     <!-- 功能区域 -->
     <div style="margin:10px 0">
       <el-button type="primary" @click="add">新增</el-button>
-
     </div>
 
 <!-- 搜索区域 -->

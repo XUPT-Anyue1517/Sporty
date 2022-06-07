@@ -36,7 +36,7 @@
         <el-menu-item index="/man/refitorderman">
           <span>改件订单</span>
         </el-menu-item>
-        <el-menu-item index="/man/refitblogman">
+        <el-menu-item index="/man/refitcaseman">
           <span>改装文章</span>
         </el-menu-item>
 

@@ -9,7 +9,7 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/sporty?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
-      password: liuyng01253217
+      password: root
   servlet:
     multipart:
       # 设置 上传文件的大小
@@ -24,4 +24,4 @@ mybatis-plus:
     db-config:
       id-type: ASSIGN_ID # 雪花算法
 sporty:
-  path: G:\Sporty\src\main\resources\sporty_upload\
+  path: F:\Code\Sporty\src\main\resources\sporty_upload\

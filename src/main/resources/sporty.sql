@@ -330,6 +330,18 @@ CREATE TABLE `refit`  (
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533990143348715522, 'http://localhost:8080/refits/2014530143458600.jpg', '德国BBS CH-R款高性能运动轮毂轮圈', '精品轮毂', 'BBS', '10000', '7500', 12, '2022-06-07 09:52:05', '2022-06-07 09:52:05');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533990507389136898, 'http://localhost:8080/refits/202042818632651.jpg', '德国BBS SR款黑色钻石切面高性能运动轮毂 SR', '精品轮毂', 'BBS', '5888', '3700', 12, '2022-06-07 09:53:32', '2022-06-07 09:53:32');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533991495734931457, 'http://localhost:8080/refits/2014530143458600.jpg', '意大利OZ ULTRALEGGERA (HLT)款黑色轮毂', '精品轮毂', 'OZ', '3000', '2700', 12, '2022-06-07 09:57:27', '2022-06-07 09:57:27');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533979314930954241, 'http://localhost:8080/refits/201441494851906.jpg', '意大利OZ FORMULA HLT款轮毂', '精品轮毂', 'OZ', '3700.00', '3330.00', 12, '2022-06-07 09:09:03', '2022-06-07 09:17:22');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533992733629231106, 'http://localhost:8080/refits/2014422162049819.jpg', '日本RAYS HOMURA 2X7款轻量化轮毂', '精品轮毂', 'RAYS', '3380', '3042', 12, '2022-06-07 10:02:23', '2022-06-07 10:02:23');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533981887876390914, 'http://localhost:8080/refits/202011616945130.jpg', '日本Rays HOMURA HYUGA HP10高性能轻量化轮毂', '精品轮毂', 'RAYS', '4360.00', '3924.00', 12, '2022-06-07 09:19:17', '2022-06-07 09:19:17');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533992988110237697, 'http://localhost:8080/refits/2019102522423249.jpg', '美国VOSSEN HYBIRD FORGED HF3款高品质旋锻轮毂', '精品轮毂', 'VOSSEN', '6200', '5580', 12, '2022-06-07 10:03:23', '2022-06-07 10:03:23');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533993168926683138, 'http://localhost:8080/refits/20201020111752835.jpg', '美国VOSSEN HYBIRD FORGED HF-4T多条辐混锻运动轮毂', '精品轮毂', 'VOSSEN', '7200', '6480', 12, '2022-06-07 10:04:06', '2022-06-07 10:04:06');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533991872924495874, 'http://localhost:8080/refits/201458161123624.jpg', '日本WORK BALMUNG BG1-LV款多条幅分叉轮毂', '精品轮毂', 'WORK', '2180', '1962', 12, '2022-06-07 09:58:57', '2022-06-07 09:58:57');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533992464539463682, 'http://localhost:8080/refits/2014512151940373.jpg', '日本WORK EMOTION CR Kiwami款高性能运动轮毂', '精品轮毂', 'WORK', '4050', '3645', 12, '2022-06-07 10:01:18', '2022-06-07 10:01:18');
+
+
 
 -- ----------------------------
 -- Table structure for refit_brand
@@ -477,9 +489,10 @@ CREATE TABLE `refit_case`  (
     `id` bigint(20) NOT NULL COMMENT '主键',
     `title` varchar(64) DEFAULT NULL COMMENT '标题',
     `body` text DEFAULT NULL COMMENT '内容',
+    `type` varchar(120) NOT NULL COMMENT '汽车?改装',
     `img` varchar(120) NOT NULL COMMENT '图片',
     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
-    `view_counts` int(11) DEFAULT NULL COMMENT '浏览数量',
+    `view_counts` int(11) DEFAULT '0' COMMENT '浏览数量',
     `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;

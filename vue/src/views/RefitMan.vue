@@ -29,6 +29,7 @@
       </el-table-column>
       <el-table-column prop="name" label="名称" width="180" sortable/>
       <el-table-column prop="type" label="类别" width="180"/>
+      <el-table-column prop="brand" label="品牌" width="180"/>
       <el-table-column prop="price" label="定价" width="180"/>
       <el-table-column prop="salePrice" label="售价" width="180"/>
       <el-table-column prop="repertory" label="库存" width="180"/>
@@ -93,6 +94,9 @@
               <el-option label="避震悬挂" value="避震悬挂" />
               <el-option label="进气排气" value="进气排气" />
             </el-select>
+          </el-form-item>
+          <el-form-item label="品牌">
+            <el-input v-model="form.brand" style="width:80%"></el-input>
           </el-form-item>
           <el-form-item label="定价">
             <el-input v-model="form.price" style="width:80%"></el-input>

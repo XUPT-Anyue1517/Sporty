@@ -22,8 +22,11 @@ public class RefitCase {
     //改件名
     private String title;
 
-    //改件类型
+    //文章内容
     private String body;
+
+    //文章类型
+    private String type;
 
 
     //创建时间

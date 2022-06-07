@@ -27,6 +27,9 @@ public class Refit {
     //改件类型
     private String type;
 
+    //改件品牌
+    private String brand;
+
     //定价
     private String price;
 
