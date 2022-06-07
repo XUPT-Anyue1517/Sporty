@@ -26,7 +26,8 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="title" label="文章标题" width="380"/>
+      <el-table-column prop="title" label="文章标题" width="480"/>
+      <el-table-column prop="type" label="类型" width="180"/>
       <el-table-column prop="view_counts" label="浏览量" width="180"/>
       <el-table-column label="操作" >
         <template #default="scope">
@@ -64,9 +65,9 @@
 
       <el-dialog v-model="dialogVisible"
         title="数据"
-        width="30%"
+        width="80%"
       >
-      <el-form :model="form" label-width="120px">
+      <el-form :model="form" label-width="220px">
 
         <el-form-item style="text-align: center" label-width="0">
           <el-upload
@@ -76,22 +77,22 @@
               :on-success="handleAvatarSuccess"
               style="margin: 5px auto;width: 80%"
           >
-            <img :src="form.img" width="90" height="90" class="avatar " style="border-radius: 10px">
+            <img :src="form.img" width="250" height="150" class="avatar " style="border-radius: 10px">
           </el-upload>
         </el-form-item>
 
 
-        <el-form-item label="用户名">
-          <el-input v-model="form.name" style="width:80%"></el-input>
+        <el-form-item label="标题">
+          <el-input v-model="form.title" style="width:90%"></el-input>
         </el-form-item>
-        <el-form-item label="手机号码">
-          <el-input v-model="form.phone" style="width:80%"></el-input>
+        <el-form-item label="类型">
+          <el-select v-model="form.type" placeholder="请选择类型" style="width:90%">
+            <el-option label="汽车" value="汽车" />
+            <el-option label="改装" value="改装" />
+          </el-select>
         </el-form-item>
-        <el-form-item label="身份证">
-          <el-input v-model="form.idCard" style="width:80%"></el-input>
-        </el-form-item>
-        <el-form-item label="邮箱">
-          <el-input v-model="form.email" style="width:80%"></el-input>
+        <el-form-item label="内容">
+          <textarea v-model="form.body" style="width:90%"/>
         </el-form-item>
       </el-form>
         <template #footer>
@@ -138,7 +139,7 @@ export default {
   },
   methods: {
     load(){
-      request.get("/user",{
+      request.get("/refitcase",{
         params:{
           pageNum:this.currentPage4,
           pageSize:this.pageSize4,
@@ -156,7 +157,7 @@ export default {
     },
     save(){
       if(this.form.id){
-        request.put("/user",this.form).then(res => {
+        request.put("/refitcase",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("更新成功")
@@ -167,7 +168,7 @@ export default {
         this.dialogVisible = false
         })
       } else{
-        request.post("/user",this.form).then(res => {
+        request.post("/refitcase",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("新增成功")
@@ -186,7 +187,7 @@ export default {
     },
     handleDelete(id){
       console.log(id);
-      request.delete("/user/" + id).then(res => {
+      request.delete("/refitcase/" + id).then(res => {
         if(res.code == 0 ){
             this.$message.success("删除成功")
           }else{
@@ -213,7 +214,7 @@ export default {
       this.update()
     },
     update() {
-      request.put("/user", this.form).then(res => {
+      request.put("/refitcase", this.form).then(res => {
         console.log(res)
         if (res.code === '0') {
           this.$message({
@@ -232,7 +233,7 @@ export default {
       })
     },
     checkLogin(){
-      request.get("/user",{}).then(res => {
+      request.get("/refitcase",{}).then(res => {
         if(res.code === '-1'){
           this.$router.push("/man/login")
         }
