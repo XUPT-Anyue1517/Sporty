@@ -36,12 +36,12 @@
           <span class="price-header title-info-text" style="font-size:20px;top:2px">
                 优惠
           </span>
-           <el-select v-model="value" class="m-2" placeholder="Select" size="small">
+           <el-select v-model="value1" class="m-2" placeholder="￥10优惠卷，满200使用" size="small">
           <el-option
             v-for="item in options"
-            :key="item.value"
+            :key="item.value1"
             :label="item.label"
-            :value="item.value"
+            :value="item.value1"
           />
           </el-select>
         </div>
@@ -61,12 +61,12 @@
           </span>
           <span class="ord-service-text">
               陕西省 西安市 <span style="color:#aaa">至</span>
-              <el-select v-model="value" class="m-2" placeholder="Select" size="small">
+              <el-select v-model="value2" class="m-2" placeholder="默认驿站" size="small">
                   <el-option
                     v-for="item in optionsAddress"
-                    :key="item.value"
+                    :key="item.value2"
                     :label="item.label"
-                    :value="item.value"
+                    :value="item.value2"
                   />
               </el-select>
               <span>
@@ -75,6 +75,15 @@
 
           </span>
         </div>
+
+        <div class="ord-num">
+          <span class="price-header title-info-text" style="font-size:20px;top:2px">
+                数量
+          </span>
+          <el-input-number v-model="num" :min="1" :max="10" @change="handleChange" />
+        </div>
+
+
         <div class="pay-way">
             <span class="price-header title-info-text" style="font-size:20px;top:1px">
                 支付
@@ -120,58 +129,69 @@ export default {
     }
   },
   setup(){
-    const value = ref('')
-
+    const value1 = ref('');
+    const value2 = ref('');
     const options = [
       {
-        value: 'Option1',
-        label: 'Option1',
+        value1: '20.00首2小时买3免1',
+        label: '20.00首2小时买3免1',
       },
       {
-        value: 'Option2',
-        label: 'Option2',
+        value1: '专区限时9折起',
+        label: '专区限时9折起',
       },
       {
-        value: 'Option3',
-        label: 'Option3',
+        value1: '￥10优惠卷，满200使用',
+        label: '￥10优惠卷，满200使用',
       },
       {
-        value: 'Option4',
-        label: 'Option4',
+        value1: '￥50优惠卷，满600使用',
+        label: '￥50优惠卷，满600使用',
       },
       {
-        value: 'Option5',
-        label: 'Option5',
+        value1: '￥100优惠卷，满1000使用',
+        label: '￥100优惠卷，满1000使用',
       },
     ];
 
      const optionsAddress = [
       {
-        value: 'Option1',
-        label: 'Option1',
+        value2: '北京市',
+        label: '北京市',
       },
       {
-        value: 'Option2',
-        label: 'Option2',
+        value2: '上海市',
+        label: '上海市',
       },
       {
-        value: 'Option3',
-        label: 'Option3',
+        value2: '深圳市',
+        label: '深圳市',
       },
       {
-        value: 'Option4',
-        label: 'Option4',
+        value2: '重庆市',
+        label: '重庆市',
       },
       {
-        value: 'Option5',
-        label: 'Option5',
+        value2: '广州市',
+        label: '广州市',
       },
     ];
+
+    const num = ref(1)
+    const handleChange = (num) => {
+        console.log(num)
+    }
+
+
     
 
     return {
       options,
       optionsAddress,
+      num,
+      handleChange,
+      value1,
+      value2
     }
   }
 }
@@ -253,6 +273,10 @@ export default {
 .pay-card{
   font-size: 16px;
   font-weight: 600;
+}
+
+.ord-num{
+  margin:20px 0;
 }
 
 </style>
