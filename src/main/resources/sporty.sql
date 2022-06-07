@@ -342,6 +342,7 @@ INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, reperto
 INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533993168926683138, 'http://localhost:8080/refits/20201020111752835.jpg', '美国VOSSEN HYBIRD FORGED HF-4T多条辐混锻运动轮毂', '精品轮毂', 'VOSSEN', '7200', '6480', 12, '2022-06-07 10:04:06', '2022-06-07 10:04:06');
 INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533991872924495874, 'http://localhost:8080/refits/201458161123624.jpg', '日本WORK BALMUNG BG1-LV款多条幅分叉轮毂', '精品轮毂', 'WORK', '2180', '1962', 12, '2022-06-07 09:58:57', '2022-06-07 09:58:57');
 INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533992464539463682, 'http://localhost:8080/refits/2014512151940373.jpg', '日本WORK EMOTION CR Kiwami款高性能运动轮毂', '精品轮毂', 'WORK', '4050', '3645', 12, '2022-06-07 10:01:18', '2022-06-07 10:01:18');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1534014255798431746, 'http://localhost:8080/refits/201842595811400.jpg', 'BC BR系列 RS款街道加强版绞牙避震器', '避震悬挂', '台湾BC', '7280', '7280', 30, '2022-06-07 11:27:54', '2022-06-07 11:27:54');
 
 
 
