@@ -35,6 +35,6 @@ public class RefitCase {
     private LocalDateTime updateTime;
 
     /*浏览次数*/
-    private int viewCount;
+    private int viewCounts;
 
 }

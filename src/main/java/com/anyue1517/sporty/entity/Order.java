@@ -18,8 +18,27 @@ public class Order {
     //id
     private Long id;
 
+    //订单号
+    private Integer number;
+
     //用户id
-    private Integer customerId;
+    private Integer customer;
+
+    //商品名称
+    private String name;
+
+    //商品数量
+    private Integer count;
+
+
+    //1是车辆订单，2是改建订单
+    private Integer state;
+
+    //支付方式 1是微信 2是支付宝 3是银行卡
+    private Integer payWay;
+
+    //单价
+    private BigDecimal price;
 
     //总价
     private BigDecimal totalPrice;
