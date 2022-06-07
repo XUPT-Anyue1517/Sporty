@@ -330,6 +330,9 @@ CREATE TABLE `refit`  (
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533979314930954241, 'http://localhost:8080/refits/201441494851906.jpg', '意大利OZ FORMULA HLT款轮毂', '精品轮毂','OZ', 3700.00, 3330.00, 12, '2022-06-07 09:09:03', '2022-06-07 09:17:22');
+INSERT INTO sporty.refit (id, img, name, type, brand, price, sale_price, repertory, create_time, update_time) VALUES (1533981887876390914, 'http://localhost:8080/refits/202011616945130.jpg', '日本Rays HOMURA HYUGA HP10高性能轻量化轮毂', '精品轮毂','RAYS', 4360.00, 3924.00, 12, '2022-06-07 09:19:17', '2022-06-07 09:19:17');
+
 
 -- ----------------------------
 -- Table structure for refit_brand

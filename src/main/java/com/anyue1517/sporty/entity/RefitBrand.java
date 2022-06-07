@@ -27,6 +27,7 @@ public class RefitBrand {
     //改件类型
     private String type;
 
+
     //改件国别
     private String country;
 
