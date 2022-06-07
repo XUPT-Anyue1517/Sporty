@@ -27,7 +27,7 @@
                 价格
             </span>
             <span class="price-text title-info-number">
-                ￥250~300
+                {{price}}
             </span>
           </div>
         </div>
@@ -80,7 +80,16 @@
           <span class="price-header title-info-text" style="font-size:20px;top:2px">
                 数量
           </span>
-          <el-input-number v-model="num" :min="1" :max="10" @change="handleChange" />
+          <el-input-number v-model="num" :min="1" :max="10" @change="handleChange"  />
+        </div>
+
+        <div class="ord-totalprice" style="margin:25px 0">
+          <span class="price-header title-info-text" style="font-size:20px;bottom: 5px;">
+                总价
+          </span>
+           <span class="price-text title-info-number" style="font-size:18px">
+                {{price*num}}元
+            </span>
         </div>
 
 
@@ -129,6 +138,7 @@ export default {
     }
   },
   setup(){
+
     const value1 = ref('');
     const value2 = ref('');
     const options = [
@@ -177,13 +187,15 @@ export default {
       },
     ];
 
-    const num = ref(1)
-    const handleChange = (num) => {
-        console.log(num)
-    }
-
-
+    const price = ref('200.2');
+  
     
+    const num = ref(1);
+    const handleChange = (num) => {
+      
+    };
+
+
 
     return {
       options,
@@ -191,7 +203,10 @@ export default {
       num,
       handleChange,
       value1,
-      value2
+      value2,
+      price,
+    
+      
     }
   }
 }
