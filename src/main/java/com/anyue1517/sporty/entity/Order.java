@@ -19,10 +19,10 @@ public class Order {
     private Long id;
 
     //订单号
-    private Integer number;
+    private Long number;
 
     //用户id
-    private Integer customer;
+    private Long customerId;
 
     //商品名称
     private String name;
@@ -30,18 +30,14 @@ public class Order {
     //商品数量
     private Integer count;
 
-
-    //1是车辆订单，2是改建订单
-    private Integer state;
-
-    //支付方式 1是微信 2是支付宝 3是银行卡
-    private Integer payWay;
+    //支付方式 微信 支付宝 银行卡
+    private String payWay;
 
     //单价
-    private BigDecimal price;
+    private Double price;
 
     //总价
-    private BigDecimal totalPrice;
+    private Double totalPrice;
 
     //创建时间
     @TableField(fill = FieldFill.INSERT)

@@ -506,11 +506,10 @@ DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order`  (
     `id` bigint(20) NOT NULL COMMENT '主键',
     `number` bigint(20) NOT NULL COMMENT '订单号',
-    `customer` bigint(20) NOT NULL COMMENT '用户id',
+    `customer_id` bigint(20) NOT NULL COMMENT '用户id',
     `name` varchar(64) DEFAULT NULL COMMENT '商品名',
     `count` bigint(20) NOT NULL COMMENT '商品数量',
-    `state` int(20) NOT NULL COMMENT '1是车辆订单，2是改建订单',
-    `pay_way` int(20) DEFAULT NULL COMMENT '支付方式 1是微信 2是支付宝 3是银行卡',
+    `pay_way` varchar(64) DEFAULT NULL COMMENT '支付方式 微信 支付宝 银行卡',
     `price` decimal(11,2) DEFAULT NULL COMMENT '单价',
     `total_price` text DEFAULT NULL COMMENT '总价',
     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
