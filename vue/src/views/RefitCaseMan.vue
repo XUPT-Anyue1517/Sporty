@@ -27,6 +27,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="title" label="文章标题" width="480"/>
+      <el-table-column prop="type" label="类型" width="180"/>
       <el-table-column prop="view_counts" label="浏览量" width="180"/>
       <el-table-column label="操作" >
         <template #default="scope">
@@ -83,6 +84,12 @@
 
         <el-form-item label="标题">
           <el-input v-model="form.title" style="width:90%"></el-input>
+        </el-form-item>
+        <el-form-item label="类型">
+          <el-select v-model="form.type" placeholder="请选择类型" style="width:90%">
+            <el-option label="汽车" value="汽车" />
+            <el-option label="改装" value="改装" />
+          </el-select>
         </el-form-item>
         <el-form-item label="内容">
           <textarea v-model="form.body" style="width:90%"/>
