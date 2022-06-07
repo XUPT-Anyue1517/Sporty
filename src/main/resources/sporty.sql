@@ -474,7 +474,7 @@ DROP TABLE IF EXISTS `refit_case`;
 CREATE TABLE `refit_case`  (
     `id` bigint(20) NOT NULL COMMENT '主键',
     `title` varchar(64) DEFAULT NULL COMMENT '标题',
-    `body_id` bigint(20) DEFAULT NULL COMMENT '内容id',
+    `body` text DEFAULT NULL COMMENT '内容',
     `img` varchar(120) NOT NULL COMMENT '图片',
     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
     `view_counts` int(11) DEFAULT NULL COMMENT '浏览数量',
