@@ -503,19 +503,19 @@ CREATE TABLE `refit_case`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 /*建立订单表*/
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order`  (
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders`  (
     `id` bigint(20) NOT NULL COMMENT '主键',
     `number` bigint(20) NOT NULL COMMENT '订单号',
     `customer_id` bigint(20) NOT NULL COMMENT '用户id',
-    `name` varchar(64) DEFAULT NULL COMMENT '商品名',
-    `count` bigint(20) NOT NULL COMMENT '商品数量',
-    `pay_way` varchar(64) DEFAULT NULL COMMENT '支付方式 微信 支付宝 银行卡',
-    `car_Store` varchar(64) DEFAULT NULL COMMENT '门店地址',
-    `price` decimal(11,2) DEFAULT NULL COMMENT '单价',
-    `total_price` text DEFAULT NULL COMMENT '总价',
+    `name` varchar(64) NOT NULL COMMENT '商品名',
+    `count` int(20) NOT NULL COMMENT '商品数量',
+    `pay_way` varchar(64) NOT NULL COMMENT '支付方式 微信 支付宝 银行卡',
+    `car_store` varchar(64) NOT NULL COMMENT '门店地址',
+    `price` varchar(120) NOT NULL COMMENT '单价',
+    `total_price` varchar(120) NOT NULL COMMENT '总价',
     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
     `pay_time` datetime(0) NOT NULL COMMENT '支付时间',
-    `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+    `update_time` datetime(0) NOT NULL COMMENT '更新时间',
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * 订单信息
  */
 @Data
-public class Order {
+public class Orders {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,10 +37,10 @@ public class Order {
     private String carStore;
 
     //单价
-    private Double price;
+    private String price;
 
     //总价
-    private Double totalPrice;
+    private String totalPrice;
 
     //创建时间
     @TableField(fill = FieldFill.INSERT)
@@ -51,6 +51,6 @@ public class Order {
     private LocalDateTime payTime;
 
     //更新时间
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 }

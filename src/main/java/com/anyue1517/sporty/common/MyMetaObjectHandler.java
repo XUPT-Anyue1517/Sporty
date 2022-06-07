@@ -30,6 +30,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         //metaObject.setValue("createUser", com.sun.prism.impl.BaseContext.getCurrentId());
         metaObject.setValue("updateTime", LocalDateTime.now());
         //metaObject.setValue("updateUser", com.sun.prism.impl.BaseContext.getCurrentId());
+        metaObject.setValue("payTime", LocalDateTime.now());
 
     }
 
