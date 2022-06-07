@@ -26,7 +26,7 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="title" label="文章标题" width="380"/>
+      <el-table-column prop="title" label="文章标题" width="480"/>
       <el-table-column prop="view_counts" label="浏览量" width="180"/>
       <el-table-column label="操作" >
         <template #default="scope">
@@ -132,7 +132,7 @@ export default {
   },
   methods: {
     load(){
-      request.get("/user",{
+      request.get("/refitcase",{
         params:{
           pageNum:this.currentPage4,
           pageSize:this.pageSize4,
@@ -150,7 +150,7 @@ export default {
     },
     save(){
       if(this.form.id){
-        request.put("/user",this.form).then(res => {
+        request.put("/refitcase",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("更新成功")
@@ -161,7 +161,7 @@ export default {
         this.dialogVisible = false
         })
       } else{
-        request.post("/user",this.form).then(res => {
+        request.post("/refitcase",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("新增成功")
@@ -180,7 +180,7 @@ export default {
     },
     handleDelete(id){
       console.log(id);
-      request.delete("/user/" + id).then(res => {
+      request.delete("/refitcase/" + id).then(res => {
         if(res.code == 0 ){
             this.$message.success("删除成功")
           }else{
@@ -207,7 +207,7 @@ export default {
       this.update()
     },
     update() {
-      request.put("/user", this.form).then(res => {
+      request.put("/refitcase", this.form).then(res => {
         console.log(res)
         if (res.code === '0') {
           this.$message({
@@ -226,7 +226,7 @@ export default {
       })
     },
     checkLogin(){
-      request.get("/user",{}).then(res => {
+      request.get("/refitcase",{}).then(res => {
         if(res.code === '-1'){
           this.$router.push("/man/login")
         }

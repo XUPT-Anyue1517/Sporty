@@ -491,7 +491,7 @@ CREATE TABLE `refit_case`  (
     `body` text DEFAULT NULL COMMENT '内容',
     `img` varchar(120) NOT NULL COMMENT '图片',
     `create_time` datetime(0) NOT NULL COMMENT '创建时间',
-    `view_counts` int(11) DEFAULT NULL COMMENT '浏览数量',
+    `view_counts` int(11) DEFAULT '0' COMMENT '浏览数量',
     `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;

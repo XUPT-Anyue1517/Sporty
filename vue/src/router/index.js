@@ -41,8 +41,8 @@ const routes = [
       name: 'CarStoreMan',
       component: () => import("@/views/CarStoreMan")
     }, {
-      path: '/man/refitblogman',
-      name: 'RefitBlogMan',
+      path: '/man/refitcaseman',
+      name: 'RefitCaseMan',
       component: () => import("@/views/RefitCaseMan")
     }, {
       path: '/man/refitman',
