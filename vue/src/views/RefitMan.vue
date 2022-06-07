@@ -95,6 +95,9 @@
               <el-option label="进气排气" value="进气排气" />
             </el-select>
           </el-form-item>
+          <el-form-item label="品牌">
+            <el-input v-model="form.brand" style="width:80%"></el-input>
+          </el-form-item>
           <el-form-item label="定价">
             <el-input v-model="form.price" style="width:80%"></el-input>
           </el-form-item>
