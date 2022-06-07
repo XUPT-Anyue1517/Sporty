@@ -7,7 +7,7 @@
     </el-col>
     <el-col :span="9">
       <div class="purchaseRight">
-        <span class="title-text">专业制造通用外置高流量改装车油泵0580254044 300LPH越野车改装</span>
+        <span class="title-text">{{title}}</span>
         <br>
         <div class="text-info">
           <div style="display:inline">
@@ -98,14 +98,14 @@
                 支付
           </span>
           <span class="pay-card">
-          
-              <el-button color="#626aef" :dark="isDark">
+
+              <el-button color="#626aef" :dark="isDark" @click="ways1">
               支付宝<img src="../assets/img/car/car_img/car_purchase/bao.png" alt="">
               </el-button>
-              <el-button color="#626aef" :dark="isDark">
+              <el-button color="#626aef" :dark="isDark" @click="ways2">
               微信<img src="../assets/img/car/car_img/car_purchase/wechat.png" alt="">
               </el-button>
-              <el-button color="#626aef" :dark="isDark">
+              <el-button color="#626aef" :dark="isDark" @click="ways3">
               银行卡<img src="../assets/img/car/car_img/car_purchase/car.png" alt="">
               </el-button>
           </span>
@@ -138,6 +138,8 @@ export default {
     }
   },
   setup(){
+
+    const title = ref("专业制造通用外置高流量改装车油泵0580254044 300LPH越野车改装");
 
     const value1 = ref('');
     const value2 = ref('');
@@ -195,7 +197,21 @@ export default {
       
     };
 
+    const payWay = ref("")
 
+    function ways1(){
+      payWay.value = "支付宝";
+      console.log("^^^"+payWay.value);
+    }
+
+     function ways2(){
+      payWay.value = "微信";
+      console.log("^^^"+payWay.value);
+    }
+     function ways3(){
+      payWay.value = "银行卡";
+      console.log("^^^"+payWay.value);
+    }
 
     return {
       options,
@@ -205,8 +221,11 @@ export default {
       value1,
       value2,
       price,
-    
-      
+      ways1,
+      ways2,
+      ways3,
+      title,
+  
     }
   }
 }
