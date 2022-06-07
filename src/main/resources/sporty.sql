@@ -485,7 +485,7 @@ CREATE TABLE `refit_case`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 /*建立订单表*/
-DROP TABLE IF EXISTS `refit_case`;
+DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order`  (
     `id` bigint(20) NOT NULL COMMENT '主键',
     `number` bigint(20) NOT NULL COMMENT '订单号',
