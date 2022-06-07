@@ -43,7 +43,7 @@ const routes = [
     }, {
       path: '/man/refitblogman',
       name: 'RefitBlogMan',
-      component: () => import("@/views/RefitBlogMan")
+      component: () => import("@/views/RefitCaseMan")
     }, {
       path: '/man/refitman',
       name: 'RefitMan',
