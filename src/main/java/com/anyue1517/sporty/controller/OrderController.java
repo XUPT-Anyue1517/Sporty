@@ -40,7 +40,7 @@ public class OrderController {
         Page<Orders> pageInfo = new Page<>(pageNumber, pageSize);
         LambdaQueryWrapper<Orders> lambdaQueryWrapper = new LambdaQueryWrapper<>();
 
-        lambdaQueryWrapper.like(StringUtils.isNotEmpty(search), Orders::getNumber, search);
+        lambdaQueryWrapper.like(StringUtils.isNotEmpty(search), Orders::getName, search);
 
         lambdaQueryWrapper.orderByDesc(Orders::getPayTime);
 
@@ -62,7 +62,7 @@ public class OrderController {
         //Long customerId = BaseContext.getCurrentId();
         //order.setCustomerId(customerId);
 
-        if (order.getTotalPrice() == null || order.getPrice() == null){
+        if (order.getTotalPrice() == null || order.getPrice() == null) {
             return Result.error("-1", "该车暂无报价！");
         }
         //获取唯一id
@@ -75,6 +75,18 @@ public class OrderController {
         order.setPayTime(LocalDateTime.now());
 
         ordersService.save(order);
+        return Result.success();
+    }
+
+    /**
+     * 订单模块删除功能
+     *
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public Result<?> delete(@PathVariable long id) {
+        ordersService.removeById(id);
         return Result.success();
     }
 }
