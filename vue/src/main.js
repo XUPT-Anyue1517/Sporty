@@ -9,6 +9,9 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+
+
+
 import 'bootstrap'
 import 'jquery'
 
