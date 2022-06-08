@@ -11,6 +11,8 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping("/order")
 public class OrderController {
@@ -68,6 +70,9 @@ public class OrderController {
 
         //使用唯一id作为订单号注入
         order.setNumber(id);
+
+        //注入当前支付时间
+        order.setPayTime(LocalDateTime.now());
 
         ordersService.save(order);
         return Result.success();

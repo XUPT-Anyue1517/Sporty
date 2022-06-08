@@ -47,7 +47,7 @@ public class Orders {
     private LocalDateTime createTime;
 
     //支付时间
-    @TableField(fill = FieldFill.INSERT)
+    //@TableField(fill = FieldFill.INSERT)
     private LocalDateTime payTime;
 
     //更新时间
