@@ -55,7 +55,8 @@ public class LoginCheckFilter implements Filter {
                 "/user/sendMsg",
                 "/user/loginByCode",
                 "/order",
-                "/refitcase"
+                "/refitcase",
+                "/refit"
                 //"/employee/login",
                 //"/employee/logout",
                 //"/common/**",

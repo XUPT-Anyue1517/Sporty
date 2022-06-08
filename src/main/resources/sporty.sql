@@ -571,15 +571,15 @@ CREATE TABLE `orders`  (
 -- ----------------------------
 -- Records of rculture
 -- ----------------------------
-//文化表
+-- 文化表
 DROP TABLE IF EXISTS `culture`;
 CREATE TABLE `culture`  (
-                            `id` bigint(30) NOT NULL COMMENT '主键',
-                            `kind` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '种类',
-                            `info` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '品牌介绍',
-                            `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-                            `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
-                            PRIMARY KEY (`id`) USING BTREE
+    `id` bigint(30) NOT NULL COMMENT '主键',
+    `kind` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '种类',
+    `info` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '品牌介绍',
+    `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+    `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+    PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `culture` VALUES (1, '外观改装', '车身外观的改装一直占有相当重要的地位，一般的外观改装主要包括贴纸、车身彩绘、车标、前后杠、大包围、高尾翼、开孔发动机盖、窗边晴雨挡、HID氙气大灯、前大灯装饰板、前后透视镜、降低车身等。改变车身外观最迅速、最简便的方式就是加装空气动力套件。所谓空气动力套件就是俗称的大包，基本上包含了进气格栅、车侧扰流板(侧裙)、后包围以及后扰板流(尾翼)等，有时我们也会看到在原厂保险杠会加装一片下扰流板，一般则称之为下巴：若是没有更换前后保险的杆，只是加装下巴，也有人称其为小包。加装空气动力套件除了可使车辆更具可看性，以及更具运动气息外，最重要的还是要有良好的性能改善效果。加装空气动力套件并不会使车辆跑得更快，严格地说，好的套件通常会降低车速，能够使车有更稳定的表现。', '2022-06-08 14:24:17', '2022-06-08 14:25:20');
