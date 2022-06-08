@@ -30,9 +30,9 @@
       <el-table-column prop="name" label="名称" width="180" sortable/>
       <el-table-column prop="type" label="类别" width="180"/>
       <el-table-column prop="brand" label="品牌" width="180"/>
-      <el-table-column prop="price" label="定价" width="180"/>
-      <el-table-column prop="salePrice" label="售价" width="180"/>
-      <el-table-column prop="repertory" label="库存" width="180"/>
+      <el-table-column prop="price" label="定价" width="120"/>
+      <el-table-column prop="salePrice" label="售价" width="120"/>
+      <el-table-column prop="repertory" label="库存" width="120"/>
       <el-table-column label="操作" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"
