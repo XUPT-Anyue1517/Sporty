@@ -5,6 +5,7 @@ import com.anyue1517.sporty.entity.RefitCase;
 import com.anyue1517.sporty.service.RefitCaseService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,13 +25,15 @@ public class RefitCaseController {
      * @return
      */
     @GetMapping
-    public Result<?> page(int pageNum, int pageSize) {
+    public Result<?> page(int pageNum, int pageSize,String search) {
         //构造分页构造器
         Page<RefitCase> pageInfo = new Page<>(pageNum, pageSize);
         //构造条件构造器
         LambdaQueryWrapper<RefitCase> queryWrapper = new LambdaQueryWrapper<>();
         //添加排序条件
         queryWrapper.orderByDesc(RefitCase::getUpdateTime);
+        //添加查询条件
+        queryWrapper.like(StringUtils.isNotBlank(search),RefitCase::getTitle,search);
         //开始分页查询
         refitCaseService.page(pageInfo, queryWrapper);
         return Result.success(pageInfo);
