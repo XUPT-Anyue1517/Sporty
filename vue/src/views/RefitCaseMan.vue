@@ -8,7 +8,7 @@
 
 <!-- 搜索区域 -->
     <div style="margin:10px 0">
-      <el-input v-model="name" placeholder="改装案例" style="width:20%" clearable />
+      <el-input v-model="name" placeholder="改装案例" style="width:20%" @keyup.enter="load" clearable />
       <el-button type="primary" style="margin:0 10px" @click="load">搜索</el-button>
     </div>
 
@@ -22,7 +22,6 @@
           <el-image
               style="width: 250px; height: 150px;border-radius: 10px"
               :src="scope.row.img"
-              :preview-src-list="[scope.row.img]"
           />
         </template>
       </el-table-column>
@@ -146,7 +145,7 @@ export default {
         params:{
           pageNum:this.currentPage4,
           pageSize:this.pageSize4,
-          name:this.name
+          search:this.name
         }
       }).then(res => {
         console.log(res);

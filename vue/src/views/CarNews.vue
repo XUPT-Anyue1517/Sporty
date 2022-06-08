@@ -21,18 +21,15 @@
     </el-row>
 
     <el-row :gutter="24" style="margin:0 130px">
-      <el-col :span="6" v-for="item in showCar" :key="item">
-        <el-card style="width:290px;margin:20px 0">
+      <el-col :span="6" v-for="item in showCar" :key="item" style="">
+        <el-card style="width:290px;margin:20px 0;cursor: pointer" @click="handleOpen(item.title)">
           <!--          <img :src="item" class="image" style="width:250px;height:190px"/>-->
           <div style="overflow: hidden;width:250px;height:190px" >
-            <el-image  :src="item" :fit="fill" class="image" style="width: 100%" />
+            <el-image  :src="item.img" :fit="fill" class="image" style="width: 100%" />
           </div>
 
           <div style="padding: 14px">
-            <span>Yummy hamburger</span>
-            <div class="bottom">
-              <el-button text class="button">Operating</el-button>
-            </div>
+            <span>{{ item.title }}</span>
           </div>
         </el-card>
       </el-col>
@@ -45,6 +42,8 @@
 </template>
 
 <script>
+import request from "@/utils/request";
+
 export default {
   name: "CarNews",
   data(){
@@ -61,19 +60,36 @@ export default {
         require("../assets/img/car/car_img/car_News/CarNews_right_2.gif"),
 
       ],
-      showCar:[
-        require("../assets/img/car/car_img/car_Case/show1.jpg"),
-        require("../assets/img/car/car_img/car_Case/show2.jpg"),
-        require("../assets/img/car/car_img/car_Case/show3.jpg"),
-        require("../assets/img/car/car_img/car_Case/show4.jpg"),
-        require("../assets/img/car/car_img/car_Case/show5.jpg"),
-        require("../assets/img/car/car_img/car_Case/show6.jpg"),
-        require("../assets/img/car/car_img/car_Case/show7.jpg"),
-        require("../assets/img/car/car_img/car_Case/show8.jpg"),
-      ],
+      showCar:[],
 
     }
   },
+  created() {
+    this.load()
+  },
+  methods:{
+    load(){
+      request.get("/refitcase",{
+        params:{
+          pageNum:1,
+          pageSize:100,
+          search:''
+        }
+      }).then(res => {
+        console.log(res);
+        this.showCar = res.data.records
+        this.total = res.data.total
+      })
+    },
+    handleOpen(title){
+      this.$router.push({
+        path: '/refitcaseessay',
+        query: {
+          search: title
+        }
+      })
+    }
+  }
 }
 </script>
 

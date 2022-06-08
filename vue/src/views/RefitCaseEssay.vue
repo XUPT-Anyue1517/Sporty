@@ -1,11 +1,20 @@
 <template>
   
   <el-row>
-    <el-col :span="11" :offset="4">
-      <h1>张嘉祺吃狗屎</h1>
-      <span>车型：丰田 普拉多</span>
-      <span>编号：664654</span>
-      <span>帖子类型：案例</span>
+    <el-col :span="12" :offset="4">
+      <div style="width: 100%;padding: 10px 10px;border-left: #ec1111 5px solid">
+        <h2>{{ title }}</h2>
+        <span>车型：{{ car }}</span>&nbsp;&nbsp;
+        <span>发布时间：{{ createTime }}</span>&nbsp;&nbsp;
+        <span>帖子类型：{{ type }}</span>&nbsp;&nbsp;
+      </div>
+      <div style="width: 100%;height: 300px;margin-top: 20px">
+        <img :src="img" alt="" style="width: 100%;">
+
+        <div style="margin-top: 20px">
+          <p style="line-height: 35px;font-size: 19px"> &nbsp;&nbsp;&nbsp;&nbsp;{{body}}</p>
+        </div>
+      </div>
     </el-col>
 
     <el-col :span="6">
@@ -36,6 +45,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas} from "@fortawesome/free-solid-svg-icons";
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import request from "@/utils/request";
 library.add(fas,fab,far);
 
 
@@ -51,12 +61,43 @@ export default {
         require("../assets/img/car/car_img/car_Case/4.webp")
       ],
       carCaseEssayRight_img:require("../assets/img/car/car_img/car_Case_Essay/img-right.png"),
-      
+      showEssay:[],
+      title:'',
+      car:'',
+      img:'',
+      createTime:'',
+      body:'',
+      type:''
+
     }
   },
   setup(){
     const value = ref(new Date());
     return value
+  },
+  created() {
+    this.load()
+  },
+  methods:{
+    load(){
+      this.search = this.$route.query.search
+
+      request.get("/refitcase",{
+        params:{
+          pageNum:1,
+          pageSize:100,
+          search:this.search
+        }
+      }).then(res => {
+        console.log(res);
+        this.title = res.data.records[0].title
+        this.car = res.data.records[0].car
+        this.img = res.data.records[0].img
+        this.createTime = res.data.records[0].createTime
+        this.body = res.data.records[0].body
+        this.type = res.data.records[0].type
+      })
+    }
   }
 }
 </script>

@@ -32,7 +32,7 @@
             <div style="float: right;width: 50%">
 
               <el-button type="primary" style="margin:0 10px;float: right" @click="load">搜索</el-button>
-              <el-input v-model="search" placeholder="请输入关键字" style="width: 50%;float: right"  clearable />
+              <el-input v-model="search" placeholder="请输入关键字" @keyup.enter="load" style="width: 50%;float: right"  clearable />
 
             </div>
           </div>
