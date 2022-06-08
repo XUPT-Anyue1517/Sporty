@@ -91,7 +91,7 @@
                 总价
           </span>
           <span class="price-text title-info-number" style="font-size:18px">
-                {{price*num}}元
+                {{price*num}}万元
             </span>
         </div>
 
@@ -139,7 +139,7 @@
               单价：{{onePrice*10000}}
             </div>
             <div style="width: 300px;margin: 20px auto">
-              总价：{{price*num}}
+              总价：{{onePrice*10000*num}}
             </div>
 
 <!--            <div style="width: 300px;margin: 20px auto">-->
@@ -215,7 +215,7 @@ export default {
            payWay:this.payWay,
            carStore:this.carStore,
            price:this.onePrice*10000,
-           totalPrice:this.price*this.num
+           totalPrice:this.price*this.num*10000
          }).then(res => {
            if(res.code === '0'){
              this.$router.push("/refitpurchasesuccess")
@@ -242,9 +242,15 @@ export default {
 
          this.purchaseLeft_img = res.data.records[0].img
          this.carPrice = res.data.records[0].price
-         this.onePrice = res.data.records[0].price.split("-")[0]
-         this.price = res.data.records[0].price.split("-")[0] * 10000
+         let str = res.data.records[0].price.indexOf('-')
+         if(str !== -1){
+           this.onePrice = res.data.records[0].price.split("-")[0]
+           this.price = res.data.records[0].price.split("-")[0]
+         }else if (str === -1) {
 
+           this.onePrice = res.data.records[0].price.split("万")[0]
+           this.price = res.data.records[0].price.split("万")[0]
+         }
          // this.carCountry = res.data.records[0].country
          // this.carIntro = res.data.records[0].intro
        })

@@ -1,10 +1,7 @@
 <template>
-  <div class="home" style="padding:10px">
+  <div class="home" style="padding:10px;width: 79%">
     <!-- 功能区域 -->
-    <div style="margin:10px 0">
-      <el-button type="primary" @click="add">新增</el-button>
 
-    </div>
 
 <!-- 搜索区域 -->
     <div style="margin:10px 0">
@@ -14,23 +11,16 @@
 
     <el-table :data="tableData" border stripe style="width: 99%">
       <el-empty description="description" />
-      <el-table-column prop="id" label="ID" width="80" sortable />
-      <el-table-column prop="img" label="用户头像" width="120">
-<!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
-
-        <template #default="scope">
-          <el-image
-              style="width: 90px; height: 90px;border-radius: 10px"
-              :src="scope.row.img"
-              :preview-src-list="[scope.row.img]"
-          />
-        </template>
-      </el-table-column>
-      <el-table-column prop="name" label="用户名" width="180"/>
-      <el-table-column prop="phone" label="手机号码" width="180"/>
-      <el-table-column prop="idCard" label="身份证" width="180"/>
-      <el-table-column prop="email" label="邮箱" width="180"/>
-      <el-table-column label="操作" >
+      <el-table-column fixed  prop="number" label="订单号" width="230" sortable />
+      <el-table-column prop="customerId" label="用户ID" width="230"/>
+      <el-table-column prop="name" label="商品名称" width="180"/>
+      <el-table-column prop="count" label="数量" width="80"/>
+      <el-table-column prop="payWay" label="支付方式" width="180"/>
+      <el-table-column prop="carStore" label="门店" width="180"/>
+      <el-table-column prop="price" label="单价" width="120"/>
+      <el-table-column prop="totalPrice" label="总价" width="120"/>
+      <el-table-column prop="createTime" label="下单时间" width="180"/>
+      <el-table-column fixed="right" label="操作" width="180" >
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)"
             >编辑</el-button
@@ -115,8 +105,9 @@ import { assertExpressionStatement } from '@babel/types'
 import  request  from '@/utils/request'
 
 
+
 export default {
-  name: 'User',
+  name: 'OrderMan',
   components: {
     
   },
@@ -140,11 +131,11 @@ export default {
   },
   methods: {
     load(){
-      request.get("/user",{
+      request.get("/order",{
         params:{
-          pageNum:this.currentPage4,
+          pageNumber:this.currentPage4,
           pageSize:this.pageSize4,
-          name:this.name
+          search:this.name
         }
       }).then(res => {
         console.log(res);
@@ -158,7 +149,7 @@ export default {
     },
     save(){
       if(this.form.id){
-        request.put("/user",this.form).then(res => {
+        request.put("/order",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("更新成功")
@@ -169,7 +160,7 @@ export default {
         this.dialogVisible = false
         })
       } else{
-        request.post("/user",this.form).then(res => {
+        request.post("/order",this.form).then(res => {
           console.log(res)
           if(res.code == 0 ){
             this.$message.success("新增成功")
@@ -188,7 +179,7 @@ export default {
     },
     handleDelete(id){
       console.log(id);
-      request.delete("/user/" + id).then(res => {
+      request.delete("/order/" + id).then(res => {
         if(res.code == 0 ){
             this.$message.success("删除成功")
           }else{
@@ -215,7 +206,7 @@ export default {
       this.update()
     },
     update() {
-      request.put("/user", this.form).then(res => {
+      request.put("/order", this.form).then(res => {
         console.log(res)
         if (res.code === '0') {
           this.$message({
@@ -234,7 +225,7 @@ export default {
       })
     },
     checkLogin(){
-      request.get("/user",{}).then(res => {
+      request.get("/order",{}).then(res => {
         if(res.code === '-1'){
           this.$router.push("/man/login")
         }

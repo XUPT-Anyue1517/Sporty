@@ -31,7 +31,9 @@ public class OrderController {
      * @return
      */
     @GetMapping
-    public Result<?> page(int pageNumber, int pageSize, String search) {
+    public Result<?> page(@RequestParam(defaultValue = "1") Integer pageNumber,
+                          @RequestParam(defaultValue = "5") Integer pageSize,
+                          @RequestParam(defaultValue = "") String search) {
 
         Page<Orders> pageInfo = new Page<>(pageNumber, pageSize);
         LambdaQueryWrapper<Orders> lambdaQueryWrapper = new LambdaQueryWrapper<>();

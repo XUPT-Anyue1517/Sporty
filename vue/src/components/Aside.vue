@@ -18,8 +18,8 @@
         <el-menu-item index="/man/carman">
           <span>车型信息</span>
         </el-menu-item>
-        <el-menu-item index="/man/carorderman">
-          <span>车辆订单</span>
+        <el-menu-item index="/man/orderman">
+          <span>订单管理</span>
         </el-menu-item>
         <el-menu-item index="/man/carblogman">
           <span>汽车资讯</span>
@@ -32,9 +32,6 @@
         </el-menu-item>
         <el-menu-item index="/man/refitman">
           <span>改件信息</span>
-        </el-menu-item>
-        <el-menu-item index="/man/refitorderman">
-          <span>改件订单</span>
         </el-menu-item>
         <el-menu-item index="/man/refitcaseman">
           <span>改装文章</span>

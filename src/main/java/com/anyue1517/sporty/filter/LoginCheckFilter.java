@@ -53,6 +53,7 @@ public class LoginCheckFilter implements Filter {
                 "/sporty_upload/**",
                 "/user/sendMsg",
                 "/user/loginByCode",
+                "/order"
                 //"/employee/login",
                 //"/employee/logout",
                 //"/common/**",
