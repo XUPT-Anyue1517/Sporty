@@ -8,8 +8,11 @@
         <el-image :src="ri_img">
         </el-image> 
         </el-col>
-         <el-col :span="12" style="padding-top:40px">
-          <h3 class="show-kind" v-for="item in allkind" :key="item">{{item}}</h3>
+         <el-col :span="12" style="padding-top:30px;">
+          <h3 class="show-kind" v-for="item in allkind" :key="item">
+          {{item}}
+          <font-awesome-icon :icon="['fas','star']" transform="shrink-6  "  spin/>
+          </h3>
       
       </el-col>
     </el-row>
@@ -18,12 +21,24 @@
   <el-table
     :data="tableData"
     style="width: 100%"
+  
     stripe
-    :row-class-name="tableRowClassName"
-    
   >
-    <el-table-column prop="kind" label="Modified" width="200" align="center" ></el-table-column>
-    <el-table-column prop="info" label="" width="800"  ></el-table-column>
+    <el-table-column  label="Modified" width="200" align="center" >
+        <template #default="scope">
+          <span >
+            <el-button round size="large" >{{ scope.row.kind }}
+              <font-awesome-icon :icon="['fas','circle-arrow-right']" transform="shrink-2  right-6" />
+            </el-button>
+          </span>
+      </template>
+    </el-table-column>
+    <el-table-column  label="" width="800"  >
+
+       <template #default="scope">
+          <span class="show-info" >&nbsp;&nbsp;&nbsp;&nbsp;{{scope.row.info }}</span>
+      </template>
+    </el-table-column>
  
   </el-table>
   </el-col>
@@ -38,7 +53,11 @@
 import { Search } from '@element-plus/icons-vue'
 import request from "@/utils/request";
 import router from "@/router";
-import { reactive } from 'vue-demi';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas} from "@fortawesome/free-solid-svg-icons";
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+library.add(fas,fab,far);
 export default {
   name: "RefitCulture",
   data(){
@@ -70,18 +89,6 @@ export default {
         this.total = res.data.total
       })
     },
-    tableRowClassName({row, rowIndex}) {
-        if (rowIndex === 1) {
-          return 'warning-row';
-        } else if (rowIndex === 3) {
-          return 'success-row';
-        }
-        return '';
-      }
-
-
-    
-    
   },
   
 
@@ -102,7 +109,17 @@ export default {
 }
 .show-kind{
   display: inline-block;
-  margin:10px 60px;
-  color:#6b7785;
+  margin:25px 40px;
+  color:black;
+  font-weight: 500;
+  font-family: STHeiti  ;
+}
+
+.show-info{
+  color:#4e5969;
+  margin:20px 10px;
+  font-family: STKaiti;
+
+  font-size: large;
 }
 </style>
