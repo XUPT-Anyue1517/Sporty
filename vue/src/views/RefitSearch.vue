@@ -5,23 +5,25 @@
       <el-row justify="center">
         <refit-search-header-main/>
 
-        <div style="width: 75%;height: 800px;margin: 15px auto">
+        <div style="width: 75%;margin: 15px auto">
           <h2 style="border-bottom: 5px #ec1111 solid;
                       text-align: center;font-weight: bolder;width: 40%;margin: 20px auto">
             精品轮毂
           </h2>
           <el-table :data="tableData_LG" style="width: 100%">
-            <el-table-column  prop="img" label="图片" width="330">
+            <el-table-column  prop="img" label="图片" width="130">
               <template #default="scope">
                 <el-image
                     style="width: 90px; height: 90px;border-radius: 10px"
                     :src="scope.row.img"/>
               </template>
             </el-table-column>
-            <el-table-column prop="name" label="名称" width="250" />
-            <el-table-column prop="type" label="类型" width="200" />
-            <el-table-column prop="country" label="国别" width="200" />
-            <el-table-column  width="184" label="查看详情"  >
+            <el-table-column prop="name" label="名称" width="450" />
+            <el-table-column prop="type" label="类型" width="100" />
+            <el-table-column prop="brand" label="品牌" width="100" />
+            <el-table-column prop="price" label="定价(元)" width="100" />
+            <el-table-column prop="salePrice" label="售价(元)" width="100" />
+            <el-table-column  width="184" label="查看详情">
             <template #default="scope">
               <el-button size="large" @click="handleOpen(scope.row.name)">详情页面></el-button>
             </template>
@@ -36,16 +38,18 @@
             刹车系统
           </h2>
           <el-table :data="tableData_SC" style="width: 100%">
-            <el-table-column  prop="img" label="图片" width="330">
+            <el-table-column  prop="img" label="图片" width="130">
               <template #default="scope">
                 <el-image
                     style="width: 90px; height: 90px;border-radius: 10px"
                     :src="scope.row.img"/>
               </template>
             </el-table-column>
-            <el-table-column prop="name" label="名称" width="250" />
-            <el-table-column prop="type" label="类型" width="200" />
-            <el-table-column prop="country" label="国别" width="200" />
+            <el-table-column prop="name" label="名称" width="450" />
+            <el-table-column prop="type" label="类型" width="100" />
+            <el-table-column prop="brand" label="品牌" width="100" />
+            <el-table-column prop="price" label="定价(元)" width="100" />
+            <el-table-column prop="salePrice" label="售价(元)" width="100" />
             <el-table-column  width="184" label="查看详情"  >
               <template #default="scope">
                 <el-button size="large" @click="handleOpen(scope.row.name)">详情页面></el-button>
@@ -61,16 +65,18 @@
             避震悬挂
           </h2>
           <el-table :data="tableData_BZ" style="width: 100%">
-            <el-table-column  prop="img" label="图片" width="330">
+            <el-table-column  prop="img" label="图片" width="130">
               <template #default="scope">
                 <el-image
                     style="width: 90px; height: 90px;border-radius: 10px"
                     :src="scope.row.img"/>
               </template>
             </el-table-column>
-            <el-table-column prop="name" label="名称" width="250" />
-            <el-table-column prop="type" label="类型" width="200" />
-            <el-table-column prop="country" label="国别" width="200" />
+            <el-table-column prop="name" label="名称" width="450" />
+            <el-table-column prop="type" label="类型" width="100" />
+            <el-table-column prop="brand" label="品牌" width="100" />
+            <el-table-column prop="price" label="定价(元)" width="100" />
+            <el-table-column prop="salePrice" label="售价(元)" width="100" />
             <el-table-column  width="184" label="查看详情"  >
               <template #default="scope">
                 <el-button size="large" @click="handleOpen(scope.row.name)">详情页面></el-button>
@@ -78,33 +84,6 @@
             </el-table-column>>
           </el-table>
         </div>
-
-        <div style="width: 75%;height: 800px;margin: 15px auto 100px">
-          <h2 style="border-bottom: 5px #ec1111 solid;
-                      text-align: center;font-weight: bolder;width: 40%;margin: 20px auto">
-            进气排气
-          </h2>
-          <el-table :data="tableData_PQ" style="width: 100%">
-            <el-table-column  prop="img" label="图片" width="330">
-              <template #default="scope">
-                <el-image
-                    style="width: 90px; height: 90px;border-radius: 10px"
-                    :src="scope.row.img"/>
-              </template>
-            </el-table-column>
-            <el-table-column prop="name" label="名称" width="250" />
-            <el-table-column prop="type" label="类型" width="200" />
-            <el-table-column prop="country" label="国别" width="200" />
-            <el-table-column  width="184" label="查看详情"  >
-              <template #default="scope">
-                <el-button size="large" @click="handleOpen(scope.row.name)">详情页面></el-button>
-              </template>
-            </el-table-column>>
-          </el-table>
-        </div>
-
-
-
 
       </el-row>
     </div>
@@ -123,42 +102,42 @@ export default {
   data(){
     return{
       path:this.$route.path,
-      tableData_LG:[{
-        img:'',
-        name:'',
-        type:'精品轮毂',
-        country:''
-      },{
-        img:'',
-        name:'',
-        type:'精品轮毂',
-        country:''
-      },{
-        img:'',
-        name:'',
-        type:'精品轮毂',
-        country:''
-      },{
-        img:'',
-        name:'',
-        type:'精品轮毂',
-        country:''
-      },{
-        img:'',
-        name:'',
-        type:'精品轮毂',
-        country:''
-      },{
-        img:'',
-        name:'',
-        type:'精品轮毂',
-        country:''
-      }
+      tableData_LG:[
+      //     {
+      //   img:'',
+      //   name:'',
+      //   type:'精品轮毂',
+      //   country:''
+      // },{
+      //   img:'',
+      //   name:'',
+      //   type:'精品轮毂',
+      //   country:''
+      // },{
+      //   img:'',
+      //   name:'',
+      //   type:'精品轮毂',
+      //   country:''
+      // },{
+      //   img:'',
+      //   name:'',
+      //   type:'精品轮毂',
+      //   country:''
+      // },{
+      //   img:'',
+      //   name:'',
+      //   type:'精品轮毂',
+      //   country:''
+      // },{
+      //   img:'',
+      //   name:'',
+      //   type:'精品轮毂',
+      //   country:''
+      // }
 
       ],
       tableData_SC:[],
       tableData_BZ:[],
-      tableData_PQ:[],
       logos_img:require("../assets/img/car/car_logo/audi.png"),
       pageNum:1,
       pageSize: 100,
@@ -175,29 +154,35 @@ export default {
     loadPage(){
     },
     load(){
-      this.carName = this.$route.query.chineseName
-      request.get("/brand",{
+      // this.carName = this.$route.query.chineseName
+      request.get("/refit",{
         params:{
-          pageNum:'',
-          pageSize:'',
-          search:this.carName
+          pageNum:1,
+          pageSize:1000,
+          search:this.search
         }
       }).then(res => {
         console.log(res);
-        // this.tableData = res.data.records
-        // this.total = res.data.total
-
-        this.carLogo = res.data.records[0].logo
-        this.carEngName = res.data.records[0].englishName
-        this.carCountry = res.data.records[0].country
-        this.carIntro = res.data.records[0].intro
+        let lg=0,sc=0
+        for(let i = 0;i < res.data.records.length;i++){
+          if(res.data.records[i].type === '精品轮毂'){
+            this.tableData_LG[lg] = res.data.records[i]
+            lg++
+          }else if(res.data.records[i].type === '刹车系统'){
+            this.tableData_SC[lg] = res.data.records[i]
+            lg++
+          }else if(res.data.records[i].type === '避震悬挂'){
+            this.tableData_BZ[lg] = res.data.records[i]
+            lg++
+          }
+        }
       })
     },
-    handleOpen(chineseName){
+    handleOpen(name){
       this.$router.push({
-        path: '路由地址',
+        path: '/refitpurchase',
         query: {
-          chineseName: chineseName
+          name: name
         }
       })
     }

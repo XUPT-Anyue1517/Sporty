@@ -10,6 +10,7 @@
         text-color="#fff"
         active-text-color="#ff2f2f"
         @select="handleSelect"
+
     >
 
       <div style="width:350px;padding-left:60px;padding-top:4px;font-weight:bold;color:#343536;font-size:20px">

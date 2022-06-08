@@ -13,9 +13,9 @@
       <el-empty description="description" />
       <el-table-column fixed  prop="number" label="订单号" width="230" sortable />
       <el-table-column prop="customerId" label="用户ID" width="230"/>
-      <el-table-column prop="name" label="商品名称" width="180"/>
+      <el-table-column prop="name" label="商品名称" width="380"/>
       <el-table-column prop="count" label="数量" width="80"/>
-      <el-table-column prop="payWay" label="支付方式" width="180"/>
+      <el-table-column prop="payWay" label="支付方式" width="100"/>
       <el-table-column prop="carStore" label="门店" width="180"/>
       <el-table-column prop="price" label="单价" width="120"/>
       <el-table-column prop="totalPrice" label="总价" width="120"/>
