@@ -25,7 +25,9 @@ public class RefitCaseController {
      * @return
      */
     @GetMapping
-    public Result<?> page(int pageNum, int pageSize,String search) {
+    public Result<?> page(@RequestParam(defaultValue = "1") Integer pageNum,
+                          @RequestParam(defaultValue = "5") Integer pageSize,
+                          @RequestParam(defaultValue = "") String search) {
         //构造分页构造器
         Page<RefitCase> pageInfo = new Page<>(pageNum, pageSize);
         //构造条件构造器
