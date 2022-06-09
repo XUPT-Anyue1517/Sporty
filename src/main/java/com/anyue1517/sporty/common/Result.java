@@ -5,6 +5,8 @@ public class Result<T> {
     private String msg;
     private T data;
 
+
+
     public String getCode() {
         return code;
     }
