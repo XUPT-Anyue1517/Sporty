@@ -56,7 +56,9 @@ public class LoginCheckFilter implements Filter {
                 "/user/loginByCode",
                 "/order",
                 "/refitcase",
-                "/refit"
+                "/refit",
+                "/carai/upload",
+                "/carai",
                 //"/employee/login",
                 //"/employee/logout",
                 //"/common/**",

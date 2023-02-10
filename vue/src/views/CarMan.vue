@@ -15,12 +15,12 @@
     <el-table :data="tableData" border stripe style="width: 99%">
       <el-empty description="description" />
 <!--      <el-table-column prop="id" label="ID" width="80" sortable />-->
-      <el-table-column prop="img" label="汽车图片" width="260">
+      <el-table-column prop="img" label="汽车图片" width="280">
 <!--        <img :src="userImg" alt="" width="90" height="90" style="border-radius: 10px">-->
 
         <template #default="scope">
           <el-image
-              style="width: 230px; height: 180px;border-radius: 10px"
+              style="width: 250px; height: 180px;border-radius: 10px"
               :src="scope.row.img"
           />
         </template>

@@ -17,10 +17,10 @@
         <img src="../assets/img/Sporty.png" width="180" height="50">
       </div>
       <el-menu-item index="/index"><span class="header_text">首页</span></el-menu-item>
-      <el-menu-item index="/refitcase"><span  class="header_text">改装案例</span></el-menu-item>
-      <el-menu-item index="/refitculture"><span  class="header_text">改装文化</span></el-menu-item>
-      <el-menu-item index="/refitsearch"><span  class="header_text">改件查询</span></el-menu-item>
-      <el-menu-item index="/carnews"><span  class="header_text">汽车资讯</span></el-menu-item>
+      <el-menu-item index="/refit"><span  class="header_text">汽车改装</span></el-menu-item>
+      <el-menu-item index="/blog"><span  class="header_text">汽车博客</span></el-menu-item>
+      <el-menu-item index="/carai"><span  class="header_text">汽车识别</span></el-menu-item>
+      <el-menu-item index="/carlease"><span  class="header_text">汽车租赁</span></el-menu-item>
       <el-menu-item index="/brandsearch"><span  class="header_text">汽车查询</span></el-menu-item>
       <el-sub-menu index="2">
         <template #title><span  class="header_text">汽车周边</span></template>

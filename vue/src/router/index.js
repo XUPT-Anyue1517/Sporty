@@ -88,21 +88,21 @@ const routes = [
       name: 'Index',
       component: () => import("@/views/Index")
     }, {
-      path: '/refitcase',
-      name: 'RefitCase',
-      component: () => import("@/views/RefitCase")
+      path: '/blog',
+      name: 'Blog',
+      component: () => import("@/views/Blog")
     }, {
-      path: '/refitculture',
-      name: 'RefitCulture',
-      component: () => import("@/views/RefitCulture")
+      path: '/carAI',
+      name: 'CarAI',
+      component: () => import("@/views/CarAI")
     }, {
-      path: '/refitsearch',
-      name: 'RefitSearch',
-      component: () => import("@/views/RefitSearch")
+      path: '/Refit',
+      name: 'Refit',
+      component: () => import("@/views/Refit")
     }, {
-      path: '/carnews',
-      name: 'CarNews',
-      component: () => import("@/views/CarNews")
+      path: '/carlease',
+      name: 'CarLease',
+      component: () => import("@/views/CarLease")
     }, {
       path: '/brandsearch',
       name: 'BrandSearch',
