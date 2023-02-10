@@ -81,6 +81,4 @@ public class RefitController {
         refitService.removeById(id);
         return Result.success();
     }
-
-
 }
