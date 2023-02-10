@@ -75,7 +75,7 @@ export default {
         params:{
           pageNum:1,
           pageSize:100,
-          search:''
+          search:'',
         }
       }).then(res => {
         console.log(res);
