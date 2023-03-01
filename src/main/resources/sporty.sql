@@ -592,3 +592,17 @@ INSERT INTO `culture` VALUES (7, '底盘悬挂', '关系到行车操控的最大
 INSERT INTO `culture` VALUES (8, '轮胎', '轮胎也是很重要的，因为强大的动力也好，灵敏的刹车也好，最终还是要靠轮胎的抓地来实现的，而且更加专业的职业比赛车，场地比赛的干燥路面和雨天都要用不同的胎，越野比赛更是对轮胎提出更高要求。', '2022-06-08 14:24:17', '2022-06-08 14:25:20');
 INSERT INTO `culture` VALUES (9, 'ECU系统', '中国大陆针对汽车调教ECU的基本分为两种方式：外挂式。植入式。外挂式的主要针对日韩车系，有著名的HKS。植入式的有德国的Digi-Tec。后者也是大陆唯一注册合法的ECU升级软件。随着中国成为世界第一大汽车市场的到来，汽车改装也已经成为了各爱车人士津津乐道的话题。面对这个纷繁绚丽的改装世界，崇尚个性的你，还等什么', '2022-06-08 14:24:17', '2022-06-08 14:25:20');
 
+-- ----------------------------
+-- Table structure for carlease
+-- ----------------------------
+DROP TABLE IF EXISTS `car_lease`;
+CREATE TABLE `car_lease`  (
+    `id` bigint(20) NOT NULL COMMENT '主键',
+    `img` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片',
+    `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车名',
+    `type` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车辆类型',
+    `price` varchar(120) NOT NULL COMMENT '定价',
+    `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+    `update_time` datetime(0) NOT NULL COMMENT '更新时间',
+    PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;

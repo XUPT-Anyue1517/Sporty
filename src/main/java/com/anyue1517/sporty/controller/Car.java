@@ -83,7 +83,7 @@ public class Car {
         ImgfilePath = rootFilePath;
         ImgP =  originalFilename;
 //        car();
-        return Result.success("http://localhost"+ ":" +  "8080/cars/" + originalFilename);  // 返回结果 url
+        return Result.success("http://localhost:8080/cars/" + originalFilename);  // 返回结果 url
 
     }
 

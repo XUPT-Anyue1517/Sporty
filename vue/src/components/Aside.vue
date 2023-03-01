@@ -18,6 +18,9 @@
         <el-menu-item index="/man/carman">
           <span>车型信息</span>
         </el-menu-item>
+        <el-menu-item index="/man/carleaseman">
+          <span>租赁信息</span>
+        </el-menu-item>
         <el-menu-item index="/man/orderman">
           <span>订单管理</span>
         </el-menu-item>

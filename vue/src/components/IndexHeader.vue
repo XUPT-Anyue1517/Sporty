@@ -14,7 +14,7 @@
     >
 
       <div style="width:350px;padding-left:60px;padding-top:4px;font-weight:bold;color:#343536;font-size:20px">
-        <img src="../assets/img/Sporty.png" width="180" height="50">
+        <span style="color: #ff2f2f;font-size: 30px">汽车交流分享系统</span>
       </div>
       <el-menu-item index="/index"><span class="header_text">首页</span></el-menu-item>
       <el-menu-item index="/refit"><span  class="header_text">汽车改装</span></el-menu-item>

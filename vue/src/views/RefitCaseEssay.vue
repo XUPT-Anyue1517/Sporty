@@ -8,11 +8,12 @@
         <span>发布时间：{{ createTime }}</span>&nbsp;&nbsp;
         <span>帖子类型：{{ type }}</span>&nbsp;&nbsp;
       </div>
-      <div style="width: 100%;height: 300px;margin-top: 20px">
+      <div style="width: 100%;height: 300px;margin-top: 20px;margin-bottom: 100px">
         <img :src="img" alt="" style="width: 100%;">
 
-        <div style="margin-top: 20px">
-          <p style="line-height: 35px;font-size: 19px"> &nbsp;&nbsp;&nbsp;&nbsp;{{body}}</p>
+        <div style="margin-top: 20px;margin-bottom: 100px">
+          <p style="line-height: 35px;font-size: 19px;margin-bottom: 100px"> &nbsp;&nbsp;&nbsp;&nbsp;{{body}}</p>
+          <div style="padding-top: 100px"></div>
         </div>
       </div>
     </el-col>
@@ -26,7 +27,7 @@
       <font-awesome-icon :icon="['fab','weixin']" size="2x" transform="right-42" color="#23C343"/>
       <font-awesome-icon :icon="['fab','weibo']" size="2x" transform="right-72" color="#F76560" />
       <br>
-      <div style="margin-top:50px">
+      <div style="margin:50px 0">
         <el-calendar v-model="value" style="height: 50px;" />
       </div>
     

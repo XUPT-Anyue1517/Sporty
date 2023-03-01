@@ -20,6 +20,10 @@
       </el-col>
     </el-row>
 
+    <div style="text-align: center;margin: 30px 0 10px">
+      <div style="font-size: 35px;font-weight: bolder;margin: 10px auto;width: 20%;border-bottom: #000 solid 5px">可租汽车</div>
+    </div>
+
     <el-row :gutter="24" style="margin:0 130px">
       <el-col :span="6" v-for="item in showCar" :key="item" style="">
         <el-card style="width:290px;margin:20px 0;cursor: pointer" @click="handleOpen(item.title)">

@@ -33,6 +33,10 @@ const routes = [
       name: 'CarMan',
       component: () => import("@/views/CarMan")
     }, {
+      path: '/man/carleaseman',
+      name: 'CarLeaseMan',
+      component: () => import("@/views/CarLeaseMan")
+    }, {
       path: '/man/orderman',
       name: 'OrderMan',
       component: () => import("@/views/OrderMan")

@@ -13,7 +13,7 @@
             :on-success="handleAvatarSuccess"
             style="margin: 5px auto;width: 100%;"
         >
-          <img  :src="car_img" id="imgshow" class="avatar" style="width: 650px;"/>
+          <img  :src="car_img" id="imgshow" class="" style="width: 650px;"/>
         </el-upload>
 
         <el-button type="primary" size="large" @click="CarAI" style="font-size: 19px;margin: 5px auto;width: 650px;">开始识别</el-button>
