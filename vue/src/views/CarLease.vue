@@ -28,12 +28,14 @@
       <el-col :span="6" v-for="item in showCar" :key="item" style="">
         <el-card style="width:290px;margin:20px 0;cursor: pointer" @click="handleOpen(item.title)">
           <!--          <img :src="item" class="image" style="width:250px;height:190px"/>-->
-          <div style="overflow: hidden;width:250px;height:190px" >
+          <div style="overflow: hidden;width:250px;height:150px" >
             <el-image  :src="item.img" :fit="fill" class="image" style="width: 100%" />
           </div>
 
-          <div style="padding: 14px">
-            <span>{{ item.title }}</span>
+          <div style="padding: 4px">
+            <span style="font-weight: bolder;font-size: 20px">{{ item.name }}</span>
+            <span style="font-weight: bolder;font-size: 18px;color: #ff2f2f;float: right">￥{{ item.price }}/天</span>
+
           </div>
         </el-card>
       </el-col>
@@ -73,7 +75,7 @@ export default {
   },
   methods:{
     load(){
-      request.get("/refitcase",{
+      request.get("/carlease",{
         params:{
           pageNum:1,
           pageSize:100,

@@ -121,7 +121,7 @@
           <div  width="120">
 
             <div style="text-align: center;margin: 0 auto">
-              <img :src=purchaseLeft_img width="290" height="210" class="avatar " style="border-radius: 10px">
+              <img :src=purchaseLeft_img width="210" height="210" class="avatar " style="border-radius: 10px">
             </div>
             <div style="width: 300px;margin: 20px auto">
               商品名称：{{refitName}}
@@ -215,7 +215,7 @@ export default {
           payWay:this.payWay,
           carStore:this.carStore,
           price:this.onePrice*10000,
-          totalPrice:this.price*this.num*10000
+          totalPrice:this.price*this.num
         }).then(res => {
           if(res.code === '0'){
             this.$router.push("/refitpurchasesuccess")

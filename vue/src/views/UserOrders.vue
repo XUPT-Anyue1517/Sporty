@@ -1,39 +1,47 @@
 <template>
-    <div>
-      <div style="background-color: #343536;height: 300px;clear: both">
-          <div style="float: left;margin-left: 200px;padding-top: 30px;width: 210px;text-align: center">
-            <img :src=this.userImg alt="" style="border-radius: 50%;height: 200px;">
-            <el-button type="primary"  @click="edit" style="margin-top: 20px">编辑资料</el-button>
-          </div>
+    <div style="width: 100%;">
+      <div style="background-color: #343536;width: 100%;height: 300px;clear: both">
+        <div style="float: left;margin-left: 200px;padding-top: 30px;width: 210px;text-align: center">
+          <img :src=this.userImg alt="" style="border-radius: 50%;height: 200px;">
+          <el-button type="primary"  @click="edit" style="margin-top: 20px">编辑资料</el-button>
+        </div>
 
-          <div style="float: right;text-align: left;width: 70%;padding-top: 50px;color: #fff">
-            <h1>{{this.form.name}}</h1>
-            <h6 style="color: #8c939d;padding-left: 10px">{{this.form.email}}</h6>
-            <h6 style="color: #8c939d;padding-left: 10px">{{this.form.phone}}</h6>
+        <div style="float: right;text-align: left;width: 70%;padding-top: 50px;color: #fff">
+          <h1>{{this.form.name}}</h1>
+          <h6 style="color: #8c939d;padding-left: 10px">{{this.form.email}}</h6>
+          <h6 style="color: #8c939d;padding-left: 10px">{{this.form.phone}}</h6>
 
-          </div>
+        </div>
 
       </div>
 
+      <h2 style="border-bottom: 5px #ec1111 solid;
+                      text-align: center;font-weight: bolder;width: 40%;margin: 20px auto">
+        我的订单
+      </h2>
+      <div style="width: 100%;margin: 10px auto;">
 
-      <div style="width: 80%;height: 200px;margin: 10px auto">
-        <el-row :gutter="12">
-          <el-col :span="8">
-            <el-card shadow="hover" class="user_msg" @click="OpenOrders(this.form.id)"> 我的订单
-              <br> {{ this.orderNum }}
-            </el-card>
-          </el-col>
-          <el-col :span="8">
-            <el-card shadow="hover" class="user_msg" @click="OpenBlogs(this.form.id)"> 我的博客
-              <br> {{ this.blogNum }}
-            </el-card>
-          </el-col>
-          <el-col :span="8">
-            <el-card shadow="hover" class="user_msg"> 我的收藏
-              <br> 23
-            </el-card>
-          </el-col>
-        </el-row>
+        <el-table :data="tableData" border stripe style="width: 100%;margin-bottom: 130px">
+          <el-empty description="description" />
+          <el-table-column fixed  prop="number" label="订单号" width="230" sortable />
+          <el-table-column prop="customerId" label="用户ID" width="230"/>
+          <el-table-column prop="name" label="商品名称" width="380"/>
+          <el-table-column prop="count" label="数量" width="80"/>
+          <el-table-column prop="payWay" label="支付方式" width="100"/>
+          <el-table-column prop="carStore" label="门店" width="180"/>
+          <el-table-column prop="price" label="单价" width="120"/>
+          <el-table-column prop="totalPrice" label="总价" width="120"/>
+          <el-table-column prop="createTime" label="下单时间" width="180"/>
+          <el-table-column fixed="right" label="操作" width="120" >
+            <template #default="scope">
+              <el-popconfirm title="确认取消?" type="danger" @confirm="handleDelete(scope.row.id)">
+                <template #reference>
+                  <el-button type="danger">取消订单</el-button>
+                </template>
+              </el-popconfirm>
+            </template>
+          </el-table-column>
+        </el-table>
       </div>
 
 
@@ -99,6 +107,7 @@
               userImg:'',
               orderNum:0,
               blogNum:0,
+              tableData:[],
             }
         },
         created() {
@@ -114,43 +123,22 @@
         },
         methods: {
             load(){
+
+              this.search = this.$route.query.search
+
+
               request.get("/order/ByCusId",{
                 params:{
                   pageNumber:this.currentPage4,
                   pageSize:this.pageSize4,
-                  search:this.form.id
+                  search:this.search
                 }
               }).then(res => {
                 console.log(res);
-                this.orderNum = res.data.records.length
-              })
-              request.get("/refitcase/ByCusId",{
-                params:{
-                  pageNum:this.currentPage4,
-                  pageSize:this.pageSize4,
-                  search:this.form.id
-                }
-              }).then(res => {
-                console.log(res);
-                this.blogNum = res.data.records.length
+                this.tableData = res.data.records
+                this.total = res.data.total
               })
             },
-          OpenOrders(cusId){
-            this.$router.push({
-              path: '/userorders',
-              query: {
-                search: cusId
-              }
-            })
-          },
-          OpenBlogs(cusId){
-            this.$router.push({
-              path: '/userblogs',
-              query: {
-                search: cusId
-              }
-            })
-          },
             edit(){
               this.dialogVisible = true
             },

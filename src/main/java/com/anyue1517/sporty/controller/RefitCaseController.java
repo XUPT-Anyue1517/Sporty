@@ -1,6 +1,7 @@
 package com.anyue1517.sporty.controller;
 
 import com.anyue1517.sporty.common.Result;
+import com.anyue1517.sporty.entity.Orders;
 import com.anyue1517.sporty.entity.RefitCase;
 import com.anyue1517.sporty.service.RefitCaseService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -36,6 +37,25 @@ public class RefitCaseController {
         queryWrapper.orderByDesc(RefitCase::getUpdateTime);
         //添加查询条件
         queryWrapper.like(StringUtils.isNotBlank(search),RefitCase::getTitle,search);
+        //开始分页查询
+        refitCaseService.page(pageInfo, queryWrapper);
+        return Result.success(pageInfo);
+    }
+
+
+    @GetMapping("/ByCusId")
+    public Result<?> page2(@RequestParam(defaultValue = "1") Integer pageNum,
+                           @RequestParam(defaultValue = "500") Integer pageSize,
+                           @RequestParam(defaultValue = "") String search) {
+
+        //构造分页构造器
+        Page<RefitCase> pageInfo = new Page<>(pageNum, pageSize);
+        //构造条件构造器
+        LambdaQueryWrapper<RefitCase> queryWrapper = new LambdaQueryWrapper<>();
+        //添加排序条件
+        queryWrapper.orderByDesc(RefitCase::getUpdateTime);
+        //添加查询条件
+        queryWrapper.like(StringUtils.isNotBlank(search),RefitCase::getCusId,search);
         //开始分页查询
         refitCaseService.page(pageInfo, queryWrapper);
         return Result.success(pageInfo);

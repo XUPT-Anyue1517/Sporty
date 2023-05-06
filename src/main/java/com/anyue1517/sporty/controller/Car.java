@@ -155,7 +155,7 @@ public class Car {
             String param = "image=" + imgParam + "&top_num=" + 5 + "&baike_num=" + 1;
 
             // 注意这里仅为了简化编码每一次请求都去获取access_token，线上环境access_token有过期时间， 客户端可自行缓存，过期后重新获取。
-            String accessToken = "24.892db8177d577e8ab6c5afc2a110e221.2592000.1677983141.282335-30134283";
+            String accessToken = "24.003771a9d3676b7971876f6b7535e56f.2592000.1683531048.282335-30134283";
 
             String result = HttpUtil.post(url, accessToken, param);
             System.out.println(result);

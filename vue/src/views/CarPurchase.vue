@@ -9,18 +9,20 @@
       <div class="purchaseRight">
         <span class="title-text">{{ carName }}</span>
         <br>
-        <div class="text-info">
-          <div style="display:inline">
-          <el-icon v-for="item in 5" :key="item" color="#F7BA1E" size="20px" style="margin:10px 0"><StarFilled/></el-icon>
-          </div>
-          <span class="title-info-number" >700+</span>
-          <span class="title-info-text">条评论</span>
-          <div  class="title-info-separator"></div>
-          <span class="title-info-text">30天内</span>
-          <span class="title-info-number" >300+</span>
-          <span class="title-info-text" >盒成交</span>
-          <span class="title-info-text" style="font-size:10px;margin-left:20px">本产品采购属于商业贸易行为</span>
-        </div>
+
+<!--        <div class="text-info">-->
+<!--          <div style="display:inline">-->
+<!--          <el-icon v-for="item in 5" :key="item" color="#F7BA1E" size="20px" style="margin:10px 0"><StarFilled/></el-icon>-->
+<!--          </div>-->
+<!--          <span class="title-info-number" >700+</span>-->
+<!--          <span class="title-info-text">条评论</span>-->
+<!--          <div  class="title-info-separator"></div>-->
+<!--          <span class="title-info-text">30天内</span>-->
+<!--          <span class="title-info-number" >300+</span>-->
+<!--          <span class="title-info-text" >盒成交</span>-->
+<!--          <span class="title-info-text" style="font-size:10px;margin-left:20px">本产品采购属于商业贸易行为</span>-->
+<!--        </div>-->
+
         <div class="ord-detail" style="margin-top:10px">
           <div class="ord-price-contain">
             <span class="price-header title-info-text" style="font-size:20px">
@@ -32,58 +34,58 @@
           </div>
         </div>
 
-        <div class="ord-discount">
-          <span class="price-header title-info-text" style="font-size:20px;top:2px">
-                优惠
-          </span>
-           <el-select v-model="value1" class="m-2" placeholder="￥10优惠卷，满200使用" size="small">
-          <el-option
-            v-for="item in options"
-            :key="item.value1"
-            :label="item.label"
-            :value="item.value1"
-          />
-          </el-select>
-        </div>
+<!--        <div class="ord-discount">-->
+<!--          <span class="price-header title-info-text" style="font-size:20px;top:2px">-->
+<!--                优惠-->
+<!--          </span>-->
+<!--           <el-select v-model="value1" class="m-2" placeholder="￥10优惠卷，满200使用" size="small">-->
+<!--          <el-option-->
+<!--            v-for="item in options"-->
+<!--            :key="item.value1"-->
+<!--            :label="item.label"-->
+<!--            :value="item.value1"-->
+<!--          />-->
+<!--          </el-select>-->
+<!--        </div>-->
 
 
-        
-        <div class="ord-service" style="margin-top:10px;">
-          <span class="price-header title-info-text" style="font-size:20px;top:1px">
-                服务
-          </span>
-          <span class="ord-service-text">
-              30天免费赊账·48h发货·急速退款·不支持7天无理由退货
-          </span>
-        </div>
+<!--        -->
+<!--        <div class="ord-service" style="margin-top:10px;">-->
+<!--          <span class="price-header title-info-text" style="font-size:20px;top:1px">-->
+<!--                服务-->
+<!--          </span>-->
+<!--          <span class="ord-service-text">-->
+<!--              30天免费赊账·48h发货·急速退款·不支持7天无理由退货-->
+<!--          </span>-->
+<!--        </div>-->
 
-        <div class="ord-logistics" style="margin-top:20px;">
-          <span class="price-header title-info-text" style="font-size:20px;top:1px">
-                物流
-          </span>
-          <span class="ord-service-text">
-              陕西省 西安市 <span style="color:#aaa">至</span>
-              <el-select v-model="carStore" class="m-2" placeholder="默认驿站" size="small">
-                  <el-option
-                    v-for="item in optionsAddress"
-                    :key="item.id"
-                    :label="item.name"
-                    :value="item.name"
-                  />
-              </el-select>
-              <span>
-                快递￥16,付款成功后2天发货
-              </span>
+<!--        <div class="ord-logistics" style="margin-top:20px;">-->
+<!--          <span class="price-header title-info-text" style="font-size:20px;top:1px">-->
+<!--                物流-->
+<!--          </span>-->
+<!--          <span class="ord-service-text">-->
+<!--              陕西省 西安市 <span style="color:#aaa">至</span>-->
+<!--              <el-select v-model="carStore" class="m-2" placeholder="默认驿站" size="small">-->
+<!--                  <el-option-->
+<!--                    v-for="item in optionsAddress"-->
+<!--                    :key="item.id"-->
+<!--                    :label="item.name"-->
+<!--                    :value="item.name"-->
+<!--                  />-->
+<!--              </el-select>-->
+<!--              <span>-->
+<!--                快递￥16,付款成功后2天发货-->
+<!--              </span>-->
 
-          </span>
-        </div>
+<!--          </span>-->
+<!--        </div>-->
 
-        <div class="ord-num">
-          <span class="price-header title-info-text" style="font-size:20px;top:2px">
-                数量
-          </span>
-          <el-input-number v-model="num" :min="1" :max="10" @change="handleChange" />
-        </div>
+<!--        <div class="ord-num">-->
+<!--          <span class="price-header title-info-text" style="font-size:20px;top:2px">-->
+<!--                数量-->
+<!--          </span>-->
+<!--          <el-input-number v-model="num" :min="1" :max="10" @change="handleChange" />-->
+<!--        </div>-->
 
 
         <div class="ord-totalprice" style="margin:25px 0">
@@ -95,23 +97,23 @@
             </span>
         </div>
 
-        <div class="pay-way">
-            <span class="price-header title-info-text" style="font-size:20px;top:1px">
-                支付
-          </span>
-          <span class="pay-card">
-          
-              <el-button color="#626aef" :dark="isDark" @click="confirm('支付宝')">
-              支付宝<img src="../assets/img/car/car_img/car_purchase/bao.png" alt="">
-              </el-button>
-              <el-button color="#626aef" :dark="isDark" @click="confirm('微信')">
-              微信<img src="../assets/img/car/car_img/car_purchase/wechat.png" alt="">
-              </el-button>
-              <el-button color="#626aef" :dark="isDark" @click="confirm('银行卡')">
-              银行卡<img src="../assets/img/car/car_img/car_purchase/car.png" alt="">
-              </el-button>
-          </span>
-        </div>
+<!--        <div class="pay-way">-->
+<!--            <span class="price-header title-info-text" style="font-size:20px;top:1px">-->
+<!--                支付-->
+<!--          </span>-->
+<!--          <span class="pay-card">-->
+<!--          -->
+<!--              <el-button color="#626aef" :dark="isDark" @click="confirm('支付宝')">-->
+<!--              支付宝<img src="../assets/img/car/car_img/car_purchase/bao.png" alt="">-->
+<!--              </el-button>-->
+<!--              <el-button color="#626aef" :dark="isDark" @click="confirm('微信')">-->
+<!--              微信<img src="../assets/img/car/car_img/car_purchase/wechat.png" alt="">-->
+<!--              </el-button>-->
+<!--              <el-button color="#626aef" :dark="isDark" @click="confirm('银行卡')">-->
+<!--              银行卡<img src="../assets/img/car/car_img/car_purchase/car.png" alt="">-->
+<!--              </el-button>-->
+<!--          </span>-->
+<!--        </div>-->
 
 
         <el-dialog v-model="dialogVisible"

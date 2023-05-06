@@ -7,22 +7,22 @@
         </el-carousel-item>
       </el-carousel>
     </div>
-    <div>
-      <el-row justify="center">
-        <el-col :span="4" >
-          <el-image style="width: 100px; height: 100px" :src="car_logo[0]" fit="fit" />
-        </el-col>
-        <el-col :span="4" >
-          <el-image style="width: 100px; height: 100px" :src="car_logo[1]" fit="fit" />
-        </el-col>
-        <el-col :span="4"  >
-          <el-image style="width: 100px; height: 100px" :src="car_logo[2]" fit="fit" />
-        </el-col>
-        <el-col :span="4" >
-          <el-image style="width: 100px; height: 100px" :src="car_logo[3]" fit="fit" />
-        </el-col>
-      </el-row>
-    </div>
+<!--    <div>-->
+<!--      <el-row justify="center">-->
+<!--        <el-col :span="4" >-->
+<!--          <el-image style="width: 100px; height: 100px" :src="car_logo[0]" fit="fit" />-->
+<!--        </el-col>-->
+<!--        <el-col :span="4" >-->
+<!--          <el-image style="width: 100px; height: 100px" :src="car_logo[1]" fit="fit" />-->
+<!--        </el-col>-->
+<!--        <el-col :span="4"  >-->
+<!--          <el-image style="width: 100px; height: 100px" :src="car_logo[2]" fit="fit" />-->
+<!--        </el-col>-->
+<!--        <el-col :span="4" >-->
+<!--          <el-image style="width: 100px; height: 100px" :src="car_logo[3]" fit="fit" />-->
+<!--        </el-col>-->
+<!--      </el-row>-->
+<!--    </div>-->
     <div>
       <el-row justify="center">
         <el-col :span="18">
@@ -36,7 +36,9 @@
 
             </div>
           </div>
-          <el-table :data="tableData" style="width: 100%;margin-top:20px" >
+          <el-table :data="tableData"
+                    :default-sort="{ prop: 'englishName', order: 'ascending' }"
+                    style="width: 100%;margin-top:20px" >
             <el-table-column  prop="logo" label="车标" width="284">
 
               <template #default="scope">

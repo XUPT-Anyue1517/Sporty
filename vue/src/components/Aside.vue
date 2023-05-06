@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <div style="background-color: #303032">
       <el-menu
-      style="width:200px;min-height:calc(100vh - 50px)"
+        style="width:150px;min-height:calc(100vh - 50px);font-weight: bolder"
+        text-color="#fff"
+        background-color="#303032"
+        active-text-color="#ff2f2f"
         :default-active="path"
         router
         class="el-menu-vertical-demo">
@@ -10,34 +13,34 @@
 <!--          </el-sub-menu>-->
 
         <el-menu-item index="/man/user">
-          <span>用户信息</span>
+          <span style="font-size: 16px">用户信息</span>
         </el-menu-item>
         <el-menu-item index="/man/brandman">
-          <span>品牌信息</span>
+          <span style="font-size: 16px">品牌信息</span>
         </el-menu-item>
         <el-menu-item index="/man/carman">
-          <span>车型信息</span>
+          <span style="font-size: 16px">车型信息</span>
         </el-menu-item>
         <el-menu-item index="/man/carleaseman">
-          <span>租赁信息</span>
+          <span style="font-size: 16px">租赁信息</span>
         </el-menu-item>
         <el-menu-item index="/man/orderman">
-          <span>订单管理</span>
+          <span style="font-size: 16px">订单管理</span>
         </el-menu-item>
         <el-menu-item index="/man/carblogman">
-          <span>汽车资讯</span>
+          <span style="font-size: 16px">汽车资讯</span>
         </el-menu-item>
         <el-menu-item index="/man/carstoreman">
-          <span>4S店信息</span>
+          <span style="font-size: 16px">4S店信息</span>
         </el-menu-item>
         <el-menu-item index="/man/refitbrandman">
-          <span>改装品牌</span>
+          <span style="font-size: 16px">改装品牌</span>
         </el-menu-item>
         <el-menu-item index="/man/refitman">
-          <span>改件信息</span>
+          <span style="font-size: 16px">改件信息</span>
         </el-menu-item>
         <el-menu-item index="/man/refitcaseman">
-          <span>改装文章</span>
+          <span style="font-size: 16px">改装文章</span>
         </el-menu-item>
 
 

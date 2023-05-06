@@ -16,6 +16,9 @@ public class RefitCase {
     //id
     private Long id;
 
+    //cudId
+    private Long cusId;
+
     //图片
     private String img;
 

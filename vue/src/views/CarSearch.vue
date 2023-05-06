@@ -16,22 +16,33 @@
             </p>
           </div>
         </div>
+
+        <div style="width: 75%;height: 80px;">
+          <el-row :gutter="20" style="margin-top: 20px;margin-left: 50px">
+            <el-col :span="6"><el-button  type="warning" size="large" @click="search1(carName)">去<span style="font-weight: bolder">懂车帝</span>搜索&nbsp;<span style="font-weight: bolder">{{carName}}</span>&nbsp;></el-button></el-col>
+            <el-col :span="6"><el-button type="danger" size="large" @click="search2(carName)">去<span style="font-weight: bolder">汽车之家</span>搜索&nbsp;<span style="font-weight: bolder">{{carName}}</span>&nbsp;></el-button></el-col>
+            <el-col :span="6"><el-button type="primary" size="large" @click="search3(carName)">去<span style="font-weight: bolder">易车</span>搜索&nbsp;<span style="font-weight: bolder">{{carName}}</span>&nbsp;></el-button></el-col>
+            <el-col :span="6"><el-button type="default" size="large" @click="search4(carName)">去<span style="font-weight: bolder">百度百科</span>搜索&nbsp;<span style="font-weight: bolder">{{carName}}</span>&nbsp;></el-button></el-col>
+          </el-row>
+
+        </div>
+
         <el-col :span="18">
 
           <el-table :data="tableData" style="width: 100%;margin-top:20px" >
-            <el-table-column  prop="img" label="图片" width="230">
+            <el-table-column  prop="img" label="图片" width="330">
 
               <template #default="scope">
                 <el-image
-                    style="width: 110px; height: 90px;border-radius: 10px"
+                    style="width: 230px; height: 170px;border-radius: 10px"
                     :src="scope.row.img"
                 />
               </template>
             </el-table-column>
             <el-table-column prop="name" label="名称" width="184" sortable />
-            <el-table-column prop="type" label="类型" width="150"  />
-            <el-table-column prop="price" label="官价" width="150" sortable />
-            <el-table-column prop="sale_price" label="售价" width="150"  />
+            <el-table-column prop="type" label="类型" width="150" sortable />
+            <el-table-column prop="price" label="官价" width="220" sortable />
+<!--            <el-table-column prop="sale_price" label="售价" width="150"  />-->
             <el-table-column prop="repertory" label="库存" width="120"  />
             <el-table-column  width="184" label="查看车辆"  >
 
@@ -118,6 +129,18 @@ export default {
           name: name
         }
       })
+    },
+    search1(carName){
+      window.open("https://www.dongchedi.com/search?keyword=" + carName)
+    },
+    search2(carName){
+      window.open("http://db.auto.sina.com.cn/search/?search_txt=" + carName)
+    },
+    search3(carName){
+      window.open("https://so.yiche.com/qiche/" + carName)
+    },
+    search4(carName){
+      window.open("https://www.baidu.com/s?wd=" + carName)
     }
   }
 }

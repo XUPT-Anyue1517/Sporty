@@ -96,6 +96,10 @@ const routes = [
       name: 'Blog',
       component: () => import("@/views/Blog")
     }, {
+      path: '/writeblog',
+      name: 'WriteBlog',
+      component: () => import("@/views/WriteBlog")
+    }, {
       path: '/carAI',
       name: 'CarAI',
       component: () => import("@/views/CarAI")
@@ -119,6 +123,14 @@ const routes = [
       path: '/userperson',
       name: 'UserPerson',
       component: () => import("@/views/UserPerson")
+    }, {
+      path: '/userorders',
+      name: 'UserOrders',
+      component: () => import("@/views/UserOrders")
+    }, {
+      path: '/userblogs',
+      name: 'UserBlogs',
+      component: () => import("@/views/UserBlogs")
     }, {
       path: '/refitpurchase',
       name: 'refitPurchase',

@@ -1,13 +1,13 @@
 <template>
-  <div style="height:50px;line-height:50px;border-bottom:1px solid #ccc;display:flex">
-      <div style="width:300px;padding-left:10px;font-weight:bold;color:dodgerblue;font-size:20px">
-        <img src="../assets/img/Sporty.png" width="180" height="50">
+  <div style="background-color: #303032;height:50px;line-height:50px;display:flex">
+      <div style="width:400px;padding-left:10px;font-weight:bold;color:dodgerblue;font-size:20px">
+        <span style="color: #ff2f2f;font-size: 30px">汽车交流分享系统管理端</span>
       </div>
       <div style="flex:1"></div>
       <div style="width:100px;padding-right:30px;padding-top:18px">
         <el-dropdown>
           <span class="el-dropdown-link" style="width: 80px">
-            <div style="width:100%;height:100%;cursor: pointer;">
+            <div style="width:100%;height:100%;cursor: pointer;color: #fff">
               {{ loginName }}
             </div>
             <el-icon class="el-icon--right">

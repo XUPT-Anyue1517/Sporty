@@ -20,7 +20,7 @@
 
         <template #default="scope">
           <el-image
-              style="width: 250px; height: 150px;border-radius: 10px"
+              style="width: 250px;border-radius: 10px"
               :src="scope.row.img"
           />
         </template>
@@ -97,6 +97,9 @@
         <el-form-item label="内容">
           <textarea v-model="form.body" style="width:90%"/>
         </el-form-item>
+        <el-form-item label="用户ID">
+          <el-input type="input" hidden :rows="5" v-model="form.cusId" style="width:90%"/>
+        </el-form-item>
       </el-form>
         <template #footer>
           <span class="dialog-footer">
@@ -114,6 +117,7 @@
 <script>
 import { assertExpressionStatement } from '@babel/types'
 import  request  from '@/utils/request'
+import router from "@/router";
 
 
 export default {
@@ -129,15 +133,21 @@ export default {
       currentPage4:1,
       pageSize4:5,
       total:0,
-      tableData:[
-        
-      ],
-      userImg:require("@/assets/img/800014267.jpg")
+      tableData:[],
+      userImg:require("@/assets/img/800014267.jpg"),
+      form1:{}
     }
   },
   created() {
     this.load()
     this.checkLogin()
+
+    let str = sessionStorage.getItem("user_admin") || "{}"
+
+    this.form1 = JSON.parse(str)
+    console.log(this.form1)
+    this.form.cusId = this.form1.id
+    console.log(this.form.cusId)
   },
   methods: {
     load(){

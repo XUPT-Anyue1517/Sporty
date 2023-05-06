@@ -19,7 +19,10 @@
       </el-col>
     </el-row>
 
-    <el-row :gutter="24" style="margin:0 130px">
+    <el-row :gutter="24" style="margin:30px 130px">
+      <div style="width: 100%;">
+        <el-button @click="writeBlog" type="primary" size="large" style="float: right;margin-right: 100px;font-weight: bolder;font-size: 17px" >写博客</el-button>
+      </div>
       <el-col :span="6" v-for="item in showCar" :key="item">
         <el-card style="width:290px;margin:20px 0;cursor: pointer" @click="handleOpen(item.title)">
 <!--          <img :src="item" class="image" style="width:250px;height:190px"/>-->
@@ -30,12 +33,11 @@
         <div style="padding: 14px">
           <span>{{ item.title }}</span>
           <div class="bottom">
-            <el-button text class="button">Operating</el-button>
+            <el-button text class="button" @click="openCar(item.car)">{{ item.car }}</el-button>
           </div>
         </div>
         </el-card>
       </el-col>
-  
     </el-row>
 
     
@@ -84,12 +86,19 @@ export default {
       })
     },
     handleOpen(title){
-      this.$router.push({
-        path: '/refitcaseessay',
-        query: {
-          search: title
-        }
-      })
+      // this.$router.push({
+      //   path: '/refitcaseessay',
+      //   query: {
+      //     search: title
+      //   }
+      // })
+      window.open("http://localhost:9876/refitcaseessay?search=" + title)
+    },
+    writeBlog(){
+      this.$router.push('/writeblog')
+    },
+    openCar(car){
+      window.open("https://www.dongchedi.com/search?keyword=" + car)
     }
   }
 }

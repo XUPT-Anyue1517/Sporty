@@ -49,6 +49,23 @@ public class OrderController {
         return Result.success(pageInfo);
     }
 
+    @GetMapping("/ByCusId")
+    public Result<?> page2(@RequestParam(defaultValue = "1") Integer pageNumber,
+                          @RequestParam(defaultValue = "500") Integer pageSize,
+                          @RequestParam(defaultValue = "") String search) {
+
+        Page<Orders> pageInfo = new Page<>(pageNumber, pageSize);
+        LambdaQueryWrapper<Orders> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+
+        lambdaQueryWrapper.like(StringUtils.isNotEmpty(search), Orders::getCustomerId, search);
+
+        lambdaQueryWrapper.orderByDesc(Orders::getPayTime);
+
+        ordersService.page(pageInfo, lambdaQueryWrapper);
+
+        return Result.success(pageInfo);
+    }
+
     /**
      * 用户下订单操作
      *

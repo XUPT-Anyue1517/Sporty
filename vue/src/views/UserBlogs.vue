@@ -1,39 +1,42 @@
 <template>
-    <div>
-      <div style="background-color: #343536;height: 300px;clear: both">
-          <div style="float: left;margin-left: 200px;padding-top: 30px;width: 210px;text-align: center">
-            <img :src=this.userImg alt="" style="border-radius: 50%;height: 200px;">
-            <el-button type="primary"  @click="edit" style="margin-top: 20px">编辑资料</el-button>
-          </div>
+    <div style="width: 100%;">
+      <div style="background-color: #343536;width: 100%;height: 300px;clear: both">
+        <div style="float: left;margin-left: 200px;padding-top: 30px;width: 210px;text-align: center">
+          <img :src=this.userImg alt="" style="border-radius: 50%;height: 200px;">
+          <el-button type="primary"  @click="edit" style="margin-top: 20px">编辑资料</el-button>
+        </div>
 
-          <div style="float: right;text-align: left;width: 70%;padding-top: 50px;color: #fff">
-            <h1>{{this.form.name}}</h1>
-            <h6 style="color: #8c939d;padding-left: 10px">{{this.form.email}}</h6>
-            <h6 style="color: #8c939d;padding-left: 10px">{{this.form.phone}}</h6>
+        <div style="float: right;text-align: left;width: 70%;padding-top: 50px;color: #fff">
+          <h1>{{this.form.name}}</h1>
+          <h6 style="color: #8c939d;padding-left: 10px">{{this.form.email}}</h6>
+          <h6 style="color: #8c939d;padding-left: 10px">{{this.form.phone}}</h6>
 
-          </div>
+        </div>
 
       </div>
 
+      <h2 style="border-bottom: 5px #ec1111 solid;
+                      text-align: center;font-weight: bolder;width: 40%;margin: 20px auto">
+        我的博客
+      </h2>
+      <div style="width: 100%;margin: 10px auto;">
 
-      <div style="width: 80%;height: 200px;margin: 10px auto">
-        <el-row :gutter="12">
-          <el-col :span="8">
-            <el-card shadow="hover" class="user_msg" @click="OpenOrders(this.form.id)"> 我的订单
-              <br> {{ this.orderNum }}
-            </el-card>
-          </el-col>
-          <el-col :span="8">
-            <el-card shadow="hover" class="user_msg" @click="OpenBlogs(this.form.id)"> 我的博客
-              <br> {{ this.blogNum }}
-            </el-card>
-          </el-col>
-          <el-col :span="8">
-            <el-card shadow="hover" class="user_msg"> 我的收藏
-              <br> 23
+        <el-row :gutter="24" style="margin:0 130px">
+          <el-col :span="6" v-for="item in showCar" :key="item">
+            <el-card class="OwnBlog" style="width:290px;margin:20px 0;cursor: pointer" @click="handleOpen(item.title)">
+              <!--          <img :src="item" class="image" style="width:250px;height:190px"/>-->
+              <div style="overflow: hidden;width:250px;height:190px" >
+                <el-image  :src="item.img" :fit="fill" class="image" style="width: 100%" />
+              </div>
+
+              <div style="padding: 14px">
+                <span>{{ item.title }}</span>
+
+              </div>
             </el-card>
           </el-col>
         </el-row>
+
       </div>
 
 
@@ -99,6 +102,7 @@
               userImg:'',
               orderNum:0,
               blogNum:0,
+              showCar:[],
             }
         },
         created() {
@@ -114,43 +118,31 @@
         },
         methods: {
             load(){
-              request.get("/order/ByCusId",{
+
+              this.search = this.$route.query.search
+
+
+              request.get("/refitcase/ByCusId",{
                 params:{
                   pageNumber:this.currentPage4,
                   pageSize:this.pageSize4,
-                  search:this.form.id
+                  search:this.search
                 }
               }).then(res => {
                 console.log(res);
-                this.orderNum = res.data.records.length
-              })
-              request.get("/refitcase/ByCusId",{
-                params:{
-                  pageNum:this.currentPage4,
-                  pageSize:this.pageSize4,
-                  search:this.form.id
-                }
-              }).then(res => {
-                console.log(res);
-                this.blogNum = res.data.records.length
+                this.showCar = res.data.records
+                this.total = res.data.total
               })
             },
-          OpenOrders(cusId){
-            this.$router.push({
-              path: '/userorders',
-              query: {
-                search: cusId
-              }
-            })
-          },
-          OpenBlogs(cusId){
-            this.$router.push({
-              path: '/userblogs',
-              query: {
-                search: cusId
-              }
-            })
-          },
+            handleOpen(title){
+              // this.$router.push({
+              //   path: '/refitcaseessay',
+              //   query: {
+              //     search: title
+              //   }
+              // })
+              window.open("http://localhost:9876/refitcaseessay?search=" + title)
+            },
             edit(){
               this.dialogVisible = true
             },
@@ -187,6 +179,12 @@
 </script>
 
 <style>
+    .OwnBlog{
+      transition: .3s;
+    }
+    .OwnBlog:hover{
+      transform: translateY(-10px);
+    }
     .avatar-uploader .el-upload {
         border: 1px dashed #d9d9d9;
         border-radius: 6px;
