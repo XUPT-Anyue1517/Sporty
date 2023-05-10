@@ -31,7 +31,7 @@
           <span style="font-size: 16px">汽车资讯</span>
         </el-menu-item>
         <el-menu-item index="/man/carstoreman">
-          <span style="font-size: 16px">4S店信息</span>
+          <span style="font-size: 16px">门店信息</span>
         </el-menu-item>
         <el-menu-item index="/man/refitbrandman">
           <span style="font-size: 16px">改装品牌</span>

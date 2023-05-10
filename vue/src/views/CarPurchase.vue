@@ -97,23 +97,23 @@
             </span>
         </div>
 
-<!--        <div class="pay-way">-->
-<!--            <span class="price-header title-info-text" style="font-size:20px;top:1px">-->
-<!--                支付-->
-<!--          </span>-->
-<!--          <span class="pay-card">-->
-<!--          -->
-<!--              <el-button color="#626aef" :dark="isDark" @click="confirm('支付宝')">-->
-<!--              支付宝<img src="../assets/img/car/car_img/car_purchase/bao.png" alt="">-->
-<!--              </el-button>-->
-<!--              <el-button color="#626aef" :dark="isDark" @click="confirm('微信')">-->
-<!--              微信<img src="../assets/img/car/car_img/car_purchase/wechat.png" alt="">-->
-<!--              </el-button>-->
-<!--              <el-button color="#626aef" :dark="isDark" @click="confirm('银行卡')">-->
-<!--              银行卡<img src="../assets/img/car/car_img/car_purchase/car.png" alt="">-->
-<!--              </el-button>-->
-<!--          </span>-->
-<!--        </div>-->
+        <div class="pay-way">
+            <span class="price-header title-info-text" style="font-size:20px;top:1px">
+                订购
+          </span>
+          <span class="pay-card">
+
+              <el-button color="#626aef" :dark="isDark" @click="confirm('支付宝')">
+              支付宝<img src="../assets/img/car/car_img/car_purchase/bao.png" alt="">
+              </el-button>
+              <el-button color="#626aef" :dark="isDark" @click="confirm('微信')">
+              微信<img src="../assets/img/car/car_img/car_purchase/wechat.png" alt="">
+              </el-button>
+              <el-button color="#626aef" :dark="isDark" @click="confirm('银行卡')">
+              银行卡<img src="../assets/img/car/car_img/car_purchase/car.png" alt="">
+              </el-button>
+          </span>
+        </div>
 
 
         <el-dialog v-model="dialogVisible"

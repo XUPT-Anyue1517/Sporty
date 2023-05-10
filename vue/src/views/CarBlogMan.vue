@@ -20,7 +20,7 @@
 
         <template #default="scope">
           <el-image
-              style="width: 250px; height: 150px;border-radius: 10px"
+              style="width: 250px;border-radius: 10px"
               :src="scope.row.img"
           />
         </template>

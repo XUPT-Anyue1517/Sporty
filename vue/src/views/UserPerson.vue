@@ -158,7 +158,7 @@
 
                 this.form.img = res.data
                 this.$message.success("上传成功")
-                this.update()
+                // this.update()
                 // this.imageUrl = `/files/download?name=${res.data}`
 
             },
@@ -173,6 +173,7 @@
                         sessionStorage.setItem("user", JSON.stringify(this.form))
                         // 触发Layout更新用户信息
                         this.$emit("userInfo")
+                      this.userImg = this.form.img
                     } else {
                         this.$message({
                             type: "error",
@@ -180,6 +181,7 @@
                         })
                     }
                 })
+
               this.dialogVisible = false
             }
         }

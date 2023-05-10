@@ -28,32 +28,7 @@
       </el-card>
     </el-col>
   </el-row>
- 
-  <el-row justify="center" style="margin-top:20px">
-    <el-col :span="10">
-      
-    <h1 class="display-4">Welcome To Modified Club</h1>
-    <p class="text-info-two">&nbsp;&nbsp;&nbsp;&nbsp;Our life more and more close with cars, people demand for cars is no longer a simple transport, the pursuit of personality, fashion has become people to the new demand for cars, and the subsequent car modification are also increasingly popular, young people like to pursuit of "personal style" and "fun to drive", is becoming more and more people in a modified today,Lit up countless car owners passionate wandering heart.</p>
- 
-    </el-col >
-    <el-col :span="10">
-      <el-image  :src="right_img" style="padding:0 10px;margin-top:10px">
-      </el-image>
-    </el-col>
-  </el-row>
 
-
-   <el-row justify="center" style="margin-top:60px">
-    <el-col :span="10">
-      <el-image  :src="left_img" style="padding:0 10px;margin-top:10px;">
-      </el-image>
-    </el-col>
-     <el-col :span="10">
-        <p class="text-info-two">&nbsp;&nbsp;&nbsp;&nbsp;Car modification refers to the modification of external modeling, internal modeling and mechanical properties of the original car produced by automobile manufacturers according to the needs of car owners, mainly including body modification and power modification.
-Automobile modification is known as Auto Tunning in Europe. It refers to the personalized upgrade of vehicles based on the original mass-produced vehicles in view of the weaknesses of the vehicles themselves or the owners' special requirements for certain performance.</p>
-    
-    </el-col >
-  </el-row>
       
   </div>
 </template>
