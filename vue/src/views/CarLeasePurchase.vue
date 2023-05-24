@@ -2,7 +2,7 @@
 
   <el-row class="row-bg" justify="center" gutter="20">
     <el-col :span="10">
-      <el-image :src=purchaseLeft_img :fit="cover" style="width:640px;height:480px"> </el-image>
+      <el-image :src=purchaseLeft_img :fit="cover" style="width:640px"> </el-image>
       <h1 style="text-align:center"></h1>
     </el-col>
     <el-col :span="9">
@@ -90,13 +90,13 @@
                 总价
           </span>
           <span class="price-text title-info-number" style="font-size:18px">
-                {{price*num}}万元
+                {{price*num}}元
             </span>
         </div>
 
         <div class="pay-way">
             <span class="price-header title-info-text" style="font-size:20px;top:1px">
-                订购
+                租赁
           </span>
           <span class="pay-card">
 
@@ -228,7 +228,7 @@ export default {
      },
      load(){
        this.carName = this.$route.query.name
-       request.get("/car",{
+       request.get("/carlease",{
          params:{
            pageNum:'1',
            pageSize:'5',

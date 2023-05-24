@@ -79,7 +79,8 @@
 
       <el-dialog v-model="dialogVisible"
                  title="新增数据"
-                 width="30%"
+                 top="1vh"
+                 width="40%"
       >
         <el-form-item style="text-align: center" label-width="0">
           <el-upload
@@ -109,7 +110,7 @@
             <el-input v-model="form.country" style="width:80%"></el-input>
           </el-form-item>
           <el-form-item label="品牌介绍">
-            <textarea v-model="form.intro" style="width:80%;line-height: 18px"/>
+            <el-input type="textarea"  :rows=4 v-model="form.intro" style="width:80%;line-height: 18px"/>
           </el-form-item>
           <el-form-item style="text-align: center" label-width="0">
             <el-upload

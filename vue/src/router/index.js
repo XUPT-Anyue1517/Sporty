@@ -140,6 +140,10 @@ const routes = [
       name: 'CarPurchase',
       component: () => import("@/views/CarPurchase")
     }, {
+      path: '/carleasepurchase',
+      name: 'CarLeasePurchase',
+      component: () => import("@/views/CarLeasePurchase")
+    }, {
       path: '/refitcaseessay',
       name: 'RefitCaseEssay',
       component: () => import("@/views/RefitCaseEssay")

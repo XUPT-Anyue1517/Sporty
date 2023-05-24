@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/refitcase")
+    @RequestMapping("/refitcase")
 public class RefitCaseController {
 
     private RefitCaseService refitCaseService;

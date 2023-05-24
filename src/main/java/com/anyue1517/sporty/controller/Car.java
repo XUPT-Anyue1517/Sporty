@@ -42,38 +42,11 @@ public class Car {
      */
     @PostMapping("/upload")
     public Result<?> upload(MultipartFile file) throws IOException {
-//        log.info(file.toString());
-//
-//        //原始文件名
-//        String originalFilename = file.getOriginalFilename();
-//        String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
-//
-//        //使用UUID重新生成文件名，防止文件名重复造成文件覆盖
-//        String fileName = UUID.randomUUID().toString() + suffix;
-//
-//        //创建一个目录对象
-//        File dir = new File(basePath);
-//        if (!dir.exists()) {
-//            //目录不存在需要创建
-//            dir.mkdir();
-//        }
-//
-//        try {
-//            //将临时文件转存到指定位置
-//            file.transferTo(new File(basePath + fileName));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return Result.success(fileName);
-
-
         String originalFilename = file.getOriginalFilename();   //获取源文件名称
         //定义文件唯一标识
         String flag = IdUtil.fastSimpleUUID();
-//        System.out.println("!!!!name:" + originalFilename);
-
-        String rootFilePath = System.getProperty("user.dir") + "/src/main/resources/cars/" + originalFilename;  // + flag + "$&$&"
+        String rootFilePath = System.getProperty("user.dir") +
+                "/src/main/resources/cars/" + originalFilename;  // + flag + "$&$&"
         //获取上传的路径
         File rootFile = new File(rootFilePath);
         if (!rootFile.getParentFile().exists()) {
@@ -82,7 +55,6 @@ public class Car {
         cn.hutool.core.io.FileUtil.writeBytes(file.getBytes(),rootFilePath);      //把文件写入到路径中
         ImgfilePath = rootFilePath;
         ImgP =  originalFilename;
-//        car();
         return Result.success("http://localhost:8080/cars/" + originalFilename);  // 返回结果 url
 
     }
@@ -151,18 +123,14 @@ public class Car {
             byte[] imgData = FileUtil.readFileByBytes(filePath);
             String imgStr = Base64Util.encode(imgData);
             String imgParam = URLEncoder.encode(imgStr, "UTF-8");
-
             String param = "image=" + imgParam + "&top_num=" + 5 + "&baike_num=" + 1;
-
-            // 注意这里仅为了简化编码每一次请求都去获取access_token，线上环境access_token有过期时间， 客户端可自行缓存，过期后重新获取。
-            String accessToken = "24.003771a9d3676b7971876f6b7535e56f.2592000.1683531048.282335-30134283";
-
+            // 注意这里仅为了简化编码每一次请求都去获取access_token，线上环境access_token有过期时间，
+            // 客户端可自行缓存，过期后重新获取。
+            String accessToken = "24.5d652eb94acb5c3de430bfd72e5b8d3a.2592000.1686451081.282335-30134283";
             String result = HttpUtil.post(url, accessToken, param);
             System.out.println(result);
             return Result.success(result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {e.printStackTrace();}
         return null;
     }
 

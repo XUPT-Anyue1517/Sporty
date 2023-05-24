@@ -26,7 +26,7 @@
 
     <el-row :gutter="24" style="margin:0 130px">
       <el-col :span="6" v-for="item in showCar" :key="item" style="">
-        <el-card style="width:290px;margin:20px 0;cursor: pointer" @click="handleOpen(item.title)">
+        <el-card style="width:290px;margin:20px 0;cursor: pointer" @click="handleOpen(item.name)">
           <!--          <img :src="item" class="image" style="width:250px;height:190px"/>-->
           <div style="overflow: hidden;width:250px;height:150px" >
             <el-image  :src="item.img" :fit="fill" class="image" style="width: 100%" />
@@ -89,9 +89,9 @@ export default {
     },
     handleOpen(title){
       this.$router.push({
-        path: '/refitcaseessay',
+        path: '/carleasepurchase',
         query: {
-          search: title
+          name: title
         }
       })
     }

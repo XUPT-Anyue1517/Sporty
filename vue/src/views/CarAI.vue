@@ -24,7 +24,7 @@
         <h2 style="margin-top: 10px">名称：{{CarResult.name}}</h2>
         <h5 style="margin-top: 10px">年份：{{CarResult.year}}</h5>
         <h5 style="margin-top: 10px">近似度：{{CarResult.score}}</h5>
-        <h5 style="margin-top: 10px">百度百科：<el-tag style="cursor: pointer" size="large" @click="openBaike(CarResult.name)">{{CarResult.name}}</el-tag> </h5>
+        <h5 style="margin-top: 10px">百度搜索：<el-tag style="cursor: pointer" size="large" @click="openBaike(CarResult.name)">{{CarResult.name}}</el-tag> </h5>
         <h6 style="margin-top: 10px">车型描述：{{CarResultInfo.description}}</h6>
       </el-col>
     </el-row>
@@ -95,7 +95,7 @@ export default {
 
     },
     openBaike(name){
-      window.open("https://baike.baidu.com/item/" + name)
+      window.open("https://www.baidu.com/s?wd=" + name)
     }
 
 

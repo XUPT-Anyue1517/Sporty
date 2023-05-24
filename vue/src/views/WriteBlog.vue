@@ -37,7 +37,6 @@
 <!--      />-->
 
       <el-form :model="form" style="width: 100%;margin-bottom: 200px" >
-
         <el-form-item style="text-align: center" label-width="0">
           <el-upload
               class="avatar-uploader"
@@ -49,8 +48,6 @@
             <img :src="form.img" width="250" height="150" class="avatar " style="border-radius: 10px">
           </el-upload>
         </el-form-item>
-
-
         <el-form-item label="标题">
           <el-input v-model="form.title" style="width:90%"></el-input>
         </el-form-item>
@@ -73,7 +70,6 @@
           <el-input type="textarea" :rows="5" v-model="form.body" style="width:90%"/>
         </el-form-item>
         <el-input type="input" hidden :rows="5" v-model="form.cusId" style="width:90%"/>
-
         <span style="float: right;margin-right: 100px">
             <el-button type="danger" size="large" style="font-weight: bolder;font-size: 17px" @click="save">发布</el-button>
         </span>

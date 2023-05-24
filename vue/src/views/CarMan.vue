@@ -78,7 +78,7 @@
               :on-success="handleAvatarSuccess"
               style="margin: 5px auto;width: 80%"
           >
-            <img :src="form.img" width="200" height="110" class="avatar " style="border-radius: 10px">
+            <img :src="form.img" width="200" class="avatar " style="border-radius: 10px">
           </el-upload>
         </el-form-item>
 
