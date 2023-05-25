@@ -53,10 +53,10 @@
             <el-table-column  width="284">
               <template #default="scope">
                 <el-button size="large" @click="handleOpen(scope.row.chineseName)">详情页面></el-button>
-              </template>
-            </el-table-column>>
-          </el-table>
-        </el-col>
+</template>
+</el-table-column>>
+</el-table>
+</el-col>
       </el-row>
     </div>
   </div>

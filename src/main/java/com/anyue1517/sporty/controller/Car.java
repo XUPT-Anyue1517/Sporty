@@ -113,10 +113,31 @@ public class Car {
 
 
 
-    @PostMapping
+    @PostMapping("/car")
     public Result<?> car() {
         // 请求url
         String url = "https://aip.baidubce.com/rest/2.0/image-classify/v1/car";
+        try {
+            // 本地文件路径
+            String filePath = ImgfilePath;
+            byte[] imgData = FileUtil.readFileByBytes(filePath);
+            String imgStr = Base64Util.encode(imgData);
+            String imgParam = URLEncoder.encode(imgStr, "UTF-8");
+            String param = "image=" + imgParam + "&top_num=" + 5 + "&baike_num=" + 1;
+            // 注意这里仅为了简化编码每一次请求都去获取access_token，线上环境access_token有过期时间，
+            // 客户端可自行缓存，过期后重新获取。
+            String accessToken = "24.5d652eb94acb5c3de430bfd72e5b8d3a.2592000.1686451081.282335-30134283";
+            String result = HttpUtil.post(url, accessToken, param);
+            System.out.println(result);
+            return Result.success(result);
+        } catch (Exception e) {e.printStackTrace();}
+        return null;
+    }
+
+    @PostMapping("/damage")
+    public Result<?> damage() {
+        // 请求url
+        String url = "https://aip.baidubce.com/rest/2.0/image-classify/v1/vehicle_damage";
         try {
             // 本地文件路径
             String filePath = ImgfilePath;

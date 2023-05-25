@@ -61,7 +61,9 @@ public class LoginCheckFilter implements Filter {
                 "/carai",
                 "/carlease",
                 "/order/ByCusId",
-                "/refitcase/ByCusId"
+                "/refitcase/ByCusId",
+                "/carai/damage",
+                "/carai/car"
                 //"/employee/login",
                 //"/employee/logout",
                 //"/common/**",

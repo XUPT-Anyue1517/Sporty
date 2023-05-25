@@ -1,7 +1,9 @@
 <template>
 
-  
   <div>
+
+  
+  <div style="width: 100%;">
     <h1 class="title" style="border-bottom: 5px solid #000 ;margin: 20px 600px">车型识别</h1>
     <el-row justify="center">
       <el-col :span="10">
@@ -30,6 +32,46 @@
     </el-row>
   </div>
 
+
+    <div style="width: 100%;">
+        <h1 class="title" style="border-bottom: 5px solid #000 ;margin: 20px 600px">车损检测</h1>
+        <el-row justify="center">
+            <el-col :span="10">
+
+                <el-upload
+                        class="avatar-uploader"
+                        action="http://localhost:8080/carai/upload"
+                        :show-file-list="false"
+                        :on-success="handleAvatarSuccess2"
+                        style="margin: 5px auto;width: 100%;"
+                >
+                    <img  :src="car_img2" id="imgshow" class="" style="width: 650px;"/>
+                </el-upload>
+
+                <el-button type="primary" size="large" @click="DamageAI" style="font-size: 19px;margin: 5px auto;width: 650px;">开始检测</el-button>
+
+            </el-col>
+
+            <el-col :span="6" style="padding-top:10px;margin: 0 10px" >
+                <h2 style="margin-top: 10px">损伤位置：{{DamageParts}}</h2>
+                <h5 style="margin-top: 10px">损伤类型：{{DamageType}}</h5>
+                <h5 style="margin-top: 10px">近似度：{{DamageProbability}}%</h5>
+            </el-col>
+        </el-row>
+    </div>
+
+
+      <el-dialog v-model="dialogVisible"
+                 title="正在识别"
+                 width="40%"
+      >
+
+          <el-button type="primary" loading size="large">正在识别......</el-button>
+
+      </el-dialog>
+
+
+  </div>
 </template>
 
 <script>
@@ -51,28 +93,21 @@ export default {
       pageSize: 100,
       search:'',
       car_img:require("../assets/img/car/car_ai/default_img.png"),
+      car_img2:require("../assets/img/car/car_ai/default_img.png"),
       CarResult:[],
       CarResultInfo:[],
       CarResultInfoBaikeUrl:'https://baike.baidu.com/item/',
+      DamageParts:'',
+        DamageProbability:'',
+        DamageType:'',
+        dialogVisible:false,
+
     }
   },
   created() {
-    this.load()
   },
   methods:{
-    load(){
-      // request.get("/culture",{
-      //   params:{
-      //     pageNum:this.pageNum,
-      //     pageSize:this.pageSize,
-      //     search:this.search
-      //   }
-      // }).then(res => {
-      //   console.log(res);
-      //   this.tableData = res.data.records
-      //   this.total = res.data.total
-      // })
-    },
+
     handleAvatarSuccess(res) {
 
       this.car_img = res.data
@@ -82,8 +117,18 @@ export default {
       // this.imageUrl = `/files/download?name=${res.data}`
 
     },
+    handleAvatarSuccess2(res) {
+
+        this.car_img2 = res.data
+        this.$message.success("上传成功")
+        // console.log(json)
+        // this.update()
+        // this.imageUrl = `/files/download?name=${res.data}`
+
+    },
     CarAI(){
-      request.post("/carai",{
+        this.dialogVisible = true
+      request.post("/carai/car",{
 
         }).then(res => {
           var json =  JSON.parse(res.data);//转换为json对象
@@ -91,6 +136,23 @@ export default {
           this.CarResult = json.result[0]
           this.CarResultInfo = json.result[0].baike_info
           this.CarResultInfoBaikeUrl += json.result[0].name
+          this.dialogVisible = false
+          this.$message.success("识别成功")
+        })
+
+    },
+    DamageAI(){
+        this.dialogVisible = true
+        request.post("/carai/damage",{
+
+        }).then(res => {
+            var json =  JSON.parse(res.data);//转换为json对象
+            console.log(json);
+            this.DamageParts = json.result.damage_info[0].parts
+            this.DamageProbability = json.result.damage_info[0].probability
+            this.DamageType = json.result.damage_info[0].type
+            this.dialogVisible = false
+            this.$message.success("识别成功")
         })
 
     },
